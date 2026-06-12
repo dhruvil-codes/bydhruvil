@@ -3,8 +3,10 @@
 import type React from "react"
 import { useState, useRef, useEffect } from "react"
 import { ArrowUpRight } from "lucide-react"
+import Link from "next/link"
 
 export interface Project {
+  id?: string
   title: string
   description: string
   year: string
@@ -130,12 +132,10 @@ export function ProjectShowcase({ projects = defaultProjects }: ProjectShowcaseP
 
       <div className="space-y-0">
         {projects.map((project, index) => (
-          <a
+          <Link
             key={project.title}
-            href={project.link}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group block"
+            href={`/projects#${project.id || ""}`}
+            className="group block cursor-pointer"
             onMouseEnter={() => handleMouseEnter(index)}
             onMouseLeave={handleMouseLeave}
           >
@@ -218,7 +218,7 @@ export function ProjectShowcase({ projects = defaultProjects }: ProjectShowcaseP
                 </span>
               </div>
             </div>
-          </a>
+          </Link>
         ))}
 
         {/* Bottom border for last item */}

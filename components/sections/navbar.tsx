@@ -2,10 +2,13 @@
 
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useTheme } from "next-themes";
 import { AnimatedThemeToggler } from "@/components/ui/animated-theme-toggler";
 
 const navLinks = [
+  { label: "Projects", href: "/projects", external: false },
   { label: "Blog", href: "https://dhruvil.substack.com", external: true },
   { label: "Stack", href: "#stack", external: false },
 ];
@@ -14,6 +17,7 @@ export default function Navbar() {
   const { resolvedTheme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
   const [affix, setAffix] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     setMounted(true);
@@ -31,13 +35,15 @@ export default function Navbar() {
     e: React.MouseEvent<HTMLAnchorElement>,
     href: string
   ) => {
-    e.preventDefault();
-    if (href === "#") {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    } else {
-      const el = document.querySelector(href);
-      if (el) {
-        el.scrollIntoView({ behavior: "smooth", block: "start" });
+    if (href.startsWith("#")) {
+      e.preventDefault();
+      if (href === "#") {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      } else {
+        const el = document.querySelector(href);
+        if (el) {
+          el.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
       }
     }
   };
@@ -55,11 +61,13 @@ export default function Navbar() {
       <div className="screen-line-before screen-line-after mx-auto flex h-12 max-w-3xl items-center justify-between gap-2 border-x border-edge px-3 sm:gap-4">
         
         {/* Logo / Icon — image placeholder */}
-        <a
-          href="#"
+        <Link
+          href="/"
           onClick={(e) => {
-            e.preventDefault();
-            window.scrollTo({ top: 0, behavior: "smooth" });
+            if (pathname === "/") {
+              e.preventDefault();
+              window.scrollTo({ top: 0, behavior: "smooth" });
+            }
           }}
           aria-label="Home"
           className="shrink-0 transition-transform duration-200 ease-out active:scale-95"
@@ -74,25 +82,38 @@ export default function Navbar() {
               priority
             />
           </div>
-        </a>
+        </Link>
 
         {/* Spacer */}
         <div className="flex-1" />
 
         {/* Nav links — hidden on mobile */}
         <nav className="hidden items-center gap-5 sm:flex">
-          {navLinks.map((link) => (
-            <a
-              key={link.label}
-              href={link.href}
-              onClick={link.external ? undefined : (e) => handleNavClick(e, link.href)}
-              target={link.external ? "_blank" : undefined}
-              rel={link.external ? "noopener noreferrer" : undefined}
-              className="font-mono text-sm font-medium text-muted-foreground transition-colors duration-200 hover:text-foreground"
-            >
-              {link.label}
-            </a>
-          ))}
+          {navLinks.map((link) => {
+            if (link.external) {
+              return (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-mono text-sm font-medium text-muted-foreground transition-colors duration-200 hover:text-foreground"
+                >
+                  {link.label}
+                </a>
+              );
+            }
+            return (
+              <Link
+                key={link.label}
+                href={link.href}
+                onClick={(e) => handleNavClick(e, link.href)}
+                className="font-mono text-sm font-medium text-muted-foreground transition-colors duration-200 hover:text-foreground"
+              >
+                {link.label}
+              </Link>
+            );
+          })}
         </nav>
 
         {/* Divider + Theme toggle */}

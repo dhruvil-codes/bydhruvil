@@ -88,7 +88,10 @@ export default function RootLayout({
           `}
         </Script>
       </head>
-      <body className="min-h-full bg-background text-foreground transition-colors duration-300">
+      <body
+        className="min-h-full bg-background text-foreground transition-colors duration-300"
+        suppressHydrationWarning
+      >
         <ThemeProvider
           attribute="class"
           defaultTheme="system"

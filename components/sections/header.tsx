@@ -6,6 +6,7 @@ import { Eye } from "lucide-react";
 import { useTheme } from "next-themes";
 
 import { MorphingText } from "@/components/ui/morphing-text";
+import { ConfettiButton } from "@/components/ui/confetti-button";
 
 function useVisitorCount() {
   const [count, setCount] = useState<number | null>(null);
@@ -130,13 +131,22 @@ export default function Header() {
       </div>
 
       {/* Visitor Counter — top right corner */}
-      <div className="absolute top-2 right-2 sm:top-3 sm:right-3">
-        <div className="flex items-center gap-1.5 rounded-full border border-edge bg-muted/60 px-2.5 py-1 backdrop-blur-sm">
+      <div className="absolute top-2 right-2 sm:top-3 sm:right-3 z-20">
+        <ConfettiButton
+          options={{
+            particleCount: 40,
+            spread: 360,
+            startVelocity: 15,
+            gravity: 1.2,
+            scalar: 0.75
+          }}
+          className="flex items-center gap-1.5 rounded-full border border-edge bg-muted/60 px-2.5 py-1 backdrop-blur-sm cursor-pointer hover:bg-muted/80 active:scale-95 transition-all duration-200 outline-none select-none"
+        >
           <Eye className="h-3.5 w-3.5 text-muted-foreground" aria-hidden="true" />
           <span className="font-mono text-xs font-medium text-muted-foreground tabular-nums">
             {visitorCount !== null ? formatCount(visitorCount) : "—"}
           </span>
-        </div>
+        </ConfettiButton>
       </div>
       </div>
     </section>

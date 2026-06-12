@@ -40,6 +40,10 @@
 
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --color-border-tertiary: var(--color-border);
+  --color-text-primary: var(--color-foreground);
+  --color-text-secondary: var(--color-muted-foreground);
+  --color-background-primary: var(--color-background);
 }
 
 :root {
@@ -202,3 +206,29 @@ body {
   background-image: repeating-linear-gradient(315deg, var(--pattern-foreground) 0, var(--pattern-foreground) 1px, transparent 0, transparent 6px);
   background-size: 10px 10px;
 }
+
+@keyframes border-glow-rotate {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+.animate-glow-rotate {
+  animation: border-glow-rotate var(--glow-animation-duration, 5s) linear infinite;
+  animation-direction: var(--glow-direction, normal);
+}
+
+.glow-border-masked {
+  position: absolute;
+  inset: 0;
+  border: var(--glow-border-width, 1.5px) solid transparent;
+  border-radius: inherit;
+  -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  pointer-events: none;
+}
