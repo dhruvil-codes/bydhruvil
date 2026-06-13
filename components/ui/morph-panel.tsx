@@ -3,7 +3,7 @@
 import React from "react"
 import { cx } from "class-variance-authority"
 import { motion } from "motion/react"
-import { X, Sparkles, Volume2, VolumeX, ArrowLeft, Send } from "lucide-react"
+import { X, Volume2, VolumeX, ArrowLeft, Send } from "lucide-react"
 import { toast } from "sonner"
 import { useChatContext } from "@/lib/chat-context"
 
@@ -252,9 +252,12 @@ export function MorphPanel() {
                   </div>
                 )}
                 <div>
-                  <h3 className="text-sm font-semibold text-foreground flex items-center gap-1">
-                    Dhruvil Mistry
-                    <Sparkles className="w-3.5 h-3.5 text-violet-500 fill-violet-500/20 animate-pulse" />
+                  <h3 className="text-sm font-semibold text-foreground flex items-center gap-0.5">
+                    Dhruvil Mistry<img
+                      src="/images/verified.png"
+                      alt="Verified"
+                      className="w-4 h-4 object-contain"
+                    />
                   </h3>
                   <p className="text-[10px] text-muted-foreground font-medium flex items-center gap-1">
                     <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />

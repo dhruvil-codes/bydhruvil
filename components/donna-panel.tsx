@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, useRef } from "react"
 import { AnimatePresence, motion } from "motion/react"
-import { X, Send, Sparkles, Volume2, VolumeX } from "lucide-react"
+import { X, Send, Volume2, VolumeX } from "lucide-react"
 import { useDonna } from "@/hooks/useDonna"
 import { cn } from "@/lib/utils"
 
@@ -130,9 +130,12 @@ export function DonnaPanel({ isOpen, onClose, donna: propDonna }: DonnaPanelProp
                 />
               </div>
               <div>
-                <h3 className="text-sm font-semibold text-foreground flex items-center gap-1">
-                  Dhruvil
-                  <Sparkles className="w-3.5 h-3.5 text-violet-500 fill-violet-500/20" />
+                <h3 className="text-sm font-semibold text-foreground flex items-center gap-0.5">
+                  Dhruvil<img
+                    src="/images/verified.png"
+                    alt="Verified"
+                    className="w-4 h-4 object-contain"
+                  />
                 </h3>
                 <p className="text-[10px] text-muted-foreground font-medium flex items-center gap-1">
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />

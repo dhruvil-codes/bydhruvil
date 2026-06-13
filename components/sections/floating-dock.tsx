@@ -11,7 +11,6 @@ import {
   GraduationCapIcon,
   AwardIcon,
   MailIcon,
-  Sparkles,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
