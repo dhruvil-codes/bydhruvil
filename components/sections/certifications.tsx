@@ -99,7 +99,7 @@ export default function Certifications() {
                     aria-label={`Verify ${item.title}`}
                     className="group block cursor-pointer"
                   >
-                    <div className="mt-0 bg-card rounded-xl flex flex-col border-border border hover:border-border/80 transition-all hover:shadow-sm">
+                    <div className="mt-0 bg-card flex flex-col border-border border hover:border-border/80 transition-all hover:shadow-sm">
                       <div>
                         <div className="p-4 pb-3">
                           <div className="flex justify-between items-start gap-2">
@@ -131,7 +131,7 @@ export default function Certifications() {
                         </div>
 
                         <div className="h-px w-full bg-border" />
-                        <div className="p-4 pt-3 bg-muted/30 rounded-b-xl">
+                        <div className="p-4 pt-3 bg-muted/30">
                           <p
                             className="text-sm sm:text-base leading-6 text-muted-foreground"
                             itemProp="abstract"

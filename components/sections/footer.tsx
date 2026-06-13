@@ -1,8 +1,8 @@
 "use client";
 
 import { Crosshairs } from "@/components/ui/crosshairs";
+import { FrameButton } from "@/components/ui/frame-button";
 import { cn } from "@/lib/utils";
-import { useEffect, useRef } from "react";
 
 function YCMonogram(props: React.SVGProps<SVGSVGElement>) {
   return (
@@ -17,19 +17,6 @@ function YCMonogram(props: React.SVGProps<SVGSVGElement>) {
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
-  const hostRef = useRef<HTMLDivElement | null>(null);
-
-  useEffect(() => {
-    const onMove = (e: MouseEvent) => {
-      const el = hostRef.current;
-      if (!el) return;
-      const r = el.getBoundingClientRect();
-      el.style.setProperty("--mx", `${e.clientX - r.left}px`);
-      el.style.setProperty("--my", `${e.clientY - r.top}px`);
-    };
-    window.addEventListener("mousemove", onMove, { passive: true });
-    return () => window.removeEventListener("mousemove", onMove);
-  }, []);
 
   return (
     <footer
@@ -47,55 +34,26 @@ export default function Footer() {
           &copy; {currentYear} – Dhruvil Mistry. All rights reserved.
         </p>
 
-        <div
-          ref={hostRef}
-          className={cn(
-            "relative inline-flex items-center justify-center rounded-full",
-            "px-1.5 py-1.5 isolate select-none"
-          )}
-          style={
-            {
-              ["--mx" as any]: "50%",
-              ["--my" as any]: "50%",
-            } as React.CSSProperties
-          }
+        <FrameButton
+          variant="outline"
+          className="h-9 px-4 text-xs normal-case tracking-wider gap-2 cursor-default"
         >
-          <div aria-hidden="true" className="pointer-events-none absolute inset-0 rounded-full">
-            <div
-              className={cn(
-                "absolute inset-0 rounded-full",
-                "bg-[radial-gradient(120px_60px_at_var(--mx)_var(--my),rgba(255,140,0,0.24),transparent_70%)]",
-                "blur-xl"
-              )}
-            />
-          </div>
-          <div
+          <span
             className={cn(
-              "relative z-10 rounded-full px-3 py-1.5",
-              "backdrop-blur-xl",
-              "bg-muted/60",
-              "ring-1 ring-border",
-              "shadow-sm"
+              "h-5 w-5 shrink-0 rounded-md grid place-items-center",
+              "bg-[#FC6A21]",
+              "shadow-[0_2px_8px_rgba(252,106,33,0.55)]"
             )}
+            aria-hidden="true"
           >
-            <div className="flex items-center gap-2">
-              <span
-                className={cn(
-                  "h-5 w-5 shrink-0 rounded-md grid place-items-center",
-                  "bg-[#FC6A21]",
-                  "shadow-[0_2px_8px_rgba(252,106,33,0.55)]"
-                )}
-                aria-hidden="true"
-              >
-                <YCMonogram className="h-3 w-3 text-white" />
-              </span>
-              <span className="text-xs font-medium tracking-tight text-foreground">
-                Not Backed by Y Combinator
-              </span>
-            </div>
-          </div>
-        </div>
+            <YCMonogram className="h-3 w-3 text-white" />
+          </span>
+          <span className="text-xs font-medium tracking-tight text-foreground">
+            Not Backed by Y Combinator
+          </span>
+        </FrameButton>
       </div>
     </footer>
   );
 }
+

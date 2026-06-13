@@ -15,19 +15,7 @@ import {
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-const InfinityIcon = (props: React.SVGProps<SVGSVGElement>) => (
-  <svg
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="1.5"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    {...props}
-  >
-    <path d="M6 16c5 0 7-8 12-8a4 4 0 0 1 0 8c-5 0-7-8-12-8a4 4 0 1 0 0 8" />
-  </svg>
-);
+
 
 const dockItems = [
   {
@@ -67,12 +55,6 @@ const dockItems = [
     isSection: false,
   },
   {
-    label: "Infinity Glow",
-    icon: InfinityIcon,
-    href: "#",
-    isSection: false,
-  },
-  {
     label: "Email",
     icon: MailIcon,
     href: "mailto:dhruvilmistry16@gmail.com",
@@ -81,15 +63,11 @@ const dockItems = [
 ];
 
 interface FloatingDockProps {
-  isGlowActive?: boolean;
-  onGlowToggle?: () => void;
   isDonnaOpen?: boolean;
   onDonnaToggle?: () => void;
 }
 
 export default function FloatingDock({
-  isGlowActive = false,
-  onGlowToggle,
   isDonnaOpen = false,
   onDonnaToggle,
 }: FloatingDockProps) {
@@ -108,11 +86,6 @@ export default function FloatingDock({
     e: React.MouseEvent<HTMLAnchorElement>,
     item: (typeof dockItems)[0]
   ) => {
-    if (item.label === "Infinity Glow") {
-      e.preventDefault();
-      onGlowToggle?.();
-      return;
-    }
 
 
 
@@ -160,8 +133,6 @@ export default function FloatingDock({
 
           const Icon = item.icon!;
           const isExternal = item.href.startsWith("http") || item.href.startsWith("mailto");
-          const isGlow = item.label === "Infinity Glow";
-
           if (isExternal) {
             return (
               <DockIcon key={item.label} label={item.label}>
@@ -171,26 +142,6 @@ export default function FloatingDock({
                   rel="noopener noreferrer"
                   aria-label={item.label}
                   className="flex items-center justify-center w-full h-full transition-all duration-300 text-muted-foreground hover:text-foreground"
-                >
-                  <Icon className="w-4 h-4 sm:w-5 sm:h-5" />
-                </a>
-              </DockIcon>
-            );
-          }
-
-          if (isGlow) {
-            return (
-              <DockIcon key={item.label} label={item.label}>
-                <a
-                  href={item.href}
-                  onClick={(e) => handleClick(e, item)}
-                  aria-label={item.label}
-                  className={cn(
-                    "flex items-center justify-center w-full h-full transition-all duration-300",
-                    isGlowActive
-                      ? "text-violet-500 hover:text-violet-600 dark:text-violet-400 dark:hover:text-violet-300 animate-pulse scale-110"
-                      : "text-muted-foreground hover:text-foreground"
-                  )}
                 >
                   <Icon className="w-4 h-4 sm:w-5 sm:h-5" />
                 </a>

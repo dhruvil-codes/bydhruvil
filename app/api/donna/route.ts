@@ -19,7 +19,7 @@ export async function POST(req: NextRequest) {
   const { messages } = await req.json()
 
   const stream = await client.chat.completions.create({
-    model: "mistralai/mistral-7b-instruct-v0.3",
+    model: "meta/llama-3.1-8b-instruct",
     messages: [{ role: "system", content: SYSTEM_PROMPT }, ...messages],
     stream: true,
     max_tokens: 150,

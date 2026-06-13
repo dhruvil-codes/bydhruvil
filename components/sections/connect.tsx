@@ -9,6 +9,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
+import { FrameButton } from "@/components/ui/frame-button";
 
 const connections = [
   {
@@ -60,32 +61,32 @@ export default function Connect() {
       <div className="p-4 sm:p-6">
         <div className="flex flex-wrap items-center gap-3 overflow-visible pb-1 sm:gap-4">
           {connections.map((conn) => (
-            <div key={conn.name} className="relative inline-block">
-              <a
-                className="touch-manipulation active:opacity-75"
-                href={conn.url}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <div className="justify-center rounded-xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 hover:bg-neutral-50 dark:hover:bg-neutral-800 shadow-sm hover:shadow-md h-9 px-3 flex items-center gap-2 whitespace-nowrap select-none transition-all duration-200 hover:-translate-y-[1px]">
-                  {conn.icon}
-                  <span className="text-xs font-medium leading-none text-neutral-800 dark:text-white/80">{conn.name}</span>
-                </div>
-              </a>
-            </div>
+            <FrameButton
+              key={conn.name}
+              as="link"
+              href={conn.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              variant="outline"
+              className="h-9 px-4 text-xs normal-case tracking-wider gap-2"
+            >
+              {conn.icon}
+              <span className="leading-none">{conn.name}</span>
+            </FrameButton>
           ))}
 
           {/* Resume Dialog Trigger */}
           <Dialog>
             <DialogTrigger asChild>
-              <div className="relative inline-block cursor-pointer">
-                <div className="justify-center rounded-xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 hover:bg-neutral-50 dark:hover:bg-neutral-800 shadow-sm hover:shadow-md h-9 px-3 flex items-center gap-2 whitespace-nowrap select-none transition-all duration-200 hover:-translate-y-[1px]">
-                  <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 448 512" className="size-[14px] shrink-0 text-neutral-800 dark:text-white/80" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M364.2 83.8c-24.4-24.4-64-24.4-88.4 0l-184 184c-42.1 42.1-42.1 110.3 0 152.4s110.3 42.1 152.4 0l152-152c10.9-10.9 28.7-10.9 39.6 0s10.9 28.7 0 39.6l-152 152c-64 64-167.6 64-231.6 0s-64-167.6 0-231.6l184-184c46.3-46.3 121.3-46.3 167.6 0s46.3 121.3 0 167.6l-176 176c-28.6 28.6-75 28.6-103.6 0s-28.6-75 0-103.6l144-144c10.9-10.9 28.7-10.9 39.6 0s10.9 28.7 0 39.6l-144 144c-6.7 6.7-6.7 17.7 0 24.4s17.7 6.7 24.4 0l176-176c24.4-24.4 24.4-64 0-88.4z"></path>
-                  </svg>
-                  <span className="text-xs font-medium leading-none text-neutral-800 dark:text-white/80">Resume</span>
-                </div>
-              </div>
+              <FrameButton
+                variant="outline"
+                className="h-9 px-4 text-xs normal-case tracking-wider gap-2"
+              >
+                <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 448 512" className="size-[14px] shrink-0 text-neutral-800 dark:text-white/80" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M364.2 83.8c-24.4-24.4-64-24.4-88.4 0l-184 184c-42.1 42.1-42.1 110.3 0 152.4s110.3 42.1 152.4 0l152-152c10.9-10.9 28.7-10.9 39.6 0s10.9 28.7 0 39.6l-152 152c-64 64-167.6 64-231.6 0s-64-167.6 0-231.6l184-184c46.3-46.3 121.3-46.3 167.6 0s46.3 121.3 0 167.6l-176 176c-28.6 28.6-75 28.6-103.6 0s-28.6-75 0-103.6l144-144c10.9-10.9 28.7-10.9 39.6 0s10.9 28.7 0 39.6l-144 144c-6.7 6.7-6.7 17.7 0 24.4s17.7 6.7 24.4 0l176-176c24.4-24.4 24.4-64 0-88.4z"></path>
+                </svg>
+                <span className="leading-none">Resume</span>
+              </FrameButton>
             </DialogTrigger>
             <DialogContent className="sm:max-w-3xl h-[85vh] flex flex-col gap-4">
               <DialogHeader>

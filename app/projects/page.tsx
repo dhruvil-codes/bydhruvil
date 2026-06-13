@@ -10,15 +10,10 @@ import { ExpandableCard } from "@/components/ui/expandable-card";
 import { projectsData } from "@/lib/projects";
 import { ArrowUpRight } from "lucide-react";
 import { Crosshairs } from "@/components/ui/crosshairs";
-import { BorderGlow } from "@/registry/aliimam/components/border-glow";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
-import { useMagicGlowSound } from "@/hooks/useMagicGlowSound";
 
 export default function ProjectsPage() {
-  const [glowActive, setGlowActive] = useState(false);
-
-  useMagicGlowSound(glowActive);
   const pathname = usePathname();
 
   useEffect(() => {
@@ -49,23 +44,6 @@ export default function ProjectsPage() {
 
   return (
     <div className="flex-col flex w-full overflow-x-hidden scroll-smooth">
-      {glowActive && (
-        <div
-          className="fixed inset-0 z-40 pointer-events-none"
-          style={{ width: "100vw", height: "100vh" }}
-        >
-          <BorderGlow
-            width="100%"
-            height="100%"
-            colorPreset="pastel"
-            animationDuration={6}
-            className="pointer-events-none"
-            innerClassName="pointer-events-none p-0"
-          >
-            <></>
-          </BorderGlow>
-        </div>
-      )}
 
       {/* Hero area: grid shows in left/right margins, navbar + hero content sit on solid bg */}
       <div className="relative w-full bg-grid-dots">
@@ -172,10 +150,7 @@ export default function ProjectsPage() {
         <div className="fixed bottom-4 right-4 md:bottom-6 md:right-6 z-50">
           <MorphPanel />
         </div>
-        <FloatingDock
-          isGlowActive={glowActive}
-          onGlowToggle={() => setGlowActive((prev) => !prev)}
-        />
+        <FloatingDock />
       </main>
     </div>
   );
