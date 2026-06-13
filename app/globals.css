@@ -231,4 +231,76 @@ body {
   mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
   mask-composite: exclude;
   pointer-events: none;
-}
+}
+
+@property --glow-angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@keyframes glow-angle-rotate {
+  to {
+    --glow-angle: 1turn;
+  }
+}
+
+.glow-border {
+  animation: glow-angle-rotate var(--glow-animation-duration, 4s) linear infinite;
+  animation-direction: var(--glow-direction, normal);
+}
+
+.glow-border[data-gradient-type="conic"] {
+  --glow-gradient: conic-gradient(
+    from var(--glow-angle),
+    var(--glow-color-1),
+    var(--glow-color-2),
+    var(--glow-color-3),
+    var(--glow-color-4),
+    var(--glow-color-5),
+    var(--glow-color-6),
+    var(--glow-color-7),
+    var(--glow-color-8),
+    var(--glow-color-9),
+    var(--glow-color-10),
+    var(--glow-color-1)
+  );
+  border-image: var(--glow-gradient) var(--glow-spread, 1);
+}
+
+.glow-border[data-gradient-type="radial"] {
+  --glow-gradient: radial-gradient(
+    circle,
+    var(--glow-color-1),
+    var(--glow-color-2),
+    var(--glow-color-3),
+    var(--glow-color-4),
+    var(--glow-color-5),
+    var(--glow-color-6),
+    var(--glow-color-7),
+    var(--glow-color-8),
+    var(--glow-color-9),
+    var(--glow-color-10),
+    var(--glow-color-1)
+  );
+  border-image: var(--glow-gradient) var(--glow-spread, 1);
+}
+
+.glow-border[data-gradient-type="linear"] {
+  --glow-gradient: linear-gradient(
+    to right,
+    var(--glow-color-1),
+    var(--glow-color-2),
+    var(--glow-color-3),
+    var(--glow-color-4),
+    var(--glow-color-5),
+    var(--glow-color-6),
+    var(--glow-color-7),
+    var(--glow-color-8),
+    var(--glow-color-9),
+    var(--glow-color-10),
+    var(--glow-color-1)
+  );
+  border-image: var(--glow-gradient) var(--glow-spread, 1);
+}
+

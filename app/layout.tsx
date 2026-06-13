@@ -62,6 +62,9 @@ export const metadata: Metadata = {
   },
 };
 
+import { ChatProvider } from "@/lib/chat-context";
+import { GlowOverlay } from "@/components/glow-overlay";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -99,7 +102,10 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          {children}
+          <ChatProvider>
+            {children}
+            <GlowOverlay />
+          </ChatProvider>
           <Toaster />
           <Oneko />
         </ThemeProvider>
@@ -107,3 +113,4 @@ export default function RootLayout({
     </html>
   );
 }
+

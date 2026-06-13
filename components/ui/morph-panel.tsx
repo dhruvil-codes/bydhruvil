@@ -5,6 +5,7 @@ import { cx } from "class-variance-authority"
 import { motion } from "motion/react"
 import { X, Sparkles, Volume2, VolumeX, ArrowLeft, Send } from "lucide-react"
 import { toast } from "sonner"
+import { useChatContext } from "@/lib/chat-context"
 
 const SPEED_FACTOR = 1
 const FORM_WIDTH = 360
@@ -40,6 +41,8 @@ export function MorphPanel() {
   const audioRef = React.useRef<HTMLAudioElement | null>(null)
   const messagesEndRef = React.useRef<HTMLDivElement>(null)
 
+  const { setIsChatOpen } = useChatContext()
+
   const [showForm, setShowForm] = React.useState(false)
   const [messages, setMessages] = React.useState<Message[]>([])
   const [inputValue, setInputValue] = React.useState("")
@@ -57,12 +60,14 @@ export function MorphPanel() {
 
   const triggerClose = React.useCallback(() => {
     setShowForm(false)
+    setIsChatOpen(false)
     stopAudio()
-  }, [stopAudio])
+  }, [setIsChatOpen, stopAudio])
 
   const triggerOpen = React.useCallback(() => {
     setShowForm(true)
-  }, [])
+    setIsChatOpen(true)
+  }, [setIsChatOpen])
 
   const handleBackToSuggestions = React.useCallback(() => {
     stopAudio()
@@ -127,92 +132,41 @@ export function MorphPanel() {
     const userMsgId = `user-${Date.now()}`
     const assistantMsgId = `assistant-${Date.now()}`
 
-    // Add user message and a placeholder assistant message
+    // Add user message
     const updatedMessages: Message[] = [
       ...messages,
-      { id: userMsgId, role: "user", content: userText },
-      { id: assistantMsgId, role: "assistant", content: "", isStreaming: true }
+      { id: userMsgId, role: "user", content: userText }
     ]
     setMessages(updatedMessages)
     setIsStreaming(true)
 
     try {
-      // Send only the last 6 messages as history
-      const chatHistory = updatedMessages
-        .slice(0, -1)
-        .slice(-6)
-        .map(msg => ({ role: msg.role, content: msg.content }))
-
       const response = await fetch("/api/dhruvil/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          messages: chatHistory
-        })
+          message: userText,
+          history: messages.map((m) => ({
+            role: m.role,
+            content: m.content,
+          })),
+        }),
       })
 
       if (!response.ok) {
         throw new Error("Failed to get response from assistant.")
       }
 
-      const reader = response.body?.getReader()
-      if (!reader) throw new Error("No reader available.")
-
-      const decoder = new TextDecoder()
-      let done = false
-      let buffer = ""
-      let currentAnswer = ""
-
-      while (!done) {
-        const { value, done: doneReading } = await reader.read()
-        done = doneReading
-        if (value) {
-          buffer += decoder.decode(value, { stream: !done })
-          const parts = buffer.split("\n\n")
-          buffer = parts.pop() || ""
-
-          for (const part of parts) {
-            const line = part.trim()
-            if (line.startsWith("data: ")) {
-              const dataStr = line.substring(6).trim()
-              if (dataStr === "[DONE]") {
-                continue
-              }
-              try {
-                const parsed = JSON.parse(dataStr)
-                if (parsed.text) {
-                  currentAnswer += parsed.text
-                  setMessages(prev => {
-                    const next = [...prev]
-                    const last = next[next.length - 1]
-                    if (last && last.id === assistantMsgId) {
-                      last.content = currentAnswer
-                    }
-                    return next
-                  })
-                }
-              } catch (err) {
-                console.error("JSON parse error:", err, dataStr)
-              }
-            }
-          }
-        }
-      }
-
-      setMessages(prev => {
-        const next = [...prev]
-        const last = next[next.length - 1]
-        if (last && last.id === assistantMsgId) {
-          last.isStreaming = false
-        }
-        return next
-      })
-
+      const data = await response.json()
+      
+      setMessages(prev => [
+        ...prev,
+        { id: assistantMsgId, role: "assistant", content: data.answer }
+      ])
     } catch (err) {
       console.error("Chat error:", err)
       const errMsg = err instanceof Error ? err.message : "Failed to chat."
       toast.error(errMsg)
-      setMessages(prev => prev.filter(msg => msg.id !== assistantMsgId))
     } finally {
       setIsStreaming(false)
     }
@@ -355,13 +309,7 @@ export function MorphPanel() {
                       >
                         <span>{msg.content}</span>
 
-                        {msg.role === "assistant" && msg.isStreaming && msg.content === "" && (
-                          <span className="inline-flex gap-1 items-center justify-center ml-1">
-                            <span className="w-1.5 h-1.5 bg-muted-foreground rounded-full animate-bounce" style={{ animationDelay: "0ms", animationDuration: "0.6s" }} />
-                            <span className="w-1.5 h-1.5 bg-muted-foreground rounded-full animate-bounce" style={{ animationDelay: "150ms", animationDuration: "0.6s" }} />
-                            <span className="w-1.5 h-1.5 bg-muted-foreground rounded-full animate-bounce" style={{ animationDelay: "300ms", animationDuration: "0.6s" }} />
-                          </span>
-                        )}
+
 
                         {isPreloadedAssistant && !msg.isStreaming && (
                           <button

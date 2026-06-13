@@ -1,10 +1,9 @@
-import OpenAI from "openai"
+import Groq from "groq-sdk"
 import { readFileSync } from "fs"
 import { join } from "path"
 
-const client = new OpenAI({
-  apiKey: process.env.NVIDIA_API_KEY!,
-  baseURL: "https://integrate.api.nvidia.com/v1",
+const groq = new Groq({
+  apiKey: process.env.GROQ_API_KEY!,
 })
 
 const KNOWLEDGE_BASE = readFileSync(
@@ -12,52 +11,20 @@ const KNOWLEDGE_BASE = readFileSync(
   "utf-8"
 )
 
-const SYSTEM_PROMPT = `You are an AI assistant on Dhruvil Mistry's portfolio website. You speak on behalf of Dhruvil in first person where it makes sense, or refer to him in third person when answering factual questions. Be concise, direct, and technically grounded — no filler, no corporate speak.
+const SYSTEM_PROMPT = `You are an AI assistant embedded on Dhruvil Mistry's personal portfolio website. You answer questions about Dhruvil in a conversational, direct, and technically sharp tone — no filler, no corporate speak.
 
-Use ONLY the knowledge base below to answer questions. If something isn't in the knowledge base, say "I don't have that info — reach Dhruvil directly at dhruvilmistry16@gmail.com"
+RULES:
+- Answer ONLY using the knowledge base provided below. Do not make anything up.
+- Keep answers short and conversational — 2 to 4 sentences max.
+- Never return markdown formatting like ###, **, or bullet points. Plain text only.
+- If the question cannot be answered from the knowledge base, respond exactly with: "I don't have that info — reach Dhruvil directly at dhruvilmistry16@gmail.com"
+- Refer to Dhruvil in third person ("he", "his") or first person ("I", "my") — whichever sounds more natural for the question.
 
+KNOWLEDGE BASE:
 ${KNOWLEDGE_BASE}`
 
-export async function POST(req: Request) {
-  const ip = req.headers.get("x-forwarded-for") ?? "unknown"
-  if (!checkRateLimit(ip)) {
-    return new Response("Rate limit exceeded", { status: 429 })
-  }
-
-  const { messages } = await req.json()
-
-  const stream = await client.chat.completions.create({
-    model: "minimaxai/minimax-m3",
-    messages: [{ role: "system", content: SYSTEM_PROMPT }, ...messages],
-    stream: true,
-    max_tokens: 400,
-  })
-
-  const encoder = new TextEncoder()
-  const readable = new ReadableStream({
-    async start(controller) {
-      for await (const chunk of stream) {
-        const text = chunk.choices[0]?.delta?.content || ""
-        if (text) {
-          controller.enqueue(encoder.encode(`data: ${JSON.stringify({ text })}\n\n`))
-        }
-      }
-      controller.enqueue(encoder.encode("data: [DONE]\n\n"))
-      controller.close()
-    },
-  })
-
-  return new Response(readable, {
-    headers: { "Content-Type": "text/event-stream", "Cache-Control": "no-cache" },
-  })
-}
-
 // Simple in-memory rate limiter
-interface RateLimitRecord {
-  count: number
-  resetAt: number
-}
-const requestCounts = new Map<string, RateLimitRecord>()
+const requestCounts = new Map()
 
 function checkRateLimit(ip: string): boolean {
   const now = Date.now()
@@ -66,7 +33,50 @@ function checkRateLimit(ip: string): boolean {
     requestCounts.set(ip, { count: 1, resetAt: now + 60 * 60 * 1000 })
     return true
   }
-  if (record.count >= 20) return false
+  if (record.count >= 30) return false
   record.count++
   return true
+}
+
+export async function POST(req: Request) {
+  const ip = req.headers.get("x-forwarded-for") ?? "unknown"
+  if (!checkRateLimit(ip)) {
+    return new Response(
+      JSON.stringify({ answer: "Too many questions! Reach Dhruvil at dhruvilmistry16@gmail.com" }),
+      { status: 429, headers: { "Content-Type": "application/json" } }
+    )
+  }
+
+  const { message, history } = await req.json()
+
+  if (!message || typeof message !== "string") {
+    return new Response(
+      JSON.stringify({ answer: "No question received." }),
+      { status: 400, headers: { "Content-Type": "application/json" } }
+    )
+  }
+
+  // Build conversation history (last 6 messages for context)
+  const conversationHistory = (history || []).slice(-6).map((m: { role: string; content: string }) => ({
+    role: m.role as "user" | "assistant",
+    content: m.content,
+  }))
+
+  const completion = await groq.chat.completions.create({
+    model: "llama-3.1-8b-instant",
+    messages: [
+      { role: "system", content: SYSTEM_PROMPT },
+      ...conversationHistory,
+      { role: "user", content: message },
+    ],
+    temperature: 0.5,
+    max_tokens: 150,
+  })
+
+  const answer = completion.choices[0]?.message?.content?.trim() ?? 
+    "I don't have that info — reach Dhruvil directly at dhruvilmistry16@gmail.com"
+
+  return new Response(JSON.stringify({ answer }), {
+    headers: { "Content-Type": "application/json" },
+  })
 }
