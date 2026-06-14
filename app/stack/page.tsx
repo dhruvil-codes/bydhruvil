@@ -7,7 +7,7 @@ import Footer from "@/components/sections/footer";
 import FloatingDock from "@/components/sections/floating-dock";
 import MorphPanel from "@/components/ui/morph-panel";
 import { Crosshairs } from "@/components/ui/crosshairs";
-import { ArrowUpRight, Sparkles } from "lucide-react";
+
 import StackCard from "@/components/stack/stack-card";
 import { substacksData } from "@/lib/stack";
 
@@ -63,28 +63,6 @@ export default function StackPage() {
                 </div>
               </div>
 
-              {/* Newsletter CTA Panel */}
-              <div className="border border-dashed border-edge rounded-xl p-5 bg-muted/10 relative overflow-hidden mt-8">
-                <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-                  <div className="space-y-1">
-                    <div className="flex items-center gap-1.5">
-                      <Sparkles className="h-4 w-4 text-orange-500" />
-                      <h4 className="font-semibold text-sm text-foreground">My Personal Newsletter</h4>
-                    </div>
-                    <p className="text-xs text-muted-foreground leading-relaxed max-w-md">
-                      I write about engineering, building AI assistants like Minutz, Whisper pipelines, and system architectures. Subscribe to follow along.
-                    </p>
-                  </div>
-                  <a
-                    href="https://dhruvil.substack.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="border border-border px-3 py-1.5 rounded-xl font-mono text-xs font-medium cursor-pointer inline-flex items-center gap-1.5 bg-background hover:bg-muted text-foreground transition-all hover:border-border/80 whitespace-nowrap self-start sm:self-auto"
-                  >
-                    Subscribe to Blog <ArrowUpRight className="h-3.5 w-3.5" />
-                  </a>
-                </div>
-              </div>
 
             </div>
           </section>
