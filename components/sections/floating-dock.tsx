@@ -11,6 +11,7 @@ import {
   GraduationCapIcon,
   AwardIcon,
   MailIcon,
+  FileDown as FileDownIcon,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -52,6 +53,13 @@ const dockItems = [
     icon: null,
     href: "",
     isSection: false,
+  },
+  {
+    label: "Resume",
+    icon: FileDownIcon,
+    href: "/resume.pdf",
+    isSection: false,
+    download: "Dhruvil_Mistry_Resume.pdf",
   },
   {
     label: "Email",
@@ -131,7 +139,10 @@ export default function FloatingDock({
           }
 
           const Icon = item.icon!;
-          const isExternal = item.href.startsWith("http") || item.href.startsWith("mailto");
+          const isExternal =
+            item.href.startsWith("http") ||
+            item.href.startsWith("mailto") ||
+            ("download" in item && !!item.download);
           if (isExternal) {
             return (
               <DockIcon key={item.label} label={item.label}>
@@ -139,6 +150,7 @@ export default function FloatingDock({
                   href={item.href}
                   target="_blank"
                   rel="noopener noreferrer"
+                  download={"download" in item ? item.download : undefined}
                   aria-label={item.label}
                   className="flex items-center justify-center w-full h-full transition-all duration-300 text-muted-foreground hover:text-foreground"
                 >

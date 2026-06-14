@@ -25,7 +25,7 @@ const roles: ExperienceItem[] = [
     ],
     items: [
       {
-        image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=120&h=120&q=80",
+        image: "/images/experience/infosys.jpg",
         alt: "Infosys",
         link: "https://www.infosys.com",
       },
@@ -41,7 +41,7 @@ const roles: ExperienceItem[] = [
     ],
     items: [
       {
-        image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=120&h=120&q=80",
+        image: "/images/experience/contra.jpg",
         alt: "Contra",
         link: "https://contra.com",
       },

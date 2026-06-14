@@ -55,7 +55,7 @@ export const projectsData: ProjectData[] = [
     shortDescription: "Training a 24-class SwinV2 classifier on 28K+ dermatological images achieving 78% accuracy, combined with dermatologist discovery.",
     description: "Training a 24-class SwinV2-Base classifier on 28,000+ dermatological images achieving 78% accuracy. Built with a FastAPI + React frontend that combines AI predictions, confidence scores, and Google Maps API for dermatologist discovery.",
     year: null,
-    status: "in-progress",
+    status: "shipped",
     heroImage: "/images/projects/skincure/skincure.jpg",
     tags: ["FastAPI", "React", "SwinV2", "PyTorch"],
     href: "https://github.com/dhruvil-codes"

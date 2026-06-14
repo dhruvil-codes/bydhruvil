@@ -1,4 +1,12 @@
+"use client";
+
 import { Crosshairs } from "@/components/ui/crosshairs";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 
 interface Skill {
   name: string;
@@ -23,9 +31,6 @@ const skills: Skill[] = [
 ];
 
 export default function Skills() {
-  const desktopIcons = skills.map((s) => s.icon).join(",");
-  const mobileIcons = `${skills.map((s) => s.icon).join(",")}&perline=7`;
-
   return (
     <section id="skills" className="relative border-x border-edge screen-line-before screen-line-after">
       <Crosshairs top={true} bottom={true} />
@@ -36,23 +41,29 @@ export default function Skills() {
         <meta itemProp="numberOfItems" content={skills.length.toString()} />
         <meta itemProp="itemListOrder" content="Unordered" />
 
-        <div className="hidden md:block" role="list" aria-label="Skills grid">
-          <img
-            className="w-full"
-            src={`https://skillicons.dev/icons?i=${desktopIcons}`}
-            alt="Skills including Python, JavaScript, TypeScript, HTML, CSS, Tailwind CSS, React, Next.js, PostgreSQL, Supabase, Docker, PyTorch, Git, and GitHub"
-            loading="lazy"
-          />
-        </div>
-
-        <div className="block md:hidden" role="list" aria-label="Skills grid">
-          <img
-            className="w-full"
-            src={`https://skillicons.dev/icons?i=${mobileIcons}`}
-            alt="Skills including Python, JavaScript, TypeScript, HTML, CSS, Tailwind CSS, React, Next.js, PostgreSQL, Supabase, Docker, PyTorch, Git, and GitHub"
-            loading="lazy"
-          />
-        </div>
+        <TooltipProvider delayDuration={0}>
+          <div
+            className="flex flex-row flex-nowrap overflow-x-auto w-full gap-2 sm:gap-2.5 py-2 px-1 scrollbar-none items-center justify-start md:justify-center"
+            role="list"
+            aria-label="Skills list"
+          >
+            {skills.map((skill, index) => (
+              <Tooltip key={skill.name}>
+                <TooltipTrigger asChild>
+                  <img
+                    src={`https://skillicons.dev/icons?i=${skill.icon}`}
+                    alt={skill.name}
+                    className="h-9 w-9 sm:h-10 sm:w-10 transition-transform duration-300 hover:scale-110 cursor-pointer select-none shrink-0"
+                    loading="lazy"
+                  />
+                </TooltipTrigger>
+                <TooltipContent className="dark px-2 py-1 text-xs" showArrow={true}>
+                  {skill.name}
+                </TooltipContent>
+              </Tooltip>
+            ))}
+          </div>
+        </TooltipProvider>
 
         <div className="sr-only">
           <ul>

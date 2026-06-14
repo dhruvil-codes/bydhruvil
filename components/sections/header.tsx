@@ -94,7 +94,7 @@ export default function Header() {
       <div className="flex flex-1 flex-col justify-center gap-1 pl-2 pr-2 sm:pl-4 sm:pr-4">
         <div className="flex items-center gap-2 pt-2 pb-2">
           <h1
-            className="font-bold tracking-tight"
+            className="font-bold tracking-tight inline-flex flex-wrap items-center gap-x-3 gap-y-1.5"
             itemScope
             itemType="https://schema.org/Person"
           >
@@ -111,6 +111,14 @@ export default function Header() {
               <span itemProp="name" className="sr-only">
                 Dhruvil Mistry
               </span>
+            </span>
+            {/* Open to Work Badge */}
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-edge bg-muted/30 dark:bg-muted/30 px-2.5 py-0.5 text-xs font-medium backdrop-blur-sm select-none shrink-0 align-middle">
+              <span className="relative flex h-1.5 w-1.5">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-500/75 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-emerald-500"></span>
+              </span>
+              <span className="text-muted-foreground font-normal">Open to work</span>
             </span>
             <meta itemProp="givenName" content="Dhruvil" />
             <meta itemProp="familyName" content="Mistry" />

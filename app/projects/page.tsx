@@ -131,7 +131,7 @@ export default function ProjectsPage() {
                     <div className="absolute top-5 right-5 pointer-events-none">
                       <span className="text-[10px] font-mono text-muted-foreground bg-background/80 border border-edge px-2 py-0.5 rounded-full font-medium backdrop-blur-sm">
                         {project.status === "shipped"
-                          ? (project.year || "Shipped")
+                          ? "Shipped"
                           : "In Progress"}
                       </span>
                     </div>
