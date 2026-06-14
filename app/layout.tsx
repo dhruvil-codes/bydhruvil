@@ -17,9 +17,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Dhruvil Mistry | AI Engineer",
+  title: "Dhruvil Mistry | AI Engineer — LLMs, RAG & Full-Stack AI",
   description:
-    "AI Engineer specialising in production-grade LLM systems, RAG pipelines, and full-stack applications. Building at the intersection of AI capability and user-facing products.",
+    "AI Engineer building production-grade LLM systems, RAG pipelines, and full-stack AI apps. Based in Mumbai. Open to work.",
   authors: [{ name: "Dhruvil Mistry" }],
   keywords: [
     "Dhruvil Mistry",
@@ -41,9 +41,9 @@ export const metadata: Metadata = {
     canonical: "https://bydhruvil.in",
   },
   openGraph: {
-    title: "Dhruvil Mistry | AI Engineer",
+    title: "Dhruvil Mistry | AI Engineer — LLMs, RAG & Full-Stack AI",
     description:
-      "AI Engineer specialising in production-grade LLM systems, RAG pipelines, and full-stack applications.",
+      "AI Engineer building production-grade LLM systems, RAG pipelines, and full-stack AI apps. Based in Mumbai.",
     url: "https://bydhruvil.in",
     siteName: "Dhruvil Mistry",
     locale: "en_US",
@@ -59,9 +59,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Dhruvil Mistry | AI Engineer",
+    title: "Dhruvil Mistry | AI Engineer — LLMs, RAG & Full-Stack AI",
     description:
-      "AI Engineer specialising in production-grade LLM systems, RAG pipelines, and full-stack applications.",
+      "AI Engineer building production-grade LLM systems, RAG pipelines, and full-stack AI apps. Based in Mumbai.",
     creator: "@bydhruvil",
     images: ["/images/og-banner.png"],
   },
