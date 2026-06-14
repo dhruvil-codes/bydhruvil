@@ -48,6 +48,14 @@ export const metadata: Metadata = {
     siteName: "Dhruvil Mistry",
     locale: "en_US",
     type: "website",
+    images: [
+      {
+        url: "/images/og-banner.png",
+        width: 1200,
+        height: 630,
+        alt: "Dhruvil Mistry | AI Engineer",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
@@ -55,6 +63,7 @@ export const metadata: Metadata = {
     description:
       "AI Engineer specialising in production-grade LLM systems, RAG pipelines, and full-stack applications.",
     creator: "@bydhruvil",
+    images: ["/images/og-banner.png"],
   },
   other: {
     "theme-color": "#FFFFFF",
