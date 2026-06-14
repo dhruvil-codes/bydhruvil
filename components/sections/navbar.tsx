@@ -9,7 +9,7 @@ import { AnimatedThemeToggler } from "@/components/ui/animated-theme-toggler";
 
 const navLinks = [
   { label: "Projects", href: "/projects", external: false },
-  { label: "Blog", href: "https://dhruvil.substack.com", external: true },
+  { label: "Blog", href: "/blog", external: false },
   { label: "Stack", href: "/stack", external: false },
 ];
 
