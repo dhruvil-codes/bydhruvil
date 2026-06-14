@@ -1,99 +1,85 @@
+import { Redis } from "@upstash/redis";
 import { promises as fs } from "fs";
 import path from "path";
 
+const VISITOR_KEY = "visitor_count";
+
+// ---------------------------------------------------------------------------
+// Storage backends (tried in order)
+// ---------------------------------------------------------------------------
+
+// 1️⃣  Upstash / Vercel KV — used in production when env vars are present
+function getRedis(): Redis | null {
+  if (process.env.KV_REST_API_URL && process.env.KV_REST_API_TOKEN) {
+    return new Redis({
+      url: process.env.KV_REST_API_URL,
+      token: process.env.KV_REST_API_TOKEN,
+    });
+  }
+  return null;
+}
+
+// 2️⃣  Local JSON file — used during local development (fallback)
 const counterFile = path.join(process.cwd(), "data", "visitors.json");
 
-// Vercel KV REST API credentials (auto-injected when linking KV Storage on Vercel)
-const kvUrl = process.env.KV_REST_API_URL;
-const kvToken = process.env.KV_REST_API_TOKEN;
-
-// In-memory fallback for serverless environments when KV is not set up and disk is read-only
-let memoryCount: number | null = null;
-
-async function getKVCount(): Promise<number | null> {
-  if (!kvUrl || !kvToken) return null;
-  try {
-    const res = await fetch(`${kvUrl}/get/visitor_count`, {
-      headers: { Authorization: `Bearer ${kvToken}` },
-      cache: "no-store",
-    });
-    if (!res.ok) return null;
-    const data = await res.json();
-    return data.result ? parseInt(data.result, 10) : 0;
-  } catch (err) {
-    console.error("Vercel KV Read Error:", err);
-    return null;
-  }
-}
-
-async function setKVCount(count: number): Promise<boolean> {
-  if (!kvUrl || !kvToken) return false;
-  try {
-    const res = await fetch(`${kvUrl}/set/visitor_count/${count}`, {
-      headers: { Authorization: `Bearer ${kvToken}` },
-      cache: "no-store",
-    });
-    return res.ok;
-  } catch (err) {
-    console.error("Vercel KV Write Error:", err);
-    return false;
-  }
-}
-
-async function readCount(): Promise<number> {
-  // 1. Try Vercel KV if available
-  const kvCount = await getKVCount();
-  if (kvCount !== null) {
-    memoryCount = kvCount;
-    return kvCount;
-  }
-
-  // 2. Try in-memory cached count if initialized
-  if (memoryCount !== null) {
-    return memoryCount;
-  }
-
-  // 3. Fallback to local JSON file (useful for local development)
+async function readLocalCount(): Promise<number> {
   try {
     const raw = await fs.readFile(counterFile, "utf-8");
     const parsed = JSON.parse(raw);
-    const fileCount = typeof parsed.count === "number" ? parsed.count : 0;
-    memoryCount = fileCount;
-    return fileCount;
+    return typeof parsed.count === "number" ? parsed.count : 0;
   } catch {
-    memoryCount = 0;
     return 0;
   }
 }
 
-async function writeCount(count: number): Promise<void> {
-  memoryCount = count;
-
-  // 1. Try Vercel KV if available
-  const ok = await setKVCount(count);
-  if (ok) return;
-
-  // 2. Try writing to local filesystem (works in local dev, fails silently in read-only serverless)
+async function writeLocalCount(count: number): Promise<void> {
   try {
     await fs.mkdir(path.dirname(counterFile), { recursive: true });
     await fs.writeFile(counterFile, JSON.stringify({ count }), "utf-8");
   } catch (err) {
-    // Fail silently in production, keeping the updated value in memory (memoryCount)
-    console.warn("Local filesystem write failed (likely read-only serverless environment). Using in-memory fallback:", err);
+    console.warn("Local filesystem write failed:", err);
   }
 }
 
-// GET — return current count without incrementing (for display)
+// ---------------------------------------------------------------------------
+// Unified read / increment helpers
+// ---------------------------------------------------------------------------
+
+async function readCount(): Promise<number> {
+  const redis = getRedis();
+  if (redis) {
+    const val = await redis.get<number>(VISITOR_KEY);
+    return val ?? 0;
+  }
+  return readLocalCount();
+}
+
+async function incrementCount(): Promise<number> {
+  const redis = getRedis();
+  if (redis) {
+    // INCR is atomic — safe across concurrent serverless invocations
+    const newCount = await redis.incr(VISITOR_KEY);
+    return newCount;
+  }
+  // Local dev: read → increment → write
+  const current = await readLocalCount();
+  const next = current + 1;
+  await writeLocalCount(next);
+  return next;
+}
+
+// ---------------------------------------------------------------------------
+// Route handlers
+// ---------------------------------------------------------------------------
+
+// GET — return current count without incrementing (display only)
 export async function GET() {
   const count = await readCount();
   return Response.json({ count });
 }
 
-// POST — increment and return new count
+// POST — increment and return new count (called once per session)
 export async function POST() {
-  const count = await readCount();
-  const newCount = count + 1;
-  await writeCount(newCount);
-  return Response.json({ count: newCount });
+  const count = await incrementCount();
+  return Response.json({ count });
 }
-
