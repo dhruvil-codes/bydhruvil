@@ -53,9 +53,9 @@ Domain        →  Hostinger → bydhruvil.in
 
 ## 📸 Preview
 
-> Homepage — Hero, About, Skills, Projects, Experience
+> Homepage — Hero, About Me, Connect, Projects
 
-![Homepage](public/images/avatar.png)
+![Homepage](public/images/home-preview.png)
 
 ---
 
