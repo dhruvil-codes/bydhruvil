@@ -27,12 +27,34 @@ export default function Footer() {
     >
       <Crosshairs top={true} bottom={true} />
       <div className="flex flex-col sm:flex-row justify-between w-full items-center gap-4">
-        <p
-          className="text-xs font-medium leading-5 text-muted-foreground"
-          itemProp="copyright"
-        >
-          &copy; {currentYear} – Dhruvil Mistry. All rights reserved.
-        </p>
+        <div className="flex flex-col gap-1 items-center sm:items-start text-center sm:text-left">
+          <p
+            className="text-xs font-medium leading-5 text-muted-foreground"
+            itemProp="copyright"
+          >
+            &copy; {currentYear} – Dhruvil Mistry. All rights reserved.
+          </p>
+          <p className="text-[11px] font-medium text-muted-foreground/60">
+            Inspired from{" "}
+            <a
+              href="https://jdhruv.dev/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-muted-foreground/80 hover:text-foreground underline underline-offset-2 transition-colors"
+            >
+              Dhruv
+            </a>{" "}
+            &amp;{" "}
+            <a
+              href="https://ramx.in"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-muted-foreground/80 hover:text-foreground underline underline-offset-2 transition-colors"
+            >
+              Ram
+            </a>
+          </p>
+        </div>
 
         <FrameButton
           variant="outline"

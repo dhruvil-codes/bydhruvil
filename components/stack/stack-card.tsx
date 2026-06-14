@@ -1,6 +1,7 @@
 import React from "react";
 import { FrameMarkers } from "@/components/ui/frame-button";
 import type { SubstackRecommendation } from "@/lib/stack";
+import { ArrowUpRight } from "lucide-react";
 
 interface StackCardProps {
   item: SubstackRecommendation;
@@ -36,9 +37,12 @@ export default function StackCard({ item }: StackCardProps) {
 
       {/* Card Body: Only contains title below the image */}
       <div className="p-5 flex flex-col justify-between flex-grow">
-        <h3 className="font-semibold text-base sm:text-lg leading-snug text-zinc-100 tracking-tight group-hover:text-blue-400 transition-colors duration-200 font-sans">
-          {item.title}
-        </h3>
+        <div className="flex items-start justify-between gap-2">
+          <h3 className="font-semibold text-base sm:text-lg leading-snug text-zinc-200 tracking-tight group-hover:text-white transition-all duration-300 group-hover:translate-x-0.5 font-sans">
+            {item.title}
+          </h3>
+          <ArrowUpRight className="w-4 h-4 shrink-0 text-zinc-500 opacity-0 -translate-x-1 translate-y-1 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0 group-hover:translate-y-0 group-hover:text-zinc-300" />
+        </div>
       </div>
     </a>
   );

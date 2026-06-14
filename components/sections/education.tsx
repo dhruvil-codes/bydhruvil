@@ -15,7 +15,7 @@ const education: EducationItem[] = [
   {
     name: "MCT Rajiv Gandhi Institute of Technology",
     location: "Mumbai, India",
-    graduation: "May 2026",
+    graduation: "2026",
     gpa: "7.00/10 CGPA",
     url: "https://www.mctrgit.ac.in",
   },
