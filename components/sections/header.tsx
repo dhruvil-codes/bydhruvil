@@ -7,6 +7,7 @@ import { useTheme } from "next-themes";
 
 import { MorphingText } from "@/components/ui/morphing-text";
 import { ConfettiButton } from "@/components/ui/confetti-button";
+import { CopyMarkdown } from "@/components/ui/copy-markdown";
 
 function useVisitorCount() {
   const [count, setCount] = useState<number | null>(null);
@@ -144,8 +145,9 @@ export default function Header() {
         </p>
       </div>
 
-      {/* Visitor Counter — top right corner */}
-      <div className="absolute top-2 right-2 sm:top-3 sm:right-3 z-20">
+      {/* Visitor Counter + Copy Markdown — top right corner */}
+      <div className="absolute top-2 right-2 sm:top-3 sm:right-3 z-20 flex items-center gap-1.5">
+        <CopyMarkdown />
         <ConfettiButton
           options={{
             particleCount: 40,
