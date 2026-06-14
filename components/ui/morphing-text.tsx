@@ -15,7 +15,10 @@ const useMorphingText = (texts: string[], trigger: number) => {
   const runningRef = useRef(false)
   const prevTriggerRef = useRef(-1)
   const textsRef = useRef(texts)
-  textsRef.current = texts
+
+  useEffect(() => {
+    textsRef.current = texts
+  }, [texts])
 
   const text1Ref = useRef<HTMLSpanElement>(null)
   const text2Ref = useRef<HTMLSpanElement>(null)

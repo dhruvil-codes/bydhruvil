@@ -13,10 +13,6 @@ import {
   MailIcon,
   FileDown as FileDownIcon,
 } from "lucide-react";
-import { cn } from "@/lib/utils";
-
-
-
 const dockItems = [
   {
     label: "Home",
@@ -69,24 +65,22 @@ const dockItems = [
   },
 ];
 
-interface FloatingDockProps {
-  isDonnaOpen?: boolean;
-  onDonnaToggle?: () => void;
-}
-
-export default function FloatingDock({
-  isDonnaOpen = false,
-  onDonnaToggle,
-}: FloatingDockProps) {
+export default function FloatingDock() {
   const [isMobile, setIsMobile] = React.useState(false);
   const pathname = usePathname();
 
   React.useEffect(() => {
     const media = window.matchMedia("(max-width: 640px)");
-    setIsMobile(media.matches);
+    let active = true;
+    requestAnimationFrame(() => {
+      if (active) setIsMobile(media.matches);
+    });
     const listener = (e: MediaQueryListEvent) => setIsMobile(e.matches);
     media.addEventListener("change", listener);
-    return () => media.removeEventListener("change", listener);
+    return () => {
+      active = false;
+      media.removeEventListener("change", listener);
+    };
   }, []);
 
   const handleClick = (

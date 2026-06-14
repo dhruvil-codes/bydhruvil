@@ -1,7 +1,6 @@
 'use client'
 import { toast } from 'sonner'
 import React from 'react'
-import { ArrowRightSquare } from 'lucide-react'
 
 interface ProjectType {
   link: string;

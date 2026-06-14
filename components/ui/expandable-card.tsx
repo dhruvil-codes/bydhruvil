@@ -12,7 +12,6 @@ interface ExpandableCardProps {
   children?: React.ReactNode
   className?: string
   classNameExpanded?: string
-  [key: string]: any
 }
 
 export function ExpandableCard({
@@ -22,7 +21,6 @@ export function ExpandableCard({
   children,
   className,
   classNameExpanded,
-  ...props
 }: ExpandableCardProps) {
   const [active, setActive] = React.useState(false)
   const cardRef = React.useRef<HTMLDivElement>(null)
@@ -78,7 +76,6 @@ export function ExpandableCard({
                 "relative flex h-full w-full max-w-[850px] flex-col overflow-auto bg-zinc-50 shadow-sm [-ms-overflow-style:none] [-webkit-overflow-scrolling:touch] [scrollbar-width:none] sm:rounded-t-3xl dark:bg-zinc-950 dark:shadow-none",
                 classNameExpanded
               )}
-              {...props}
             >
               <motion.div layoutId={`image-${title}-${id}`}>
                 <div className="relative before:absolute before:inset-x-0 before:bottom-[-1px] before:z-50 before:h-[70px] before:bg-gradient-to-t before:from-zinc-50 dark:before:from-zinc-950">

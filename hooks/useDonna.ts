@@ -115,9 +115,10 @@ export function useDonna() {
         toast.error("Could not play audio playback. Please check your browser audio permissions.")
         setPlayingId(current => current === msgId ? null : current)
       })
-    } catch (e: any) {
+    } catch (e: unknown) {
       console.error("TTS error", e)
-      if (e && e.message && !e.message.includes("TTS API failed with status:")) {
+      const err = e as Error;
+      if (err && err.message && !err.message.includes("TTS API failed with status:")) {
         toast.error("Could not play voice response. Please try again.")
       }
       setPlayingId(current => current === msgId ? null : current)

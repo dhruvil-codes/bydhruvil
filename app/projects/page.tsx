@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import Navbar from "@/components/sections/navbar";
 import Header from "@/components/sections/header";
 import FloatingDock from "@/components/sections/floating-dock";
@@ -77,7 +77,7 @@ export default function ProjectsPage() {
 
             <div className="p-4 sm:p-6">
               <p className="text-sm sm:text-base leading-relaxed text-neutral-500 dark:text-neutral-400 mb-6">
-                Things I've built and shipped.
+                Things I&apos;ve built and shipped.
               </p>
 
               {/* Grid Layout */}

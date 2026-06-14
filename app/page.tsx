@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import Header from "@/components/sections/header";
 import Navbar from "@/components/sections/navbar";
 import About from "@/components/sections/about";

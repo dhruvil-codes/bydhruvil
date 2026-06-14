@@ -12,7 +12,7 @@ export function Oneko() {
     if (isReducedMotion) return;
 
     const nekoEl = document.createElement("div");
-    let persistPosition = true;
+    const persistPosition = true;
 
     let nekoPosX = 32;
     let nekoPosY = 32;

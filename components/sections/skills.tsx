@@ -47,7 +47,7 @@ export default function Skills() {
             role="list"
             aria-label="Skills list"
           >
-            {skills.map((skill, index) => (
+            {skills.map((skill) => (
               <Tooltip key={skill.name}>
                 <TooltipTrigger asChild>
                   <img

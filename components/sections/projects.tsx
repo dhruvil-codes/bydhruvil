@@ -1,7 +1,6 @@
 "use client";
 import { ProjectShowcase, type Project } from "@/components/ui/project-showcase";
 import { Crosshairs } from "@/components/ui/crosshairs";
-import Link from "next/link";
 import { projectsData } from "@/lib/projects";
 
 const projectsOrder = ["minutz", "skincure", "clarity", "legalmind"];

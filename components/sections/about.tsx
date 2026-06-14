@@ -12,7 +12,7 @@ export default function About() {
       </header>
       <div className="p-4 sm:p-6 space-y-4 text-sm sm:text-base leading-7 text-neutral-600 dark:text-neutral-300">
         <p>
-          In 2021, I typed something into the OpenAI Playground. Got a response in seconds. Couldn't stop thinking about it.
+          In 2021, I typed something into the OpenAI Playground. Got a response in seconds. Couldn&apos;t stop thinking about it.
         </p>
         <p>
           Spent a year doing client web work — decent money, zero excitement. Kept coming back to AI every evening. Testing, breaking, rebuilding.
@@ -21,7 +21,7 @@ export default function About() {
         <p>
           I care about the layer where research meets production — real data, real edge cases, real users.
         </p>
-        <p>Every project I've built started with a real frustration. Minutz because meeting bots are annoying. LegalMind because contracts shouldn't need a lawyer to read.</p>
+        <p>Every project I&apos;ve built started with a real frustration. Minutz because meeting bots are annoying. LegalMind because contracts shouldn&apos;t need a lawyer to read.</p>
       </div>
     </section>
   );
