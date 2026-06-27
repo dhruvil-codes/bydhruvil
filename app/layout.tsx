@@ -73,6 +73,7 @@ export const metadata: Metadata = {
 
 import { ChatProvider } from "@/lib/chat-context";
 import { GlowOverlay } from "@/components/glow-overlay";
+import { LenisProvider } from "@/components/lenis-provider";
 
 export default function RootLayout({
   children,
@@ -111,12 +112,14 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <ChatProvider>
-            {children}
-            <GlowOverlay />
-          </ChatProvider>
-          <Toaster />
-          <Oneko />
+          <LenisProvider>
+            <ChatProvider>
+              {children}
+              <GlowOverlay />
+            </ChatProvider>
+            <Toaster />
+            <Oneko />
+          </LenisProvider>
         </ThemeProvider>
       </body>
     </html>
