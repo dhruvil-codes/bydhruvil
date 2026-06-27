@@ -6,6 +6,8 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useTheme } from "next-themes";
 import { AnimatedThemeToggler } from "@/components/ui/animated-theme-toggler";
+import { Menu, X, ArrowUpRight } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 
 const navLinks = [
   { label: "Projects", href: "/projects", external: false },
@@ -13,10 +15,18 @@ const navLinks = [
   { label: "Stack", href: "/stack", external: false },
 ];
 
+const quickLinks = [
+  { label: "Experience", href: "/#experience", external: false },
+  { label: "Education", href: "/#education", external: false },
+  { label: "Certifications", href: "/#certifications", external: false },
+  { label: "Resume", href: "/resume.pdf", external: true },
+];
+
 export default function Navbar() {
   const { resolvedTheme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
   const [affix, setAffix] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const pathname = usePathname();
 
   useEffect(() => {
@@ -30,6 +40,10 @@ export default function Navbar() {
   }, []);
 
   useEffect(() => {
+    setMobileMenuOpen(false);
+  }, [pathname]);
+
+  useEffect(() => {
     const handleScroll = () => {
       setAffix(window.scrollY > 8);
     };
@@ -41,12 +55,13 @@ export default function Navbar() {
     e: React.MouseEvent<HTMLAnchorElement>,
     href: string
   ) => {
-    if (href.startsWith("#")) {
+    if (href.startsWith("#") || (href.startsWith("/#") && pathname === "/")) {
       e.preventDefault();
-      if (href === "#") {
+      const targetId = href.replace(/^\/?#/, "");
+      if (!targetId) {
         window.scrollTo({ top: 0, behavior: "smooth" });
       } else {
-        const el = document.querySelector(href);
+        const el = document.getElementById(targetId) || document.querySelector(`#${targetId}`);
         if (el) {
           el.scrollIntoView({ behavior: "smooth", block: "start" });
         }
@@ -122,8 +137,8 @@ export default function Navbar() {
           })}
         </nav>
 
-        {/* Divider + Theme toggle */}
-        <div className="flex items-center gap-2">
+        {/* Divider + Theme toggle + Mobile Menu Button */}
+        <div className="flex items-center gap-1.5 sm:gap-2">
           <span className="hidden h-4 w-px bg-border sm:block" aria-hidden="true" />
 
           {mounted ? (
@@ -135,8 +150,89 @@ export default function Navbar() {
           ) : (
             <div className="h-8 w-8 rounded-lg" />
           )}
+
+          <button
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
+            className="inline-flex h-8 w-8 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:bg-accent hover:text-foreground sm:hidden"
+          >
+            {mobileMenuOpen ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
+          </button>
         </div>
       </div>
+
+      {/* Mobile Menu Dropdown Panel */}
+      <AnimatePresence>
+        {mobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.2, ease: "easeInOut" }}
+            className="mx-auto max-w-3xl overflow-hidden border-x border-b border-edge bg-background/95 backdrop-blur-md sm:hidden"
+          >
+            <div className="flex flex-col gap-1 p-3.5">
+              <div className="text-[11px] font-mono font-semibold text-muted-foreground uppercase tracking-wider mb-1 px-3 pt-1">
+                Pages
+              </div>
+              {navLinks.map((link) => (
+                <Link
+                  key={link.label}
+                  href={link.href}
+                  onClick={(e) => {
+                    handleNavClick(e, link.href);
+                    setMobileMenuOpen(false);
+                  }}
+                  className={`flex items-center justify-between rounded-md px-3 py-2 text-sm font-mono font-medium transition-colors ${
+                    pathname === link.href
+                      ? "bg-accent text-foreground"
+                      : "text-muted-foreground hover:text-foreground hover:bg-accent/50"
+                  }`}
+                >
+                  <span>{link.label}</span>
+                </Link>
+              ))}
+
+              <div className="my-1.5 h-px bg-edge" />
+
+              <div className="text-[11px] font-mono font-semibold text-muted-foreground uppercase tracking-wider mb-1 px-3">
+                Sections & Quick Links
+              </div>
+              {quickLinks.map((link) => {
+                if (link.external) {
+                  return (
+                    <a
+                      key={link.label}
+                      href={link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={() => setMobileMenuOpen(false)}
+                      className="flex items-center justify-between rounded-md px-3 py-2 text-sm font-mono text-muted-foreground hover:text-foreground hover:bg-accent/50 transition-colors"
+                    >
+                      <span>{link.label}</span>
+                      <ArrowUpRight className="h-3.5 w-3.5 opacity-70" />
+                    </a>
+                  );
+                }
+                return (
+                  <Link
+                    key={link.label}
+                    href={link.href}
+                    onClick={(e) => {
+                      handleNavClick(e, link.href);
+                      setMobileMenuOpen(false);
+                    }}
+                    className="flex items-center justify-between rounded-md px-3 py-2 text-sm font-mono text-muted-foreground hover:text-foreground hover:bg-accent/50 transition-colors"
+                  >
+                    <span>{link.label}</span>
+                  </Link>
+                );
+              })}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </header>
   );
 }
+
