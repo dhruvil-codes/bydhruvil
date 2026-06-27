@@ -50,7 +50,7 @@ export default function StackPage() {
               {/* Introduction */}
               <div className="space-y-2">
                 <p className="text-sm sm:text-base leading-relaxed text-neutral-600 dark:text-neutral-300">
-                  I can't always commit to reading long books, so I use Substacks to close the knowledge gap. So here are some of my recent reads that I found insightful.
+                  I can&apos;t always commit to reading long books, so I use Substacks to close the knowledge gap. So here are some of my recent reads that I found insightful.
                 </p>
               </div>
 

@@ -7,7 +7,7 @@ import Footer from "@/components/sections/footer";
 import FloatingDock from "@/components/sections/floating-dock";
 import MorphPanel from "@/components/ui/morph-panel";
 import { Crosshairs } from "@/components/ui/crosshairs";
-import { ArrowLeft, ArrowUpRight, Sparkles } from "lucide-react";
+import { ArrowLeft } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "From 50% Grades to OpenAI Hackathon | Dhruvil Mistry",
@@ -83,7 +83,7 @@ export default function BlogPage() {
 
               {/* Introduction Quote */}
               <div className="border-l-2 border-primary pl-4 py-1 italic text-neutral-600 dark:text-neutral-300 text-sm sm:text-base leading-relaxed">
-                "Here is how I did it."
+                &quot;Here is how I did it.&quot;
               </div>
 
               {/* Article Content */}
@@ -310,7 +310,7 @@ export default function BlogPage() {
                 {/* Section: let’s have a chat! */}
                 <div className="space-y-4 pt-4 border-t border-edge mt-8">
                   <h3 className="font-semibold text-foreground text-base sm:text-lg tracking-tight">
-                    Let's have a chat!
+                    Let&apos;s have a chat!
                   </h3>
                   <p className="text-sm text-muted-foreground">
                     If you’re building in AI, working on hackathons, or want to chat about startups:

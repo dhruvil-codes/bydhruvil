@@ -81,6 +81,28 @@ body {
   font-family: var(--font-sans);
 }
 
+@media (any-hover: hover) and (any-pointer: fine) {
+  html, body {
+    cursor: url('/cursors/apple-default.svg') 0 0, auto;
+  }
+
+  a, button, [role="button"], input[type="submit"], input[type="button"], select, .cursor-pointer {
+    cursor: url('/cursors/apple-pointer.svg') 4 1, pointer;
+  }
+
+  input[type="text"], input[type="email"], input[type="search"], input[type="password"], textarea, [contenteditable="true"] {
+    cursor: url('/cursors/apple-text.svg') 11 11, text;
+  }
+
+  .cursor-grab {
+    cursor: url('/cursors/apple-grab.svg') 11 11, grab;
+  }
+
+  .cursor-grabbing {
+    cursor: url('/cursors/apple-grabbing.svg') 11 11, grabbing;
+  }
+}
+
 /* Grayscale transition for project images */
 .project-image {
   filter: grayscale(100%);
