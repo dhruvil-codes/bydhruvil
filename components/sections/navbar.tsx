@@ -6,6 +6,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useTheme } from "next-themes";
 import { AnimatedThemeToggler } from "@/components/ui/animated-theme-toggler";
+import { VisitorCounter } from "@/components/ui/visitor-counter";
 import { Menu, X, ArrowUpRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -137,7 +138,7 @@ export default function Navbar() {
           })}
         </nav>
 
-        {/* Divider + Theme toggle + Mobile Menu Button */}
+        {/* Divider + Theme toggle + Visitor Counter + Mobile Menu Button */}
         <div className="flex items-center gap-1.5 sm:gap-2">
           <span className="hidden h-4 w-px bg-border sm:block" aria-hidden="true" />
 
@@ -150,6 +151,8 @@ export default function Navbar() {
           ) : (
             <div className="h-8 w-8 rounded-lg" />
           )}
+
+          <VisitorCounter />
 
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
