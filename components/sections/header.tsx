@@ -99,7 +99,7 @@ export default function Header() {
           </div>
 
           <p className="text-xs sm:text-base leading-relaxed text-neutral-500 dark:text-neutral-400 max-w-[470px]">
-            I build and ship AI products that actually solve a problem. Not just the demos that sits in github repo :)
+            I build and ship AI products that actually solves a problem.
           </p>
         </div>
 

@@ -12,16 +12,20 @@ export default function About() {
       </header>
       <div className="p-4 sm:p-6 space-y-4 text-sm sm:text-base leading-7 text-neutral-600 dark:text-neutral-300">
         <p>
-          In 2021, I typed something into the OpenAI Playground. Got a response in seconds. Couldn&apos;t stop thinking about it.
+          I don&apos;t build for demos. I build for the moment something actually works for a real business with a real problem, saving them time, cutting out friction, making something hard feel effortless.
         </p>
         <p>
-          Spent a year doing client web work — decent money, zero excitement. Kept coming back to AI every evening. Testing, breaking, rebuilding.
+          That&apos;s the only thing that&apos;s keeps me going.
         </p>
-        <p>At some point the pretending stopped. I stopped treating AI as a side interest and went all in.</p>
         <p>
-          I care about the layer where research meets production — real data, real edge cases, real users.
+          I&apos;ve taken that obsession into hackathons too recently I got ranked #167 out of 13k globally on HackerRank Orchestrate, and selected as one of 1000 builders from 30k applicants for the Outskill x OpenAI hackathon.
         </p>
-        <p>Every project I&apos;ve built started with a real frustration. Minutz because meeting bots are annoying. LegalMind because contracts shouldn&apos;t need a lawyer to read.</p>
+        <p>
+          if it solves something real, it's worth building..
+        </p>
+        <p>
+          Currently looking for an AI Engineer role at a startup where things move fast, the problems are real, and there&apos;s room to grow with the product. If that&apos;s you, let&apos;s talk.
+        </p>
       </div>
     </section>
   );
