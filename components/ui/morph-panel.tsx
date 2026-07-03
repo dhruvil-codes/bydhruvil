@@ -13,7 +13,7 @@ const FORM_WIDTH = 360
 const PRELOADED = [
   {
     question: "What has Dhruvil built?",
-    answer: "I've built Minutz, a browser-native AI meeting intelligence tool, and Clarity, an AI reading assistant — both shipped. I'm currently building LegalMind, an AI contract risk analyser. Skin Cure, my AI dermatology classifier trained on 28,000+ images, is also shipped.",
+    answer: "I've built Minutz, a browser-native AI meeting intelligence tool, and Skin Cure, an AI dermatology classifier — both shipped. I'm currently building Saral AI, a real-time Voice AI Receptionist for MSMEs. Clarity, my AI reading assistant extension, is also shipped.",
     soundPath: "/audio/donna/q1.mp3"
   },
   {
