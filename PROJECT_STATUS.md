@@ -33,10 +33,10 @@
 - ✅ DONE — Uses centralized project data file.
   - `lib/projects.ts` exists and contains project entries and `heroImage` paths.
   - Example heroImage values observed:
+    - `/images/projects/saral-ai/saral-ai.png`
     - `/images/projects/minutz/minutz.jpg`
-    - `/images/projects/clarity/clarity.jpg`
-    - `/images/projects/legalmind/legalmind.jpg` (implied by project list; full verification requires reading `lib/projects.ts` in full)
     - `/images/projects/skincure/skincure.jpg`
+    - `/images/projects/clarity/clarity.jpg`
 - ✅ DONE — Nav “Projects” link routing is correct.
   - `components/sections/navbar.tsx` includes a “Projects” link to `/projects` (verified via search result snippet).
 - ⚠️ PARTIAL — Uses badtz-ui `ExpandableCard` specifically.
@@ -224,7 +224,7 @@ Key files/dirs:
 - Static assets:
   - `public/audio/donna/q1.mp3`, `q2.mp3`, `q3.mp3`
   - `public/stack/article-1.png` .. `article-6.png`
-  - `public/images/projects/**` (Minutz, Clarity, LegalMind, Skin Cure)
+  - `public/images/projects/**` (Saral AI, Minutz, Skin Cure, Clarity)
 
 ### Setup Steps
 
