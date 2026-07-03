@@ -3,7 +3,7 @@ import { ProjectShowcase, type Project } from "@/components/ui/project-showcase"
 import { Crosshairs } from "@/components/ui/crosshairs";
 import { projectsData } from "@/lib/projects";
 
-const projectsOrder = ["minutz", "skincure", "clarity", "legalmind"];
+const projectsOrder = ["saral-ai", "minutz", "skincure"];
 const projects: Project[] = projectsOrder
   .map((id) => projectsData.find((p) => p.id === id))
   .filter((p): p is typeof projectsData[0] => !!p)
