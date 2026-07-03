@@ -60,6 +60,28 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    slug: "saral-ai",
+    title: "Saral AI",
+    subtitle: "Voice AI Receptionist",
+    description:
+      "Saral AI is a low-latency, real-time Voice AI Receptionist engineered specifically for Micro, Small, and Medium Enterprises (MSMEs). It automates inbound customer phone calls over full-duplex WebSocket connections, answers business queries using custom enterprise knowledge, captures structured high-intent leads, and communicates naturally in Indian regional languages.",
+    boldWords: [
+      "low-latency",
+      "Voice AI Receptionist",
+      "MSMEs",
+      "WebSocket connections",
+      "custom enterprise knowledge",
+      "structured high-intent leads",
+      "Indian regional languages",
+    ],
+    tags: ["FastAPI", "Next.js", "Sarvam AI", "Groq LLM", "WebSockets", "webrtcvad"],
+    status: "in-progress",
+    statusLabel: "In Progress",
+    links: [{ label: "View GitHub", href: "#" }],
+    images: ["/images/projects/saral-ai/saral-ai.png"],
+    featured: true,
+  },
+  {
     slug: "minutz",
     title: "Minutz",
     subtitle: "AI Meeting Intelligence",
@@ -83,26 +105,6 @@ export const projects: Project[] = [
       { label: "View GitHub", href: "#" },
     ],
     images: ["/images/projects/minutz/minutz.jpg"],
-    featured: true,
-  },
-  {
-    slug: "legalmind",
-    title: "LegalMind",
-    subtitle: "AI Contract Risk Analyser",
-    description:
-      "Building a production RAG pipeline for legal document analysis. LegalMind processes PDFs and DOCX files with 12 parallel async LLM risk-extraction tasks using FastAPI + asyncio, targeting under 30 seconds latency on 50-page contracts. Implements Qdrant vector search with recursive chunking and text-embedding-3-small.",
-    boldWords: [
-      "production RAG pipeline",
-      "12 parallel async LLM tasks",
-      "under 30 seconds",
-      "Qdrant vector search",
-      "recursive chunking",
-    ],
-    tags: ["FastAPI", "Qdrant", "OpenAI", "Pydantic", "RAG"],
-    status: "in-progress",
-    statusLabel: "In Progress",
-    links: [{ label: "View GitHub", href: "#" }],
-    images: [],
     featured: true,
   },
   {
