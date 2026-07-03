@@ -26,7 +26,7 @@ At some point the pretending stopped. I stopped treating AI as a side interest a
 
 I care about the layer where research meets production — real data, real edge cases, real users.
 
-Every project I've built started with a real frustration. Minutz because meeting bots are annoying. LegalMind because contracts shouldn't need a lawyer to read.
+Every project I've built started with a real frustration. Minutz because meeting bots are annoying. Saral AI because small businesses shouldn't miss prospective customer calls.
 
 ---
 
