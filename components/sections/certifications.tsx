@@ -78,6 +78,7 @@ export default function Certifications() {
         <div className="relative overflow-hidden">
           {/* The scrollable cards container */}
           <div
+            data-lenis-prevent
             className="relative h-[500px] overflow-y-auto overflow-x-hidden scrollbar-hide pt-4 pb-32"
             style={{
               maskImage: "linear-gradient(to bottom, black 75%, transparent 100%)",
