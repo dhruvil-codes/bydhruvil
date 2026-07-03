@@ -57,7 +57,7 @@ export default function BioPage() {
             </p>
 
             <p>
-              My projects reflect a focus on real-world utility and engineering performance. For instance, I built **Minutz**, an invisible browser-native meeting recorder that captures audio streams directly via WebRTC, processing transcription and action item extraction through a parallelized FastAPI and OpenAI Whisper pipeline. I also engineered **LegalMind**, a high-performance contract risk analyzer that scales risk extraction into 12 parallel async LLM tasks, handling 50-page documents in under 30 seconds.
+              My projects reflect a focus on real-world utility and engineering performance. For instance, I built **Minutz**, an invisible browser-native meeting recorder that captures audio streams directly via WebRTC, processing transcription and action item extraction through a parallelized FastAPI and OpenAI Whisper pipeline. I also engineered **Saral AI**, a low-latency voice receptionist that automates inbound calls over full-duplex WebSocket connections with sub-second response times using Sarvam AI and Groq LLM.
             </p>
 
             <p>
