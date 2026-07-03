@@ -128,7 +128,7 @@ Open [http://localhost:3000](http://localhost:3000)
 | Route | Description |
 |---|---|
 | `/` | Homepage — hero, about, skills, experience, education, certifications |
-| `/projects` | Project showcase — Minutz, Clarity, LegalMind, Skin Cure |
+| `/projects` | Project showcase — Saral AI, Minutz, Skin Cure, Clarity |
 | `/blog` | Long-form writing |
 | `/stack` | Curated Substack reads |
 
