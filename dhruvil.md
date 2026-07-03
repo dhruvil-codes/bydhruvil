@@ -19,10 +19,11 @@ Stack: FastAPI, Next.js, Whisper, GPT-4o, Supabase | Status: Live | Selected at 
 - Shipped a full-stack product (Next.js, Supabase, Slack integration, 4 intelligence modes) on Vercel + Render. Works across Google Meet, Zoom, and Teams.
 - Pricing: Starter (free), Pro ($19/mo), Team ($12/seat).
 
-### LegalMind — AI Contract Risk Analyzer
-Stack: FastAPI, Python, Qdrant, OpenAI, asyncio | Status: Completed
-- Designed a scalable agentic RAG pipeline for legal documents using 12 parallel async LLM risk-extraction tasks via FastAPI + asyncio, targeting sub-30-second latency on 50-page contracts.
-- Achieved 40% lower retrieval latency vs. naive chunking by implementing Qdrant vector search with recursive chunking and text-embedding-3-small, plus LLM output evaluation to reduce hallucinations.
+### Saral AI — Voice AI Receptionist
+Stack: FastAPI, Python, Next.js, Sarvam AI, Groq LLM, WebSockets, webrtcvad | Status: In Progress
+- Engineered a low-latency, real-time Voice AI Receptionist for MSMEs automating inbound customer phone calls over full-duplex WebSocket connections.
+- Achieved sub-second conversational turns by combining Speech-to-Text (Sarvam saaras:v3), Groq LLM reasoning (openai/gpt-oss-20b), and streaming Text-to-Speech (Sarvam bulbul:v3).
+- Implemented adaptive Voice Activity Detection (webrtcvad + RMS fallback) and pre-cached fallback responses in-memory for fault tolerance during third-party API timeouts.
 
 ### Skin Cure — Multimodal Healthcare AI
 Stack: FastAPI, React, SwinV2, PyTorch | Status: Live
