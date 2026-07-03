@@ -13,6 +13,18 @@ export interface ProjectData {
 
 export const projectsData: ProjectData[] = [
   {
+    id: "saral-ai",
+    name: "Saral AI",
+    subtitle: "Voice AI Receptionist",
+    shortDescription: "A low-latency, real-time Voice AI Receptionist for MSMEs automating inbound customer phone calls over full-duplex WebSocket connections.",
+    description: "Saral AI is a low-latency, real-time Voice AI Receptionist engineered specifically for Micro, Small, and Medium Enterprises (MSMEs). It automates inbound customer phone calls over full-duplex WebSocket connections, answers business queries using custom enterprise knowledge, captures structured high-intent leads, and communicates naturally in Indian regional languages.",
+    year: null,
+    status: "in-progress",
+    heroImage: "/images/projects/saral-ai/saral-ai.png",
+    tags: ["FastAPI", "Next.js", "Sarvam AI", "Groq LLM", "WebSockets", "webrtcvad"],
+    href: "https://github.com/dhruvil-codes"
+  },
+  {
     id: "minutz",
     name: "Minutz",
     subtitle: "AI Meeting Intelligence",
@@ -25,6 +37,18 @@ export const projectsData: ProjectData[] = [
     href: "https://bydhruvil.in"
   },
   {
+    id: "skincure",
+    name: "Skin Cure",
+    subtitle: "AI Dermatology Classifier",
+    shortDescription: "Training a 24-class SwinV2 classifier on 28K+ dermatological images achieving 78% accuracy, combined with dermatologist discovery.",
+    description: "Training a 24-class SwinV2-Base classifier on 28,000+ dermatological images achieving 78% accuracy. Built with a FastAPI + React frontend that combines AI predictions, confidence scores, and Google Maps API for dermatologist discovery.",
+    year: null,
+    status: "shipped",
+    heroImage: "/images/projects/skincure/skincure.jpg",
+    tags: ["FastAPI", "React", "SwinV2", "PyTorch"],
+    href: "https://github.com/dhruvil-codes"
+  },
+  {
     id: "clarity",
     name: "Clarity",
     subtitle: "AI Reading Assistant",
@@ -34,30 +58,6 @@ export const projectsData: ProjectData[] = [
     status: "shipped",
     heroImage: "/images/projects/clarity/clarity.jpg",
     tags: ["Chrome Extension", "OpenAI", "Anthropic", "Gemini"],
-    href: "https://github.com/dhruvil-codes"
-  },
-  {
-    id: "legalmind",
-    name: "LegalMind",
-    subtitle: "AI Risk Analyser",
-    shortDescription: "Building a production RAG pipeline for legal documents with 12 parallel async LLM risk-extraction tasks targeting under 30s latency on 50 pages.",
-    description: "Building a production RAG pipeline for legal document analysis. LegalMind processes PDFs and DOCX files with 12 parallel async LLM risk-extraction tasks using FastAPI + asyncio, targeting under 30 seconds latency on 50-page contracts. Implements Qdrant vector search with recursive chunking and text-embedding-3-small.",
-    year: null,
-    status: "in-progress",
-    heroImage: "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?q=80&w=800&auto=format&fit=crop",
-    tags: ["FastAPI", "Qdrant", "OpenAI", "Pydantic", "RAG"],
-    href: "https://github.com/dhruvil-codes"
-  },
-  {
-    id: "skincure",
-    name: "Skin Cure",
-    subtitle: "AI Dermatology",
-    shortDescription: "Training a 24-class SwinV2 classifier on 28K+ dermatological images achieving 78% accuracy, combined with dermatologist discovery.",
-    description: "Training a 24-class SwinV2-Base classifier on 28,000+ dermatological images achieving 78% accuracy. Built with a FastAPI + React frontend that combines AI predictions, confidence scores, and Google Maps API for dermatologist discovery.",
-    year: null,
-    status: "shipped",
-    heroImage: "/images/projects/skincure/skincure.jpg",
-    tags: ["FastAPI", "React", "SwinV2", "PyTorch"],
     href: "https://github.com/dhruvil-codes"
   }
 ];
