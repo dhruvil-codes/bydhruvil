@@ -21,7 +21,7 @@
 
 | Feature | Description |
 |---|---|
-| 🎨 **Dark / Light Mode** | System preference detection with smooth transitions |
+| 🎨 **Dark / Light Mode** | System preference detection with smooth transition |
 | 🤖 **AI Chat Assistant** | Ask "Donna" anything about Dhruvil — powered by Groq LLaMA |
 | 🔊 **Voice Responses** | AI replies with realistic text-to-speech via Fish Audio |
 | 👁️ **Live Visitor Counter** | Persistent real-time visit tracking via Upstash Redis |
