@@ -21,7 +21,7 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: "Dhruvil Mistry — Official Website & Portfolio",
+  title: "Dhruvil Mistry - AI Engineer",
   description:
     "AI Engineer building production-grade LLM systems, RAG pipelines, and full-stack AI apps. Based in Mumbai.",
   authors: [{ name: "Dhruvil Mistry", url: "https://bydhruvil.in" }],
@@ -51,7 +51,7 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "Dhruvil Mistry | AI Engineer",
+    title: "Dhruvil Mistry - AI Engineer",
     description: "AI Engineer building production-grade LLMs & RAG pipelines.",
     url: "https://bydhruvil.in",
     siteName: "Dhruvil Mistry",
@@ -68,7 +68,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Dhruvil Mistry | AI Engineer",
+    title: "Dhruvil Mistry - AI Engineer",
     description: "Dhruvil Mistry is an AI Engineer specialising in production-grade LLM systems, RAG pipelines, and full-stack AI applications. Based in Mumbai, open to work.",
     site: "@bydhruvil",
     creator: "@bydhruvil",
