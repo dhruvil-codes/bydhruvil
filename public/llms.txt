@@ -1,0 +1,28 @@
+# Dhruvil Mistry — AI Engineer Portfolio
+> Dhruvil Mistry is an AI Engineer specializing in building production-grade LLM systems, RAG pipelines, full-stack applications, and workflow automation.
+
+## Contact & Profiles
+- **Location:** Mumbai, India
+- **Email:** dhruvilmistry16@gmail.com
+- **LinkedIn:** https://linkedin.com/in/dhruvilmistry16
+- **GitHub:** https://github.com/dhruvil-codes
+- **Twitter/X:** https://x.com/bydhruvil
+
+## Key Resources
+- [Portfolio Homepage](https://bydhruvil.in/): Summary, experience, contact, and certifications.
+- [Projects](https://bydhruvil.in/projects): Directory of featured AI products.
+- [Blog](https://bydhruvil.in/blog): Personal journey and technical posts (e.g., "From 50% Grades to OpenAI Hackathon").
+- [Tech Stack](https://bydhruvil.in/stack): Detailed list of languages, frameworks, vector databases, and tools used.
+- [Biography](https://bydhruvil.in/bio): Career story, education details, and FAQ notes.
+
+## Flagship Projects
+- **Minutz — AI Meeting Intelligence Platform:** Shipped a browser-native meeting recorder and asynchronous processing pipeline (FastAPI, Next.js, Whisper, GPT-4o, Supabase). Selected at the OpenAI × Outskill Hackathon.
+- **Saral AI — Voice AI Receptionist:** Shipped a low-latency real-time voice receptionist over WebSocket connections (FastAPI, Groq, Sarvam AI).
+- **Skin Cure — Multimodal Healthcare AI:** Trained a SwinV2 classifier on 28k dermatology images with confidence scores and local discovery (FastAPI, React, PyTorch).
+- **Clarity — AI Reading Assistant:** Shipped a MV3 Chrome extension with zero-backend LLM abstraction (GPT-4o Mini, Claude Haiku, Gemini Flash).
+
+## Core Technical Skills
+- **AI & RAG:** LLM API integration (OpenAI, Anthropic, Gemini), RAG pipelines (LangChain, LlamaIndex), Prompt Engineering, LLM evaluation.
+- **Vector DBs:** Qdrant, Pinecone, ChromaDB.
+- **Frameworks & Languages:** Python, FastAPI, JavaScript, Next.js, React, PostgreSQL, MongoDB, Docker.
+- **Automation:** n8n workflow orchestration.

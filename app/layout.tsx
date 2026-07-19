@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { Toaster } from "sonner";
 import Script from "next/script";
@@ -16,11 +16,15 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+export const viewport: Viewport = {
+  themeColor: "#FFFFFF",
+};
+
 export const metadata: Metadata = {
-  title: "Dhruvil Mistry | AI Engineer — LLMs, RAG & Full-Stack AI",
+  title: "Dhruvil Mistry | AI Engineer",
   description:
-    "AI Engineer building production-grade LLM systems, RAG pipelines, and full-stack AI apps. Based in Mumbai. Open to work.",
-  authors: [{ name: "Dhruvil Mistry" }],
+    "AI Engineer building production-grade LLM systems, RAG pipelines, and full-stack AI apps. Based in Mumbai.",
+  authors: [{ name: "Dhruvil Mistry", url: "https://bydhruvil.in" }],
   keywords: [
     "Dhruvil Mistry",
     "AI Engineer",
@@ -35,15 +39,20 @@ export const metadata: Metadata = {
   ],
   creator: "Dhruvil Mistry",
   publisher: "Dhruvil Mistry",
-  robots: "index, follow",
+  robots: {
+    index: true,
+    follow: true,
+  },
   metadataBase: new URL("https://bydhruvil.in"),
   alternates: {
     canonical: "https://bydhruvil.in",
+    languages: {
+      "en-US": "https://bydhruvil.in",
+    },
   },
   openGraph: {
-    title: "Dhruvil Mistry | AI Engineer — LLMs, RAG & Full-Stack AI",
-    description:
-      "AI Engineer building production-grade LLM systems, RAG pipelines, and full-stack AI apps. Based in Mumbai.",
+    title: "Dhruvil Mistry | AI Engineer",
+    description: "AI Engineer building production-grade LLMs & RAG pipelines.",
     url: "https://bydhruvil.in",
     siteName: "Dhruvil Mistry",
     locale: "en_US",
@@ -59,15 +68,17 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Dhruvil Mistry | AI Engineer — LLMs, RAG & Full-Stack AI",
-    description:
-      "AI Engineer building production-grade LLM systems, RAG pipelines, and full-stack AI apps. Based in Mumbai.",
+    title: "Dhruvil Mistry | AI Engineer",
+    description: "Dhruvil Mistry is an AI Engineer specialising in production-grade LLM systems, RAG pipelines, and full-stack AI applications. Based in Mumbai, open to work.",
+    site: "@bydhruvil",
     creator: "@bydhruvil",
     images: ["/images/og-banner.png"],
   },
-  other: {
-    "theme-color": "#FFFFFF",
-    "format-detection": "telephone=no, address=no, email=no",
+  formatDetection: {
+    telephone: false,
+    date: false,
+    address: false,
+    email: false,
   },
 };
 
@@ -92,12 +103,64 @@ export default function RootLayout({
           {`
             {
               "@context": "https://schema.org",
-              "@type": "WebSite",
-              "@id": "https://bydhruvil.in/#website",
-              "name": "Dhruvil Mistry Portfolio",
-              "url": "https://bydhruvil.in",
-              "description": "AI Engineer specialising in production-grade LLM systems, RAG pipelines, and full-stack applications.",
-              "inLanguage": "en-US"
+              "@graph": [
+                {
+                  "@type": "Person",
+                  "@id": "https://bydhruvil.in/#person",
+                  "name": "Dhruvil Mistry",
+                  "url": "https://bydhruvil.in",
+                  "sameAs": [
+                    "https://github.com/dhruvil-codes",
+                    "https://linkedin.com/in/dhruvilmistry16",
+                    "https://x.com/bydhruvil"
+                  ],
+                  "jobTitle": "AI Engineer",
+                  "worksFor": {
+                    "@type": "Organization",
+                    "name": "Freelance / Independent"
+                  },
+                  "description": "AI Engineer building production-grade LLM systems, RAG pipelines, and full-stack AI applications.",
+                  "knowsAbout": [
+                    "Artificial Intelligence",
+                    "Large Language Models (LLMs)",
+                    "Retrieval-Augmented Generation (RAG)",
+                    "Full-Stack AI Applications",
+                    "Next.js",
+                    "Python",
+                    "FastAPI",
+                    "Machine Learning"
+                  ],
+                  "address": {
+                    "@type": "PostalAddress",
+                    "addressLocality": "Mumbai",
+                    "addressRegion": "Maharashtra",
+                    "addressCountry": "India"
+                  }
+                },
+                {
+                  "@type": "WebSite",
+                  "@id": "https://bydhruvil.in/#website",
+                  "url": "https://bydhruvil.in",
+                  "name": "Dhruvil Mistry Portfolio",
+                  "description": "Portfolio of Dhruvil Mistry - AI Engineer specializing in LLMs, RAG, and AI applications.",
+                  "publisher": {
+                    "@id": "https://bydhruvil.in/#person"
+                  },
+                  "inLanguage": "en-US"
+                },
+                {
+                  "@type": "ProfilePage",
+                  "@id": "https://bydhruvil.in/#profile",
+                  "url": "https://bydhruvil.in",
+                  "name": "Dhruvil Mistry - Professional Portfolio & Profile",
+                  "about": {
+                    "@id": "https://bydhruvil.in/#person"
+                  },
+                  "mainEntity": {
+                    "@id": "https://bydhruvil.in/#person"
+                  }
+                }
+              ]
             }
           `}
         </Script>

@@ -10,11 +10,11 @@ import { Crosshairs } from "@/components/ui/crosshairs";
 import { ArrowLeft } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "From 50% Grades to OpenAI Hackathon | Dhruvil Mistry",
-  description: "How I went from 50% grades and zero peers to shipping AI products and beating 30,000 applicants for the OpenAI hackathon.",
+  title: "From 50% Grades to OpenAI Hackathon",
+  description: "How I went from 50% grades to winning the OpenAI Hackathon.",
   openGraph: {
-    title: "From 50% Grades to OpenAI Hackathon | Dhruvil Mistry",
-    description: "How I went from 50% grades and zero peers to shipping AI products and beating 30,000 applicants for the OpenAI hackathon.",
+    title: "From 50% Grades to OpenAI Hackathon",
+    description: "How I went from 50% grades to winning the OpenAI Hackathon.",
     images: [
       {
         url: "/images/blog-banner.png",

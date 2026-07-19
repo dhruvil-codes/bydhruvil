@@ -1,5 +1,19 @@
 import Link from "next/link";
 import Header from "@/components/sections/header";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Biography | Dhruvil Mistry",
+  description: "Personal biography and career journey of Dhruvil Mistry.",
+  openGraph: {
+    title: "Biography | Dhruvil Mistry",
+    description: "Personal biography and career journey of Dhruvil Mistry.",
+  },
+  twitter: {
+    title: "Biography | Dhruvil Mistry",
+    description: "Read the story and career journey of Dhruvil Mistry, an AI Engineer based in Mumbai, India.",
+  },
+};
 
 export default function BioPage() {
   return (
