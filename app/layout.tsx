@@ -21,7 +21,7 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: "Dhruvil Mistry | AI Engineer",
+  title: "Dhruvil Mistry — Official Website & Portfolio",
   description:
     "AI Engineer building production-grade LLM systems, RAG pipelines, and full-stack AI apps. Based in Mumbai.",
   authors: [{ name: "Dhruvil Mistry", url: "https://bydhruvil.in" }],
@@ -112,7 +112,8 @@ export default function RootLayout({
                   "sameAs": [
                     "https://github.com/dhruvil-codes",
                     "https://linkedin.com/in/dhruvilmistry16",
-                    "https://x.com/bydhruvil"
+                    "https://x.com/bydhruvil",
+                    "https://peerlist.io/bydhruvil"
                   ],
                   "jobTitle": "AI Engineer",
                   "worksFor": {
