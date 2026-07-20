@@ -1,7 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { Toaster } from "sonner";
-import Script from "next/script";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Oneko } from "@/components/ui/oneko";
 import "./globals.css";
@@ -99,9 +98,10 @@ export default function RootLayout({
       data-scroll-behavior="smooth"
     >
       <head>
-        <Script id="schema-org" type="application/ld+json">
-          {`
-            {
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
               "@context": "https://schema.org",
               "@graph": [
                 {
@@ -111,7 +111,7 @@ export default function RootLayout({
                   "url": "https://bydhruvil.in",
                   "sameAs": [
                     "https://github.com/dhruvil-codes",
-                    "https://linkedin.com/in/dhruvilmistry16",
+                    "https://www.linkedin.com/in/dhruvilmistry16/",
                     "https://x.com/bydhruvil",
                     "https://peerlist.io/bydhruvil"
                   ],
@@ -123,13 +123,16 @@ export default function RootLayout({
                   "description": "AI Engineer building production-grade LLM systems, RAG pipelines, and full-stack AI applications.",
                   "knowsAbout": [
                     "Artificial Intelligence",
-                    "Large Language Models (LLMs)",
-                    "Retrieval-Augmented Generation (RAG)",
-                    "Full-Stack AI Applications",
+                    "Large Language Models",
+                    "Retrieval-Augmented Generation",
+                    "AI Agents",
+                    "Voice AI",
+                    "Generative AI",
+                    "Machine Learning",
+                    "FastAPI",
                     "Next.js",
                     "Python",
-                    "FastAPI",
-                    "Machine Learning"
+                    "WebSockets"
                   ],
                   "address": {
                     "@type": "PostalAddress",
@@ -162,9 +165,9 @@ export default function RootLayout({
                   }
                 }
               ]
-            }
-          `}
-        </Script>
+            }),
+          }}
+        />
       </head>
       <body
         className="min-h-full bg-background text-foreground transition-colors duration-300"

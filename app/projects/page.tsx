@@ -44,6 +44,77 @@ export default function ProjectsPage() {
 
   return (
     <div className="flex-col flex w-full overflow-x-hidden scroll-smooth">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "ItemList",
+            "@id": "https://bydhruvil.in/projects#itemlist",
+            "name": "Dhruvil Mistry's Projects",
+            "description": "AI systems and web applications engineered by Dhruvil Mistry.",
+            "numberOfItems": 4,
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "item": {
+                  "@type": "SoftwareApplication",
+                  "name": "Saral AI",
+                  "applicationCategory": "BusinessApplication",
+                  "operatingSystem": "All",
+                  "description": "A low-latency, real-time Voice AI Receptionist for MSMEs automating inbound customer phone calls over full-duplex WebSocket connections.",
+                  "creator": {
+                    "@id": "https://bydhruvil.in/#person"
+                  }
+                }
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "item": {
+                  "@type": "SoftwareApplication",
+                  "name": "Minutz",
+                  "applicationCategory": "BusinessApplication",
+                  "operatingSystem": "Web",
+                  "description": "An invisible, browser-native meeting recorder that intercepts WebRTC audio streams directly inside Chrome with a full FastAPI & Next.js pipeline.",
+                  "creator": {
+                    "@id": "https://bydhruvil.in/#person"
+                  }
+                }
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "item": {
+                  "@type": "SoftwareApplication",
+                  "name": "Skin Cure",
+                  "applicationCategory": "HealthApplication",
+                  "operatingSystem": "All",
+                  "description": "A 24-class SwinV2 classifier trained on 28K+ dermatological images achieving 78% accuracy, combined with dermatologist discovery.",
+                  "creator": {
+                    "@id": "https://bydhruvil.in/#person"
+                  }
+                }
+              },
+              {
+                "@type": "ListItem",
+                "position": 4,
+                "item": {
+                  "@type": "SoftwareApplication",
+                  "name": "Clarity",
+                  "applicationCategory": "UtilitiesApplication",
+                  "operatingSystem": "Web Browser",
+                  "description": "A shipped Chrome extension for 1-click summarisation, entity extraction, and contextual Q&A with multi-provider LLM abstraction.",
+                  "creator": {
+                    "@id": "https://bydhruvil.in/#person"
+                  }
+                }
+              }
+            ]
+          }),
+        }}
+      />
 
       {/* Hero area: grid shows in left/right margins, navbar + hero content sit on solid bg */}
       <div className="relative w-full bg-grid-dots">

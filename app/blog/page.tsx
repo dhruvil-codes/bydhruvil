@@ -10,25 +10,63 @@ import { Crosshairs } from "@/components/ui/crosshairs";
 import { ArrowLeft } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "From 50% Grades to OpenAI Hackathon",
-  description: "How I went from 50% grades to winning the OpenAI Hackathon.",
+  title: "From 50% Grades to OpenAI Hackathon | Dhruvil Mistry",
+  description: "How I went from 50% grades to winning the OpenAI Hackathon. My journey of building AI products and beating 30,000 applicants.",
+  alternates: {
+    canonical: "https://bydhruvil.in/blog",
+  },
   openGraph: {
-    title: "From 50% Grades to OpenAI Hackathon",
-    description: "How I went from 50% grades to winning the OpenAI Hackathon.",
+    title: "From 50% Grades to OpenAI Hackathon | Dhruvil Mistry",
+    description: "How I went from 50% grades to winning the OpenAI Hackathon. My journey of building AI products and beating 30,000 applicants.",
+    url: "https://bydhruvil.in/blog",
+    type: "article",
+    publishedTime: "2026-06-01T00:00:00.000Z",
+    authors: ["Dhruvil Mistry"],
     images: [
       {
         url: "/images/blog-banner.png",
         width: 1200,
         height: 675,
-        alt: "Crowd of silhouettes with one cyan glowing person standing out in the center",
+        alt: "From 50% Grades to OpenAI Hackathon",
       },
     ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "From 50% Grades to OpenAI Hackathon | Dhruvil Mistry",
+    description: "How I went from 50% grades to winning the OpenAI Hackathon.",
+    images: ["/images/blog-banner.png"],
   },
 };
 
 export default function BlogPage() {
   return (
     <div className="flex-col flex w-full overflow-x-hidden scroll-smooth">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BlogPosting",
+            "@id": "https://bydhruvil.in/blog#article",
+            "isPartOf": {
+              "@id": "https://bydhruvil.in/#website"
+            },
+            "mainEntityOfPage": "https://bydhruvil.in/blog",
+            "headline": "From 50% grades and zero peers to shipping AI products and beating 30,000 applicants for the OpenAI hackathon.",
+            "description": "How I went from 50% grades to winning the OpenAI Hackathon.",
+            "image": "https://bydhruvil.in/images/blog-banner.png",
+            "datePublished": "2026-06-01T00:00:00.000Z",
+            "dateModified": "2026-06-01T00:00:00.000Z",
+            "author": {
+              "@id": "https://bydhruvil.in/#person"
+            },
+            "publisher": {
+              "@id": "https://bydhruvil.in/#person"
+            }
+          }),
+        }}
+      />
       {/* Hero background grid */}
       <div className="relative w-full bg-grid-dots">
         <Navbar />

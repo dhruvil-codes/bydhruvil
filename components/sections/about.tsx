@@ -21,7 +21,7 @@ export default function About() {
           I&apos;ve taken that obsession into hackathons too recently I got ranked #167 out of 13k globally on HackerRank Orchestrate, and selected as one of 1000 builders from 30k applicants for the Outskill x OpenAI hackathon.
         </p>
         <p>
-          if it solves something real, it's worth building..
+          if it solves something real, it&apos;s worth building..
         </p>
         <p>
           Currently looking for an AI Engineer role at a startup where things move fast, the problems are real, and there&apos;s room to grow with the product. If that&apos;s you, let&apos;s talk.

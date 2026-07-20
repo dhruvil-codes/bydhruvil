@@ -14,6 +14,25 @@ import { substacksData } from "@/lib/stack";
 export default function StackPage() {
   return (
     <div className="flex-col flex w-full overflow-x-hidden scroll-smooth">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "CollectionPage",
+            "@id": "https://bydhruvil.in/stack#page",
+            "isPartOf": {
+              "@id": "https://bydhruvil.in/#website"
+            },
+            "mainEntityOfPage": "https://bydhruvil.in/stack",
+            "name": "Tech Stack & Curated Reads | Dhruvil Mistry",
+            "description": "Curated reading recommendations and insightful Substack articles on AI engineering, career, and deep learning recommended by Dhruvil Mistry.",
+            "author": {
+              "@id": "https://bydhruvil.in/#person"
+            }
+          }),
+        }}
+      />
       {/* Hero background grid */}
       <div className="relative w-full bg-grid-dots">
         <Navbar />

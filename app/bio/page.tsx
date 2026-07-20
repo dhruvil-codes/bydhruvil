@@ -4,20 +4,57 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Biography | Dhruvil Mistry",
-  description: "Personal biography and career journey of Dhruvil Mistry.",
+  description: "Read the story and career journey of Dhruvil Mistry, an AI Engineer based in Mumbai, India.",
+  alternates: {
+    canonical: "https://bydhruvil.in/bio",
+  },
   openGraph: {
     title: "Biography | Dhruvil Mistry",
-    description: "Personal biography and career journey of Dhruvil Mistry.",
+    description: "Read the story and career journey of Dhruvil Mistry, an AI Engineer based in Mumbai, India.",
+    url: "https://bydhruvil.in/bio",
+    type: "profile",
+    images: [
+      {
+        url: "/images/og-banner.png",
+        width: 1200,
+        height: 630,
+        alt: "Dhruvil Mistry Biography",
+      },
+    ],
   },
   twitter: {
+    card: "summary_large_image",
     title: "Biography | Dhruvil Mistry",
     description: "Read the story and career journey of Dhruvil Mistry, an AI Engineer based in Mumbai, India.",
+    images: ["/images/og-banner.png"],
   },
 };
 
 export default function BioPage() {
   return (
     <div className="mx-auto max-w-4xl px-8 py-10">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "ProfilePage",
+            "@id": "https://bydhruvil.in/bio#page",
+            "isPartOf": {
+              "@id": "https://bydhruvil.in/#website"
+            },
+            "mainEntityOfPage": "https://bydhruvil.in/bio",
+            "name": "Biography | Dhruvil Mistry",
+            "description": "Biography and career journey of Dhruvil Mistry.",
+            "about": {
+              "@id": "https://bydhruvil.in/#person"
+            },
+            "mainEntity": {
+              "@id": "https://bydhruvil.in/#person"
+            }
+          }),
+        }}
+      />
       <Header />
       <section aria-labelledby="about-heading" className="mt-12">
         <h2
