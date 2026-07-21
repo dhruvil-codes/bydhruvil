@@ -27,43 +27,12 @@ export default function Footer() {
     >
       <Crosshairs top={true} bottom={true} />
       <div className="flex flex-col gap-4 w-full">
-        {/* Crawlable Social Links for Entity & Profile Authority */}
-        <div className="flex flex-wrap items-center justify-center sm:justify-start gap-x-3 gap-y-1.5 text-[11px] font-mono text-muted-foreground/50 border-b border-border/20 pb-3">
-          <a
-            href="https://www.linkedin.com/in/dhruvilmistry16/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-foreground transition-colors"
-          >
-            Dhruvil Mistry LinkedIn
-          </a>
-          <span className="opacity-40">•</span>
-          <a
-            href="https://github.com/dhruvil-codes"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-foreground transition-colors"
-          >
-            Dhruvil Mistry GitHub
-          </a>
-          <span className="opacity-40">•</span>
-          <a
-            href="https://peerlist.io/bydhruvil"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-foreground transition-colors"
-          >
-            Dhruvil Mistry Peerlist
-          </a>
-          <span className="opacity-40">•</span>
-          <a
-            href="https://x.com/bydhruvil"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-foreground transition-colors"
-          >
-            Dhruvil Mistry X / Twitter
-          </a>
+        {/* Crawlable Social Links for Entity & Profile Authority (Visually Hidden) */}
+        <div className="sr-only" aria-hidden="true">
+          <a href="https://www.linkedin.com/in/dhruvilmistry16/">Dhruvil Mistry LinkedIn</a>
+          <a href="https://github.com/dhruvil-codes">Dhruvil Mistry GitHub</a>
+          <a href="https://peerlist.io/bydhruvil">Dhruvil Mistry Peerlist</a>
+          <a href="https://x.com/bydhruvil">Dhruvil Mistry X / Twitter</a>
         </div>
 
         <div className="flex flex-col sm:flex-row justify-between w-full items-center gap-4">

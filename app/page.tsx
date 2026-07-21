@@ -11,7 +11,6 @@ import Education from "@/components/sections/education";
 import Skills from "@/components/sections/skills";
 import Certifications from "@/components/sections/certifications";
 import Quote from "@/components/sections/quote";
-import FAQ from "@/components/sections/faq";
 import Footer from "@/components/sections/footer";
 import FloatingDock from "@/components/sections/floating-dock";
 import MorphPanel from "@/components/ui/morph-panel";
@@ -85,12 +84,6 @@ export default function Home() {
 
           {/* Quote Section */}
           <Quote />
-
-          {/* Separator */}
-          <div className="relative flex h-6 w-full border-x border-edge bg-hatch-lines"></div>
-
-          {/* FAQ Section */}
-          <FAQ />
 
           {/* Separator */}
           <div className="relative flex h-6 w-full border-x border-edge bg-hatch-lines"></div>
