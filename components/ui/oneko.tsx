@@ -205,7 +205,7 @@ export function Oneko() {
     }
 
     // Init
-    const nekoFile = "/images/miko-sprites.png";
+    const nekoFile = "/oneko.gif";
 
     if (persistPosition) {
       try {
