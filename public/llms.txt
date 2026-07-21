@@ -11,7 +11,9 @@
 ## Key Resources
 - [Portfolio Homepage](https://bydhruvil.in/): Summary, experience, contact, and certifications.
 - [Projects](https://bydhruvil.in/projects): Directory of featured AI products.
-- [Blog](https://bydhruvil.in/blog): Personal journey and technical posts (e.g., "From 50% Grades to OpenAI Hackathon").
+- [Blog](https://bydhruvil.in/blog): Curated list of personal journey and technical articles.
+  - [From 50% Grades to OpenAI Hackathon](https://bydhruvil.in/blog/openai-hackathon): High-intent personal journey essay of developer growth.
+  - [Local AI is Easy. You're Overthinking It](https://bydhruvil.in/blog/local-ai): Technical guide to Moonshot's Kimi K3, Ollama, Open WebUI, and local inference stacks.
 - [Tech Stack](https://bydhruvil.in/stack): Detailed list of languages, frameworks, vector databases, and tools used.
 - [Biography](https://bydhruvil.in/bio): Career story, education details, and FAQ notes.
 
