@@ -90,11 +90,8 @@ export function Oneko() {
     };
 
     function setSprite(name: string, frame: number) {
-      if (name.includes("W") || name.includes("NW") || name.includes("SW")) {
-        nekoEl.style.transform = "scaleX(-1)";
-      } else if (name.includes("E") || name.includes("NE") || name.includes("SE")) {
-        nekoEl.style.transform = "scaleX(1)";
-      }
+      const sprite = spriteSets[name][frame % spriteSets[name].length];
+      nekoEl.style.backgroundPosition = `${sprite[0] * 32}px ${sprite[1] * 32}px`;
     }
 
     function resetIdleAnimation() {
@@ -208,7 +205,7 @@ export function Oneko() {
     }
 
     // Init
-    const nekoFile = "/images/miko.png";
+    const nekoFile = "/images/miko-sprites.png";
 
     if (persistPosition) {
       try {
@@ -223,7 +220,7 @@ export function Oneko() {
           isForcedSleep = storedNeko.isForcedSleep ?? false;
           idleAnimation = storedNeko.idleAnimation ?? null;
           idleAnimationFrame = storedNeko.idleAnimationFrame ?? 0;
-          nekoEl.style.backgroundPosition = "center";
+          nekoEl.style.backgroundPosition = storedNeko.bgPos ?? "";
         }
       } catch (e) {
         console.error("Error reading oneko state", e);
@@ -245,8 +242,6 @@ export function Oneko() {
     nekoEl.style.backgroundRepeat = "no-repeat";
     nekoEl.style.backgroundOrigin = "content-box";
     nekoEl.style.backgroundClip = "content-box";
-    nekoEl.style.backgroundSize = "contain";
-    nekoEl.style.backgroundPosition = "center";
     nekoEl.style.userSelect = "none";
     nekoEl.style.webkitUserSelect = "none";
     nekoEl.style.position = "fixed";
@@ -316,7 +311,7 @@ export function Oneko() {
             isForcedSleep,
             idleAnimation,
             idleAnimationFrame,
-            bgPos: "center"
+            bgPos: nekoEl.style.backgroundPosition
           }));
         } catch (e) {
           console.error("Error saving oneko state", e);
