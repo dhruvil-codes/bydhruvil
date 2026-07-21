@@ -367,7 +367,7 @@ export default function BlogPage() {
                       Reach out on X
                     </a>
                     <a
-                      href="https://linkedin.com/in/bydhruvil" // standard linkedin url mapping if not specific
+                      href="https://www.linkedin.com/in/dhruvilmistry16/"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="border border-border px-4 py-2 rounded-xl font-mono text-xs font-medium cursor-pointer inline-flex items-center justify-center gap-2 bg-background hover:bg-muted text-foreground transition-all hover:border-border/80"

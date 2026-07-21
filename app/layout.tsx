@@ -163,6 +163,44 @@ export default function RootLayout({
                   "mainEntity": {
                     "@id": "https://bydhruvil.in/#person"
                   }
+                },
+                {
+                  "@type": "FAQPage",
+                  "@id": "https://bydhruvil.in/#faq",
+                  "mainEntity": [
+                    {
+                      "@type": "Question",
+                      "name": "Who is Dhruvil Mistry?",
+                      "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Dhruvil Mistry is an AI Engineer based in Mumbai, India. He specializes in shipping production-grade LLM systems, RAG pipelines, and full-stack AI applications."
+                      }
+                    },
+                    {
+                      "@type": "Question",
+                      "name": "What has Dhruvil Mistry built?",
+                      "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Dhruvil has built flagship projects like Minutz (an AI Meeting Intelligence Platform selected at the OpenAI hackathon), Saral AI (a low-latency Voice AI Receptionist for MSMEs), Skin Cure (an AI dermatology classifier), and Clarity (a multi-provider Chrome reading assistant extension)."
+                      }
+                    },
+                    {
+                      "@type": "Question",
+                      "name": "What technologies does Dhruvil Mistry specialize in?",
+                      "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Dhruvil specializes in Python, FastAPI, Next.js, React, LangChain, LlamaIndex, vector databases (Qdrant, Pinecone, ChromaDB), and integrating frontier LLMs from OpenAI, Anthropic, and Gemini."
+                      }
+                    },
+                    {
+                      "@type": "Question",
+                      "name": "Is Dhruvil Mistry open to work?",
+                      "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Yes, Dhruvil Mistry is actively looking for AI Engineer, GenAI Engineer, or LLM Engineer roles at funded, fast-moving startups. He is based in Mumbai, India, and open to remote or on-site opportunities."
+                      }
+                    }
+                  ]
                 }
               ]
             }),

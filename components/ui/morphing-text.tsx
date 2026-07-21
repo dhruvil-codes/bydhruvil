@@ -149,7 +149,9 @@ const Texts: React.FC<
   const { text1Ref, text2Ref } = useMorphingText(texts, trigger)
   return (
     <span className="inline-grid">
-      <span className="col-start-1 row-start-1" ref={text1Ref} />
+      <span className="col-start-1 row-start-1" ref={text1Ref}>
+        {texts[0]}
+      </span>
       <span className="col-start-1 row-start-1" ref={text2Ref} />
     </span>
   )

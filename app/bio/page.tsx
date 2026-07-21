@@ -138,6 +138,46 @@ export default function BioPage() {
               </ul>
             </div>
           </div>
+
+          <div className="mt-10">
+            <h3 className="font-semibold tracking-tight text-foreground text-lg mb-4">
+              Frequently Asked Questions (FAQ)
+            </h3>
+            <div className="border-t border-border pt-4 space-y-6">
+              <div>
+                <h4 className="font-semibold text-foreground text-sm sm:text-base">
+                  Who is Dhruvil Mistry?
+                </h4>
+                <p className="text-sm sm:text-base text-muted-foreground mt-1 leading-6">
+                  Dhruvil Mistry is an AI Engineer based in Mumbai, India. He specializes in designing and shipping production-grade LLM systems, agentic architectures, RAG pipelines, and full-stack AI applications.
+                </p>
+              </div>
+              <div>
+                <h4 className="font-semibold text-foreground text-sm sm:text-base">
+                  What has Dhruvil Mistry built?
+                </h4>
+                <p className="text-sm sm:text-base text-muted-foreground mt-1 leading-6">
+                  His flagship projects include **Minutz** (an AI Meeting Intelligence Platform selected at the OpenAI hackathon), **Saral AI** (a real-time Voice AI Receptionist for MSMEs), **Skin Cure** (an AI dermatology classifier trained on SwinV2), and **Clarity** (a multi-provider AI reading assistant Chrome extension).
+                </p>
+              </div>
+              <div>
+                <h4 className="font-semibold text-foreground text-sm sm:text-base">
+                  What technologies does Dhruvil Mistry specialize in?
+                </h4>
+                <p className="text-sm sm:text-base text-muted-foreground mt-1 leading-6">
+                  Dhruvil specializes in Python, FastAPI, Next.js, React, LangChain, LlamaIndex, vector databases (Qdrant, Pinecone, ChromaDB), and integrating frontier LLMs from OpenAI, Anthropic, and Gemini.
+                </p>
+              </div>
+              <div>
+                <h4 className="font-semibold text-foreground text-sm sm:text-base">
+                  Is Dhruvil Mistry open to work?
+                </h4>
+                <p className="text-sm sm:text-base text-muted-foreground mt-1 leading-6">
+                  Yes, Dhruvil is actively seeking AI Engineer, GenAI Engineer, or LLM Engineer roles at funded, fast-moving startups. He is based in Mumbai, India, and open to remote or on-site opportunities.
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
     </div>
