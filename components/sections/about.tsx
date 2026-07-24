@@ -12,19 +12,13 @@ export default function About() {
       </header>
       <div className="p-4 sm:p-6 space-y-4 text-sm sm:text-base leading-7 text-neutral-600 dark:text-neutral-300">
         <p>
-          I don&apos;t build for demos. I build for the moment something actually works for a real business with a real problem, saving them time, cutting out friction, making something hard feel effortless.
+          I&apos;m an AI Engineer who loves building things around agents, LLMs and voice AI. Most of my time goes into tinkering with new ideas, shipping projects and going down random AI rabbit holes. I share almost everything I learn and build on X.
         </p>
         <p>
-          That&apos;s the only thing that&apos;s keeps me going.
+          I&apos;ve been building in AI since college, from Minutz, an AI meeting intelligence tool, to Saral AI, a multilingual voice agent. My favourite part is taking a random idea, turning it into something that actually works, and figuring out all the messy engineering in between.
         </p>
         <p>
-          I&apos;ve taken that obsession into hackathons too recently I got ranked #167 out of 13k globally on HackerRank Orchestrate, and selected as one of 1000 builders from 30k applicants for the Outskill x OpenAI hackathon.
-        </p>
-        <p>
-          if it solves something real, it&apos;s worth building..
-        </p>
-        <p>
-          Currently looking for an AI Engineer role at a startup where things move fast, the problems are real, and there&apos;s room to grow with the product. If that&apos;s you, let&apos;s talk.
+          Right now, I&apos;m going deeper into agentic AI, evals, observability and open source. I&apos;m also looking for an <strong className="font-semibold text-foreground">AI Engineer role at a startup</strong> where I can ship fast, work on real problems and grow alongside the product.
         </p>
       </div>
     </section>

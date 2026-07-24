@@ -17,6 +17,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
     {
+      url: `${baseUrl}/blog/building-minutz`,
+      lastModified: new Date("2026-07-21"),
+      changeFrequency: "monthly",
+      priority: 0.75,
+    },
+    {
       url: `${baseUrl}/blog/local-ai`,
       lastModified: new Date("2026-07-21"),
       changeFrequency: "monthly",

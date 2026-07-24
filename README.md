@@ -8,7 +8,7 @@
 
 *Building production-grade LLM systems, RAG pipelines & full-stack AI products*
 
-[![Live Site](https://img.shields.io/badge/Live%20Site-bydhruvil.in-black?style=for-the-badge&logo=vercel)](https://www.bydhruvil.in)
+[![Live Site](https://img.shields.io/badge/Live%20Site-bydhruvil.in-black?style=for-the-badge&logo=vercel)](https://bydhruvil.in)
 [![Next.js](https://img.shields.io/badge/Next.js-16-black?style=for-the-badge&logo=next.js)](https://nextjs.org)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org)
 [![Deployed on Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black?style=for-the-badge&logo=vercel)](https://vercel.com)
@@ -149,6 +149,6 @@ Open [http://localhost:3000](http://localhost:3000)
 
 <div align="center">
 
-Built with ❤️ by [Dhruvil Mistry](https://www.bydhruvil.in) · MIT License
+Built with ❤️ by [Dhruvil Mistry](https://bydhruvil.in) · MIT License
 
 </div>

@@ -9,6 +9,21 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  async redirects() {
+    return [
+      {
+        source: "/:path*",
+        has: [
+          {
+            type: "host",
+            value: "www.bydhruvil.in",
+          },
+        ],
+        destination: "https://bydhruvil.in/:path*",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;

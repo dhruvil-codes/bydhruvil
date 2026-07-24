@@ -1,7 +1,11 @@
 # Dhruvil Mistry — Knowledge Base
 
 ## About Me
-I'm an AI Engineer based in Mumbai, India, who specialises in building AI products which actually solves a problem. I integrate frontier LLMs (OpenAI, Anthropic, Gemini) into production workflows using LangChain, LlamaIndex, and FastAPI. I have hands-on experience with RAG pipelines, agentic architectures, and workflow automation using n8n. I'm skilled in prompt engineering, vector search, LLM evaluation, and shipping lightweight AI applications on AWS and Vercel across text, audio, and image workflows.
+I'm an AI Engineer who loves building things around agents, LLMs and voice AI. Most of my time goes into tinkering with new ideas, shipping projects and going down random AI rabbit holes. I share almost everything I learn and build on X.
+
+I've been building in AI since college, from Minutz, an AI meeting intelligence tool, to Saral AI, a multilingual voice agent. My favourite part is taking a random idea, turning it into something that actually works, and figuring out all the messy engineering in between.
+
+Right now, I'm going deeper into agentic AI, evals, observability and open source. I'm also looking for an **AI Engineer role at a startup** where I can ship fast, work on real problems and grow alongside the product.
 
 ## Contact
 - Email: dhruvilmistry16@gmail.com

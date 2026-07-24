@@ -49,6 +49,15 @@ interface BlogPost {
 
 const blogPosts: BlogPost[] = [
   {
+    slug: "building-minutz",
+    title: "Building Minutz: Capturing WebRTC Audio Streams in Chrome Extensions",
+    excerpt: "An in-depth look at capturing audio streams natively inside Google Chrome, overcoming Manifest V3 restrictions, and streaming WebSockets to FastAPI.",
+    coverImage: "/images/projects/minutz/minutz.jpg",
+    date: "July 2026",
+    readTime: "8 min read",
+    category: "Technical Article",
+  },
+  {
     slug: "local-ai",
     title: "Local AI is Easy. You're Overthinking It.",
     excerpt: "Moonshot AI launched Kimi K3 with 2.8T parameters for free. Learn why open weights are changing the game and how to set up your own local AI stack.",
