@@ -49,6 +49,15 @@ interface BlogPost {
 
 const blogPosts: BlogPost[] = [
   {
+    slug: "outreach-follow-up",
+    title: "You're not bad at outreach. You're bad at follow-up.",
+    excerpt: "I lost more opportunities to forgetting than to rejection. So I built Nudge to solve it — an AI agent for email follow-ups.",
+    coverImage: "/images/outreach-follow-up-banner.jpg",
+    date: "July 2026",
+    readTime: "5 min read",
+    category: "Featured Article",
+  },
+  {
     slug: "building-minutz",
     title: "Building Minutz: Capturing WebRTC Audio Streams in Chrome Extensions",
     excerpt: "An in-depth look at capturing audio streams natively inside Google Chrome, overcoming Manifest V3 restrictions, and streaming WebSockets to FastAPI.",
