@@ -3,7 +3,6 @@
 import React, { useEffect } from "react";
 import Navbar from "@/components/sections/navbar";
 import Header from "@/components/sections/header";
-import FloatingDock from "@/components/sections/floating-dock";
 import MorphPanel from "@/components/ui/morph-panel";
 import Footer from "@/components/sections/footer";
 import { ExpandableCard } from "@/components/ui/expandable-card";
@@ -221,7 +220,6 @@ export default function ProjectsPage() {
         <div className="fixed bottom-4 right-4 md:bottom-6 md:right-6 z-[9999]">
           <MorphPanel />
         </div>
-        <FloatingDock />
       </main>
     </div>
   );

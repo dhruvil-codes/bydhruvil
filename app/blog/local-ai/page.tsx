@@ -4,7 +4,6 @@ import Image from "next/image";
 import type { Metadata } from "next";
 import Navbar from "@/components/sections/navbar";
 import Footer from "@/components/sections/footer";
-import FloatingDock from "@/components/sections/floating-dock";
 import MorphPanel from "@/components/ui/morph-panel";
 import { Crosshairs } from "@/components/ui/crosshairs";
 import { ArrowLeft } from "lucide-react";
@@ -380,7 +379,6 @@ export default function LocalAIBlogPage() {
         <div className="fixed bottom-4 right-4 md:bottom-6 md:right-6 z-[9999]">
           <MorphPanel />
         </div>
-        <FloatingDock />
       </main>
     </div>
   );

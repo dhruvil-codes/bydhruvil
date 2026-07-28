@@ -12,7 +12,6 @@ import Skills from "@/components/sections/skills";
 import Certifications from "@/components/sections/certifications";
 import Quote from "@/components/sections/quote";
 import Footer from "@/components/sections/footer";
-import FloatingDock from "@/components/sections/floating-dock";
 import MorphPanel from "@/components/ui/morph-panel";
 
 export default function Home() {
@@ -95,7 +94,6 @@ export default function Home() {
         <div className="fixed bottom-4 right-4 md:bottom-6 md:right-6 z-[9999]">
           <MorphPanel />
         </div>
-        <FloatingDock />
       </main>
     </div>
   );

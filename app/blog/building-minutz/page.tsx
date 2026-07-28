@@ -4,7 +4,6 @@ import Image from "next/image";
 import type { Metadata } from "next";
 import Navbar from "@/components/sections/navbar";
 import Footer from "@/components/sections/footer";
-import FloatingDock from "@/components/sections/floating-dock";
 import MorphPanel from "@/components/ui/morph-panel";
 import { Crosshairs } from "@/components/ui/crosshairs";
 import { ArrowLeft } from "lucide-react";
@@ -349,7 +348,6 @@ async def stream_audio(websocket: WebSocket):
         </div>
       </main>
 
-      <FloatingDock />
       <MorphPanel />
     </div>
   );
