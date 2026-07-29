@@ -48,6 +48,15 @@ interface BlogPost {
 
 const blogPosts: BlogPost[] = [
   {
+    slug: "memory-poisoning",
+    title: "Nothing Crashed. Nothing Flagged. Your Agent Was Already Compromised.",
+    excerpt: "I thought prompt injection was the scariest thing in AI security. I was wrong. How attackers target what your AI agent remembers — and why OWASP added it to the Top 10.",
+    coverImage: "/images/memory-poisoning-banner.png",
+    date: "July 2026",
+    readTime: "6 min read",
+    category: "Featured Article",
+  },
+  {
     slug: "outreach-follow-up",
     title: "You're not bad at outreach. You're bad at follow-up.",
     excerpt: "I lost more opportunities to forgetting than to rejection. So I built Nudge to solve it — an AI agent for email follow-ups.",

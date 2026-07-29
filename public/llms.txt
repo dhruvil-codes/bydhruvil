@@ -12,6 +12,7 @@
 - [Portfolio Homepage](https://bydhruvil.in/): Summary, experience, contact, and certifications.
 - [Projects](https://bydhruvil.in/projects): Directory of featured AI products.
 - [Blog](https://bydhruvil.in/blog): Curated list of personal journey and technical articles.
+  - [Nothing Crashed. Nothing Flagged. Your Agent Was Already Compromised](https://bydhruvil.in/blog/memory-poisoning): Technical analysis of Memory Poisoning (MINJA, Sleeper Memory, AgentPoison) and OWASP Top 10 for Agentic AI.
   - [You're Not Bad at Outreach. You're Bad at Follow-Up](https://bydhruvil.in/blog/outreach-follow-up): Personal essay and introduction to Nudge, a CLI AI agent for email follow-ups.
   - [From 50% Grades to OpenAI Hackathon](https://bydhruvil.in/blog/openai-hackathon): High-intent personal journey essay of developer growth.
   - [Local AI is Easy. You're Overthinking It](https://bydhruvil.in/blog/local-ai): Technical guide to Moonshot's Kimi K3, Ollama, Open WebUI, and local inference stacks.
