@@ -12,9 +12,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${baseUrl}/blog`,
-      lastModified: new Date("2026-07-29"),
+      lastModified: new Date("2026-08-05"),
       changeFrequency: "weekly",
       priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/blog/gpt-live`,
+      lastModified: new Date("2026-08-05"),
+      changeFrequency: "monthly",
+      priority: 0.75,
     },
     {
       url: `${baseUrl}/blog/memory-poisoning`,

@@ -48,6 +48,15 @@ interface BlogPost {
 
 const blogPosts: BlogPost[] = [
   {
+    slug: "gpt-live",
+    title: "why GPT-Live feels different (it’s not a model, it’s the plumbing)",
+    excerpt: "while everyone studied the model. OpenAI was busy rebuilding the plumbing.",
+    coverImage: "/images/gpt-live-banner.png",
+    date: "August 2026",
+    readTime: "6 min read",
+    category: "Featured Article",
+  },
+  {
     slug: "memory-poisoning",
     title: "Nothing Crashed. Nothing Flagged. Your Agent Was Already Compromised.",
     excerpt: "I thought prompt injection was the scariest thing in AI security. I was wrong. How attackers target what your AI agent remembers — and why OWASP added it to the Top 10.",
