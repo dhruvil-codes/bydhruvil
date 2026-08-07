@@ -52,11 +52,25 @@ export default function ProjectsPage() {
             "@id": "https://bydhruvil.in/projects#itemlist",
             "name": "Dhruvil Mistry's Projects",
             "description": "AI systems and web applications engineered by Dhruvil Mistry.",
-            "numberOfItems": 4,
+            "numberOfItems": 5,
             "itemListElement": [
               {
                 "@type": "ListItem",
                 "position": 1,
+                "item": {
+                  "@type": "SoftwareApplication",
+                  "name": "Nudge",
+                  "applicationCategory": "BusinessApplication",
+                  "operatingSystem": "All",
+                  "description": "An autonomous AI Gmail follow-up agent that identifies unanswered email threads and generates contextual, human-like follow-up drafts using Groq's Llama 3.3 70B.",
+                  "creator": {
+                    "@id": "https://bydhruvil.in/#person"
+                  }
+                }
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
                 "item": {
                   "@type": "SoftwareApplication",
                   "name": "Saral AI",
@@ -70,7 +84,7 @@ export default function ProjectsPage() {
               },
               {
                 "@type": "ListItem",
-                "position": 2,
+                "position": 3,
                 "item": {
                   "@type": "SoftwareApplication",
                   "name": "Minutz",
@@ -84,7 +98,7 @@ export default function ProjectsPage() {
               },
               {
                 "@type": "ListItem",
-                "position": 3,
+                "position": 4,
                 "item": {
                   "@type": "SoftwareApplication",
                   "name": "Skin Cure",
@@ -98,7 +112,7 @@ export default function ProjectsPage() {
               },
               {
                 "@type": "ListItem",
-                "position": 4,
+                "position": 5,
                 "item": {
                   "@type": "SoftwareApplication",
                   "name": "Clarity",

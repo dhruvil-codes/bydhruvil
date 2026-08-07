@@ -60,6 +60,27 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    slug: "nudge",
+    title: "Nudge",
+    subtitle: "Autonomous AI Gmail Follow-Up Agent",
+    description:
+      "Nudge is an autonomous AI Gmail follow-up agent that identifies unanswered email threads and generates contextual, human-like follow-up drafts using Groq's Llama 3.3 70B. Built as a zero-setup CLI tool with Google OAuth, local SQLite persistence, and Model Context Protocol (MCP) support, it integrates with AI clients like Claude Desktop and Cursor while keeping user data local and secure.",
+    boldWords: [
+      "autonomous AI Gmail follow-up agent",
+      "Groq's Llama 3.3 70B",
+      "zero-setup CLI tool",
+      "Google OAuth",
+      "local SQLite persistence",
+      "Model Context Protocol (MCP)",
+    ],
+    tags: ["Python", "CLI", "Groq LLM", "Llama 3.3 70B", "MCP", "SQLite", "Google OAuth"],
+    status: "shipped",
+    statusLabel: "Shipped",
+    links: [{ label: "View GitHub", href: "https://github.com/dhruvil-codes" }],
+    images: ["/images/projects/nudge/nudge.png"],
+    featured: true,
+  },
+  {
     slug: "saral-ai",
     title: "Saral AI",
     subtitle: "Voice AI Receptionist",
