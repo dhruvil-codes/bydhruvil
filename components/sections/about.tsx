@@ -12,7 +12,10 @@ export default function About() {
       </header>
       <div className="p-4 sm:p-6 space-y-3 text-sm sm:text-base leading-7 text-neutral-600 dark:text-neutral-300">
         <p>
-          I&apos;m an AI Engineer building agentic systems, LLMs, and voice AI. I turn ideas into production-ready products—like Minutz (AI meeting intelligence) and Saral AI (voice agent)—figuring out all the messy engineering in between.
+          I build AI products from idea to production. Whether it&apos;s AI agents, voice AI, RAG, or developer tools, I enjoy solving messy engineering problems and turning prototypes into products people actually use.
+        </p>
+        <p>
+          Outside of building, I love documenting the journey and contributing to open source. I&apos;m always experimenting with new ideas, shipping fast, and obsessing over what makes AI products feel magical.
         </p>
         <p>
           Currently focusing on agentic AI, evals, and open source, and looking for an <strong className="font-semibold text-foreground">AI Engineer role at a startup</strong> where I can ship fast and solve real-world problems.
