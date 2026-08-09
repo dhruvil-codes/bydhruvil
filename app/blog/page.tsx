@@ -48,6 +48,15 @@ interface BlogPost {
 
 const blogPosts: BlogPost[] = [
   {
+    slug: "skill-of-execution",
+    title: "Why your best ideas die in your notes app",
+    excerpt: "How your brain runs at 100% CPU utilization while your project stands completely still — and the operational toolkit to break the loop of overthinking.",
+    coverImage: "/images/skill-of-execution-banner.jpg",
+    date: "August 2026",
+    readTime: "6 min read",
+    category: "Featured Article",
+  },
+  {
     slug: "gpt-live",
     title: "why GPT-Live feels different (it’s not a model, it’s the plumbing)",
     excerpt: "while everyone studied the model. OpenAI was busy rebuilding the plumbing.",
