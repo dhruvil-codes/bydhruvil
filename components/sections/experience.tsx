@@ -32,6 +32,23 @@ const roles: ExperienceItem[] = [
     ],
   },
   {
+    title: "Google Developer Program Member",
+    company: "Google Developers Group",
+    date: "Jan 2024 – Present · 2 yrs 8 mos",
+    description: [
+      "Earned 59,000+ Google Skills points and reached Diamond League, demonstrating sustained engagement with Google’s technical learning ecosystem.",
+      "Built a long-term foundation in AI, Generative AI, Google Cloud, and developer technologies through hands-on learning and technical programs.",
+      "Participated in Google developer community initiatives and technical learning programs, building practical experience across modern AI and cloud technologies.",
+    ],
+    items: [
+      {
+        image: "/images/experience/gdg.png",
+        alt: "Google Developers Group",
+        link: "https://gdg.community.dev",
+      },
+    ],
+  },
+  {
     title: "Full Stack Web Designer",
     company: "Contra Platform",
     date: "Oct 2023 – Feb 2024",

@@ -186,6 +186,15 @@ export const experiences: Experience[] = [
     boldWords: ["20%", "production ML pipelines", "Docker", "CI/CD pipelines"],
   },
   {
+    role: "Google Developer Program Member",
+    company: "Google Developers Group",
+    location: "Mumbai",
+    period: "Jan 2024 — Present",
+    description:
+      "Earned 59,000+ Google Skills points and reached Diamond League, demonstrating sustained engagement with Google’s technical learning ecosystem. Built a long-term foundation in AI, Generative AI, Google Cloud, and developer technologies through hands-on learning and technical programs.",
+    boldWords: ["59,000+", "Google Skills points", "Diamond League", "AI, Generative AI, Google Cloud"],
+  },
+  {
     role: "Full Stack Web Designer",
     company: "Contra Platform",
     location: "Remote",

@@ -38,6 +38,13 @@ Every project I've built started with a real frustration. Minutz because meeting
 - Reduced model error rates by 20% across production ML pipelines by engineering end-to-end preprocessing and feature engineering.
 - Containerised ML workflows with Docker and integrated version-controlled releases into CI/CD pipelines.
 
+### Google Developer Program Member — Google Developers Group
+*Jan 2024 – Present*
+
+- Earned 59,000+ Google Skills points and reached Diamond League, demonstrating sustained engagement with Google’s technical learning ecosystem.
+- Built a long-term foundation in AI, Generative AI, Google Cloud, and developer technologies through hands-on learning and technical programs.
+- Participated in Google developer community initiatives and technical learning programs, building practical experience across modern AI and cloud technologies.
+
 ### Full Stack Web Designer — Contra Platform
 *Oct 2023 – Feb 2024*
 

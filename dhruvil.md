@@ -47,6 +47,12 @@ Sep 2025 – Nov 2025
 - Accelerated NLP delivery by building sentiment analysis, text classification, and keyword extraction workflows with Hugging Face transformers; improved prompt engineering strategy to reduce LLM hallucinations on enterprise data.
 - Improved pipeline reproducibility and CI/CD deployment consistency by containerizing ML workflows with Docker, enabling repeatable model evaluation across environments.
 
+### Google Developer Program Member — Google Developers Group (Mumbai)
+Jan 2024 – Present
+- Earned 59,000+ Google Skills points and reached Diamond League, demonstrating sustained engagement with Google’s technical learning ecosystem.
+- Built a long-term foundation in AI, Generative AI, Google Cloud, and developer technologies through hands-on learning and technical programs.
+- Participated in Google developer community initiatives and technical learning programs, building practical experience across modern AI and cloud technologies.
+
 ### Full Stack Web Designer — Contra Platform (Remote)
 Oct 2023 – Feb 2024
 - Delivered 10+ full-stack applications with 95% client satisfaction and zero post-launch critical bugs.

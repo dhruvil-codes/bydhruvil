@@ -124,6 +124,9 @@ export default function BioPage() {
             <div className="border-t border-border pt-4">
               <ul className="text-sm sm:text-base leading-7 text-muted-foreground tracking-[-0.01em] list-disc list-outside ml-4 space-y-2">
                 <li>
+                  <span className="font-semibold text-foreground">Google Developer Program Member</span> at Google Developers Group (Jan 2024 – Present), earning 59,000+ Skills points and reaching Diamond League.
+                </li>
+                <li>
                   <span className="font-semibold text-foreground">Technical Lead</span> at ISTE RGIT Students Chapter (2024 – Present), directing technical curriculum and leading workshops.
                 </li>
                 <li>
