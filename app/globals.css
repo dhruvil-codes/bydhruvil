@@ -114,10 +114,7 @@ body {
   filter: grayscale(0%);
 }
 
-::view-transition-old(root), ::view-transition-new(root) {
-    animation: none;
-    mix-blend-mode: normal;
-}
+
 
 .dark {
   --color-background: #09090b;
