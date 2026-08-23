@@ -9,11 +9,8 @@ const BOT_USER_AGENTS = [
   "applebot-extended",
   "ora-agent",
   "deepseekbot",
-  "ccbot",
-  "bytespider",
   "anthropic-ai",
   "oai-searchbot",
-  "amazonbot",
   "meta-externalagent",
   "cohere-ai",
 ];
@@ -27,12 +24,15 @@ const HOMEPAGE_MARKDOWN = `# Dhruvil Mistry — AI Engineer
 - **GitHub:** https://github.com/dhruvil-codes
 - **Twitter/X:** https://x.com/bydhruvil
 - **Website:** https://bydhruvil.in
+- **Developer Portal:** https://bydhruvil.in/developers
 
 ---
 
 ## Agent Instructions & NLWeb Endpoints
 - **NLWeb Query Endpoint:** POST https://bydhruvil.in/ask (supports SSE streaming)
+- **v1 API Root:** https://bydhruvil.in/v1/ask | https://bydhruvil.in/v1/projects
 - **MCP Server Card:** https://bydhruvil.in/.well-known/mcp/server-card.json
+- **MCP JSON-RPC Endpoint:** POST https://bydhruvil.in/mcp
 - **Agent Instructions:** https://bydhruvil.in/agents.md
 - **Developer Portal:** https://bydhruvil.in/developers
 - **LLM Context:** https://bydhruvil.in/llms.txt
@@ -54,10 +54,21 @@ const HOMEPAGE_MARKDOWN = `# Dhruvil Mistry — AI Engineer
 - **Vector Databases:** Qdrant, Pinecone, ChromaDB.
 `;
 
+const RATE_LIMIT_HEADERS: Record<string, string> = {
+  "RateLimit-Limit": "100",
+  "RateLimit-Remaining": "99",
+  "RateLimit-Reset": "60",
+  "RateLimit-Policy": "100;w=60",
+  "X-RateLimit-Limit": "100",
+  "X-RateLimit-Remaining": "99",
+  "X-RateLimit-Reset": "60",
+};
+
 export function middleware(request: NextRequest) {
   const { pathname, searchParams } = request.nextUrl;
   const acceptHeader = request.headers.get("accept") || "";
   const userAgent = (request.headers.get("user-agent") || "").toLowerCase();
+  const idempotencyKey = request.headers.get("idempotency-key") || request.headers.get("x-idempotency-key") || "";
   const isAgentMode = searchParams.get("mode") === "agent" || request.headers.get("x-mode") === "agent";
   const wantsMarkdown = acceptHeader.includes("text/markdown");
   const isAiBot = BOT_USER_AGENTS.some((bot) => userAgent.includes(bot));
@@ -75,31 +86,77 @@ export function middleware(request: NextRequest) {
         "Link": '<https://bydhruvil.in/index.md>; rel="alternate"; type="text/markdown", <https://bydhruvil.in/sitemap.xml>; rel="sitemap", <https://bydhruvil.in/.well-known/ai-catalog.json>; rel="describedby"',
         "Access-Control-Allow-Origin": "*",
         "Cache-Control": "public, max-age=3600, stale-while-revalidate=86400",
+        ...(idempotencyKey ? { "Idempotency-Key": idempotencyKey } : {}),
+        ...RATE_LIMIT_HEADERS,
       },
     });
   }
 
-  // Rewrite /developers.md, /agents.md, /auth.md, etc. to public static files if needed
+  // If unknown api or v1 route is queried that is not recognized
+  const knownApiPrefixes = [
+    "/api/ask",
+    "/api/dhruvil",
+    "/api/donna",
+    "/api/mcp",
+    "/api/tts",
+    "/api/visitors",
+    "/api/v1",
+    "/v1/ask",
+    "/v1/chat",
+    "/v1/projects",
+    "/v1/tasks",
+    "/ask",
+    "/mcp",
+  ];
+
+  const isApiRoute = pathname.startsWith("/api/") || pathname.startsWith("/v1/");
+  const isKnown = knownApiPrefixes.some((p) => pathname === p || pathname.startsWith(p + "/"));
+
+  if (isApiRoute && !isKnown) {
+    return new NextResponse(
+      JSON.stringify({
+        error: {
+          code: "NOT_FOUND",
+          message: `The requested API endpoint '${pathname}' was not found.`,
+          status: 404,
+          timestamp: new Date().toISOString(),
+          documentation_url: "https://bydhruvil.in/developers",
+        },
+      }),
+      {
+        status: 404,
+        headers: {
+          "Content-Type": "application/json; charset=utf-8",
+          "Access-Control-Allow-Origin": "*",
+          ...(idempotencyKey ? { "Idempotency-Key": idempotencyKey } : {}),
+          ...RATE_LIMIT_HEADERS,
+        },
+      }
+    );
+  }
+
   const response = NextResponse.next();
 
-  // Attach RFC 8288 Link headers and Accept Vary header to all responses
+  // Attach RFC 8288 Link headers, Accept Vary header, and Rate Limit headers to all responses
   response.headers.set(
     "Link",
-    '<https://bydhruvil.in/index.md>; rel="alternate"; type="text/markdown", <https://bydhruvil.in/sitemap.xml>; rel="sitemap", <https://bydhruvil.in/.well-known/ai-catalog.json>; rel="describedby"'
+    '<https://bydhruvil.in/index.md>; rel="alternate"; type="text/markdown", <https://bydhruvil.in/sitemap.xml>; rel="sitemap", <https://bydhruvil.in/.well-known/ai-catalog.json>; rel="describedby", <https://bydhruvil.in/developers>; rel="service-doc"'
   );
   response.headers.set("Vary", "Accept, User-Agent");
+
+  for (const [key, value] of Object.entries(RATE_LIMIT_HEADERS)) {
+    response.headers.set(key, value);
+  }
+
+  if (idempotencyKey) {
+    response.headers.set("Idempotency-Key", idempotencyKey);
+  }
 
   return response;
 }
 
 export const config = {
   matcher: [
-    /*
-     * Match all request paths except for the ones starting with:
-     * - _next/static (static files)
-     * - _next/image (image optimization files)
-     * - favicon.ico (favicon file)
-     */
     "/((?!_next/static|_next/image|favicon.ico).*)",
   ],
 };

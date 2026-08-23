@@ -2,25 +2,31 @@
   "linkset": [
     {
       "anchor": "https://bydhruvil.in",
-      "service-desc": [
+      "item": [
         {
           "href": "https://bydhruvil.in/openapi.json",
+          "rel": "service-desc",
           "type": "application/vnd.oai.openapi+json;version=3.1"
-        }
-      ],
-      "service-doc": [
+        },
         {
           "href": "https://bydhruvil.in/developers",
+          "rel": "service-doc",
           "type": "text/html"
         },
         {
           "href": "https://bydhruvil.in/llms.txt",
+          "rel": "describedby",
           "type": "text/markdown"
-        }
-      ],
-      "status": [
+        },
         {
-          "href": "https://bydhruvil.in/api/dhruvil/chat"
+          "href": "https://bydhruvil.in/ask",
+          "rel": "service",
+          "type": "application/json"
+        },
+        {
+          "href": "https://bydhruvil.in/.well-known/mcp/server-card.json",
+          "rel": "service-desc",
+          "type": "application/json"
         }
       ]
     }

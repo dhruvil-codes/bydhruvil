@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { Crosshairs } from "@/components/ui/crosshairs";
 import { FrameButton } from "@/components/ui/frame-button";
 import { cn } from "@/lib/utils";
@@ -26,13 +27,76 @@ export default function Footer() {
       itemType="https://schema.org/WPFooter"
     >
       <Crosshairs top={true} bottom={true} />
-      <div className="flex flex-col gap-4 w-full">
-        {/* Crawlable Social Links for Entity & Profile Authority (Visually Hidden) */}
+      <div className="flex flex-col gap-5 w-full">
+        {/* Developer, API & Trust Links for AI Agents & Search Engines */}
+        <div className="flex flex-wrap items-center justify-between gap-y-2 gap-x-4 border-b border-edge/60 pb-4 text-xs font-mono">
+          <div className="flex flex-wrap items-center gap-3 sm:gap-4 text-muted-foreground">
+            <Link
+              href="/developers"
+              className="hover:text-foreground transition-colors font-semibold text-foreground/90 underline decoration-muted-foreground/40 underline-offset-4"
+            >
+              Developers &amp; API
+            </Link>
+            <span className="text-edge/80">/</span>
+            <a
+              href="/openapi.json"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-foreground transition-colors"
+            >
+              OpenAPI
+            </a>
+            <span className="text-edge/80">/</span>
+            <Link
+              href="/agents.md"
+              className="hover:text-foreground transition-colors"
+            >
+              Agents
+            </Link>
+            <span className="text-edge/80">/</span>
+            <Link
+              href="/about"
+              className="hover:text-foreground transition-colors"
+            >
+              About
+            </Link>
+            <span className="text-edge/80">/</span>
+            <Link
+              href="/contact"
+              className="hover:text-foreground transition-colors"
+            >
+              Contact
+            </Link>
+            <span className="text-edge/80">/</span>
+            <Link
+              href="/privacy"
+              className="hover:text-foreground transition-colors"
+            >
+              Privacy
+            </Link>
+            <span className="text-edge/80">/</span>
+            <Link
+              href="/terms"
+              className="hover:text-foreground transition-colors"
+            >
+              Terms
+            </Link>
+          </div>
+
+          <div className="text-[11px] text-muted-foreground/70">
+            <span className="inline-block h-2 w-2 rounded-full bg-emerald-500 mr-1.5 align-middle animate-pulse" />
+            APIs: Free &amp; Self-Serve
+          </div>
+        </div>
+
+        {/* Crawlable Social Links for Entity & Profile Authority */}
         <div className="sr-only" aria-hidden="true">
           <a href="https://www.linkedin.com/in/dhruvilmistry16/">Dhruvil Mistry LinkedIn</a>
           <a href="https://github.com/dhruvil-codes">Dhruvil Mistry GitHub</a>
           <a href="https://peerlist.io/bydhruvil">Dhruvil Mistry Peerlist</a>
           <a href="https://x.com/bydhruvil">Dhruvil Mistry X / Twitter</a>
+          <a href="https://bydhruvil.in/developers">Dhruvil Mistry Developer Portal and API Documentation</a>
+          <a href="https://bydhruvil.in/openapi.json">ByDhruvil OpenAPI 3.1 Spec</a>
         </div>
 
         <div className="flex flex-col sm:flex-row justify-between w-full items-center gap-4">
@@ -88,4 +152,3 @@ export default function Footer() {
     </footer>
   );
 }
-

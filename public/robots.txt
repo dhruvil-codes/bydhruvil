@@ -10,6 +10,9 @@ Allow: /
 User-agent: ClaudeBot
 Allow: /
 
+User-agent: Claude-Web
+Allow: /
+
 User-agent: PerplexityBot
 Allow: /
 
@@ -34,14 +37,17 @@ Allow: /
 User-agent: Meta-ExternalAgent
 Allow: /
 
-User-agent: Amazonbot
-Allow: /
-
-User-agent: Bytespider
+User-agent: cohere-ai
 Allow: /
 
 User-agent: CCBot
-Allow: /
+Disallow: /
+
+User-agent: Bytespider
+Disallow: /
+
+User-agent: Diffbot
+Disallow: /
 
 Sitemap: https://bydhruvil.in/sitemap.xml
 schemamap: https://bydhruvil.in/schemamap.xml

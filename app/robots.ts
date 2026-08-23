@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 
 export default function robots(): MetadataRoute.Robots {
-  const aiBots = [
+  const allowedAiBots = [
     "GPTBot",
     "ChatGPT-User",
     "ClaudeBot",
@@ -11,18 +11,26 @@ export default function robots(): MetadataRoute.Robots {
     "Applebot-Extended",
     "ora-agent",
     "DeepSeekBot",
-    "Bytespider",
-    "CCBot",
     "anthropic-ai",
     "OAI-SearchBot",
-    "Amazonbot",
     "Meta-ExternalAgent",
     "cohere-ai",
   ];
 
-  const botRules = aiBots.map((bot) => ({
+  const blockedTrainingBots = [
+    "CCBot",
+    "Bytespider",
+    "Diffbot",
+  ];
+
+  const allowedRules = allowedAiBots.map((bot) => ({
     userAgent: bot,
     allow: "/",
+  }));
+
+  const blockedRules = blockedTrainingBots.map((bot) => ({
+    userAgent: bot,
+    disallow: "/",
   }));
 
   return {
@@ -31,7 +39,8 @@ export default function robots(): MetadataRoute.Robots {
         userAgent: "*",
         allow: "/",
       },
-      ...botRules,
+      ...allowedRules,
+      ...blockedRules,
     ],
     sitemap: "https://bydhruvil.in/sitemap.xml",
   };

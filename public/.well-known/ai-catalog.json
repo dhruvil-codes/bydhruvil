@@ -1,50 +1,62 @@
 {
-  "$schema": "https://ai-catalog.org/schema/v1.0.json",
-  "name": "Dhruvil Mistry - AI Engineer Portfolio & AI Services",
-  "version": "1.0.0",
-  "description": "Official AI Resource Discovery catalog for Dhruvil Mistry (bydhruvil.in) - AI Engineer building production-grade LLM systems, RAG pipelines, and full-stack AI apps.",
-  "homepage": "https://bydhruvil.in",
-  "contact": {
-    "name": "Dhruvil Mistry",
-    "email": "dhruvilmistry16@gmail.com",
-    "url": "https://bydhruvil.in/contact"
-  },
-  "documentation": {
-    "llms_txt": "https://bydhruvil.in/llms.txt",
-    "agents_md": "https://bydhruvil.in/agents.md",
-    "auth_md": "https://bydhruvil.in/auth.md",
-    "developers_portal": "https://bydhruvil.in/developers",
-    "openapi": "https://bydhruvil.in/openapi.json"
-  },
-  "endpoints": {
-    "nlweb_ask": {
-      "url": "https://bydhruvil.in/ask",
-      "methods": ["GET", "POST"],
-      "description": "NLWeb natural language query and question answering endpoint with streaming support",
-      "supports_streaming": true
-    },
-    "chat_api": {
-      "url": "https://bydhruvil.in/api/dhruvil/chat",
-      "methods": ["POST"],
-      "description": "Conversational Q&A interface grounded on Dhruvil Mistry's portfolio and project data"
+  "specVersion": "1.0.0",
+  "name": "Dhruvil Mistry AI Catalog",
+  "description": "AI Resource Discovery (ARD) catalog for Dhruvil Mistry - AI Engineer portfolio, APIs, MCP servers, and agent tools.",
+  "entries": [
+    {
+      "id": "bydhruvil-agent",
+      "name": "Dhruvil Mistry Portfolio & AI Assistant",
+      "type": "agent",
+      "version": "1.0.0",
+      "description": "AI assistant and knowledge interface for Dhruvil Mistry (AI Engineer). Grounded on flagship AI projects (Minutz, Saral AI, Skin Cure, Clarity), technical background, and skills.",
+      "url": "https://bydhruvil.in",
+      "documentation": {
+        "llms_txt": "https://bydhruvil.in/llms.txt",
+        "agents_md": "https://bydhruvil.in/agents.md",
+        "auth_md": "https://bydhruvil.in/auth.md",
+        "developers_portal": "https://bydhruvil.in/developers",
+        "openapi": "https://bydhruvil.in/openapi.json"
+      },
+      "endpoints": [
+        {
+          "name": "nlweb_ask",
+          "url": "https://bydhruvil.in/ask",
+          "method": "POST",
+          "protocol": "NLWeb",
+          "description": "Natural language question answering endpoint with SSE streaming support"
+        },
+        {
+          "name": "chat_api",
+          "url": "https://bydhruvil.in/api/dhruvil/chat",
+          "method": "POST",
+          "protocol": "REST",
+          "description": "Conversational Q&A interface"
+        },
+        {
+          "name": "mcp_server",
+          "url": "https://bydhruvil.in/mcp",
+          "method": "POST",
+          "protocol": "MCP",
+          "description": "Model Context Protocol JSON-RPC 2.0 endpoint"
+        }
+      ],
+      "mcp": {
+        "server_card": "https://bydhruvil.in/.well-known/mcp/server-card.json",
+        "manifest": "https://bydhruvil.in/.well-known/mcp.json",
+        "endpoint": "https://bydhruvil.in/mcp"
+      },
+      "skills": {
+        "index": "https://bydhruvil.in/.well-known/agent-skills/index.json"
+      },
+      "trustManifest": {
+        "publisher": "Dhruvil Mistry",
+        "domain": "bydhruvil.in",
+        "verified": true,
+        "contactEmail": "dhruvilmistry16@gmail.com",
+        "privacyPolicy": "https://bydhruvil.in/privacy",
+        "termsOfService": "https://bydhruvil.in/terms",
+        "httpSignaturesDirectory": "https://bydhruvil.in/.well-known/http-message-signatures-directory"
+      }
     }
-  },
-  "mcp_server": {
-    "server_card": "https://bydhruvil.in/.well-known/mcp/server-card.json",
-    "manifest": "https://bydhruvil.in/.well-known/mcp.json",
-    "display_name": "Dhruvil Mistry MCP Server",
-    "description": "Model Context Protocol server providing tools to query Dhruvil's projects, experience, skills, and schedule chat."
-  },
-  "agent_skills": {
-    "index": "https://bydhruvil.in/.well-known/agent-skills/index.json",
-    "spec_version": "v0.2.0"
-  },
-  "trust": {
-    "publisher": "Dhruvil Mistry",
-    "domain": "bydhruvil.in",
-    "verification": "verified",
-    "privacy_policy": "https://bydhruvil.in/privacy",
-    "terms_of_service": "https://bydhruvil.in/terms",
-    "http_message_signatures": "https://bydhruvil.in/.well-known/http-message-signatures-directory"
-  }
+  ]
 }

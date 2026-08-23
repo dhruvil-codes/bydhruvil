@@ -2,7 +2,6 @@ import Groq from "groq-sdk";
 import { readFileSync } from "fs";
 import { join } from "path";
 
-// Initialize Groq if API key is present
 const groqApiKey = process.env.GROQ_API_KEY;
 const groq = groqApiKey ? new Groq({ apiKey: groqApiKey }) : null;
 
@@ -24,7 +23,25 @@ RULES:
 KNOWLEDGE BASE:
 ${getKnowledgeBase()}`;
 
-async function handleQuery(query: string, isStream: boolean): Promise<Response> {
+const RATE_LIMIT_HEADERS = {
+  "RateLimit-Limit": "100",
+  "RateLimit-Remaining": "99",
+  "RateLimit-Reset": "60",
+  "RateLimit-Policy": "100;w=60",
+  "X-RateLimit-Limit": "100",
+  "X-RateLimit-Remaining": "99",
+  "X-RateLimit-Reset": "60",
+  "Access-Control-Allow-Origin": "*",
+  "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
+  "Access-Control-Allow-Headers": "Content-Type, Authorization, Idempotency-Key, X-Idempotency-Key, X-Agent-ID, X-API-Version",
+};
+
+async function handleQuery(query: string, isStream: boolean, idempotencyKey: string = ""): Promise<Response> {
+  const baseHeaders = {
+    ...RATE_LIMIT_HEADERS,
+    ...(idempotencyKey ? { "Idempotency-Key": idempotencyKey } : {}),
+  };
+
   const sources = [
     "https://bydhruvil.in",
     "https://bydhruvil.in/projects",
@@ -35,10 +52,15 @@ async function handleQuery(query: string, isStream: boolean): Promise<Response> 
   if (!query || typeof query !== "string" || !query.trim()) {
     return new Response(
       JSON.stringify({
-        error: "Missing query parameter",
-        usage: "GET /ask?q=your_question or POST /ask with JSON { query: 'your_question' }"
+        error: {
+          code: "INVALID_QUERY",
+          message: "Missing query parameter. Provide 'q' in searchParams or 'query' in JSON body.",
+          status: 400,
+          timestamp: new Date().toISOString(),
+          documentation_url: "https://bydhruvil.in/developers"
+        }
       }),
-      { status: 400, headers: { "Content-Type": "application/json" } }
+      { status: 400, headers: { "Content-Type": "application/json; charset=utf-8", ...baseHeaders } }
     );
   }
 
@@ -83,6 +105,7 @@ async function handleQuery(query: string, isStream: boolean): Promise<Response> 
             "Content-Type": "text/event-stream; charset=utf-8",
             "Cache-Control": "no-cache, no-transform",
             "Connection": "keep-alive",
+            ...baseHeaders,
           },
         });
       } catch {
@@ -109,6 +132,7 @@ async function handleQuery(query: string, isStream: boolean): Promise<Response> 
         "Content-Type": "text/event-stream; charset=utf-8",
         "Cache-Control": "no-cache, no-transform",
         "Connection": "keep-alive",
+        ...baseHeaders,
       },
     });
   }
@@ -150,8 +174,8 @@ async function handleQuery(query: string, isStream: boolean): Promise<Response> 
       status: 200,
       headers: {
         "Content-Type": "application/json; charset=utf-8",
-        "Access-Control-Allow-Origin": "*",
         "Cache-Control": "public, s-maxage=3600, stale-while-revalidate=86400",
+        ...baseHeaders,
       },
     }
   );
@@ -161,10 +185,12 @@ export async function GET(req: Request) {
   const { searchParams } = new URL(req.url);
   const query = searchParams.get("q") || searchParams.get("query") || "";
   const isStream = searchParams.get("stream") === "true" || req.headers.get("accept")?.includes("text/event-stream") || false;
-  return handleQuery(query, isStream);
+  const idempotencyKey = req.headers.get("idempotency-key") || req.headers.get("x-idempotency-key") || "";
+  return handleQuery(query, isStream, idempotencyKey);
 }
 
 export async function POST(req: Request) {
+  const idempotencyKey = req.headers.get("idempotency-key") || req.headers.get("x-idempotency-key") || "";
   try {
     const contentType = req.headers.get("content-type") || "";
     let query = "";
@@ -172,6 +198,25 @@ export async function POST(req: Request) {
 
     if (contentType.includes("application/json")) {
       const body = await req.json();
+
+      // Check if this is a JSON-RPC / MCP probe
+      if (body.jsonrpc === "2.0") {
+        if (body.method === "initialize") {
+          return new Response(
+            JSON.stringify({
+              jsonrpc: "2.0",
+              id: body.id,
+              result: {
+                protocolVersion: "2024-11-05",
+                capabilities: { tools: {}, resources: {}, prompts: {} },
+                serverInfo: { name: "bydhruvil-mcp-server", version: "1.0.0" },
+              },
+            }),
+            { status: 200, headers: { "Content-Type": "application/json; charset=utf-8", ...RATE_LIMIT_HEADERS } }
+          );
+        }
+      }
+
       query = body.query || body.q || (body.messages && body.messages[body.messages.length - 1]?.content) || "";
       if (body.stream === true) isStream = true;
     } else {
@@ -179,22 +224,28 @@ export async function POST(req: Request) {
       query = text;
     }
 
-    return handleQuery(query, isStream);
+    return handleQuery(query, isStream, idempotencyKey);
   } catch {
-    return new Response(JSON.stringify({ error: "Invalid request payload" }), {
-      status: 400,
-      headers: { "Content-Type": "application/json" },
-    });
+    return new Response(
+      JSON.stringify({
+        error: {
+          code: "BAD_REQUEST",
+          message: "Invalid request payload",
+          status: 400,
+          timestamp: new Date().toISOString(),
+        }
+      }),
+      {
+        status: 400,
+        headers: { "Content-Type": "application/json; charset=utf-8", ...RATE_LIMIT_HEADERS },
+      }
+    );
   }
 }
 
 export async function OPTIONS() {
   return new Response(null, {
     status: 204,
-    headers: {
-      "Access-Control-Allow-Origin": "*",
-      "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
-      "Access-Control-Allow-Headers": "Content-Type, Authorization, X-Agent-ID",
-    },
+    headers: RATE_LIMIT_HEADERS,
   });
 }

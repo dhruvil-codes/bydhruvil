@@ -14,12 +14,14 @@ const navLinks = [
   { label: "Projects", href: "/projects", external: false },
   { label: "Blog", href: "/blog", external: false },
   { label: "Stack", href: "/stack", external: false },
+  { label: "Developers", href: "/developers", external: false },
 ];
 
 const quickLinks = [
   { label: "Experience", href: "/#experience", external: false },
   { label: "Education", href: "/#education", external: false },
   { label: "Certifications", href: "/#certifications", external: false },
+  { label: "API Docs", href: "/developers", external: false },
   { label: "Resume", href: "/resume.pdf", external: true },
 ];
 
