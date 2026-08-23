@@ -1,0 +1,110 @@
+{
+  "$schema": "https://modelcontextprotocol.io/schema/2024-11-05/server-card.json",
+  "serverInfo": {
+    "name": "bydhruvil-mcp-server",
+    "title": "Dhruvil Mistry Portfolio MCP Server",
+    "version": "1.0.0",
+    "description": "Model Context Protocol server for Dhruvil Mistry - AI Engineer. Query projects, background, skills, and get structured agent responses."
+  },
+  "display_name": "Dhruvil Mistry Portfolio",
+  "description": "Official MCP server for Dhruvil Mistry's portfolio. Discover flagship AI projects (Minutz, Saral AI, Skin Cure, Clarity), technical skills, contact info, and hireability.",
+  "icon_url": "https://bydhruvil.in/icon.png",
+  "homepage_url": "https://bydhruvil.in",
+  "documentation_url": "https://bydhruvil.in/developers",
+  "capabilities": {
+    "tools": {
+      "listChanged": false
+    },
+    "resources": {
+      "subscribe": false,
+      "listChanged": false
+    },
+    "prompts": {
+      "listChanged": false
+    }
+  },
+  "tools": [
+    {
+      "name": "ask_dhruvil",
+      "description": "Ask questions about Dhruvil Mistry, his projects, technical expertise, work experience, or availability.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "query": {
+            "type": "string",
+            "description": "The question to ask about Dhruvil Mistry"
+          }
+        },
+        "required": ["query"]
+      },
+      "_meta": {
+        "ui": {
+          "resourceUri": "ui://bydhruvil/chat"
+        }
+      }
+    },
+    {
+      "name": "get_projects",
+      "description": "Retrieve Dhruvil Mistry's flagship AI projects, descriptions, tech stacks, and live links.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "category": {
+            "type": "string",
+            "description": "Optional category filter: 'all', 'ai', 'voice', 'fullstack'"
+          }
+        }
+      },
+      "_meta": {
+        "ui": {
+          "resourceUri": "ui://bydhruvil/projects"
+        }
+      }
+    },
+    {
+      "name": "get_contact_info",
+      "description": "Retrieve Dhruvil Mistry's verified contact details, email, and social profiles.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {}
+      },
+      "_meta": {
+        "ui": {
+          "resourceUri": "ui://bydhruvil/contact"
+        }
+      }
+    }
+  ],
+  "resources": [
+    {
+      "uri": "ui://bydhruvil/chat",
+      "name": "Dhruvil AI Interactive Chat View",
+      "mimeType": "text/html",
+      "description": "Interactive conversational interface for Dhruvil Mistry"
+    },
+    {
+      "uri": "ui://bydhruvil/projects",
+      "name": "Flagship Projects View",
+      "mimeType": "text/html",
+      "description": "Interactive projects card view"
+    },
+    {
+      "uri": "ui://bydhruvil/contact",
+      "name": "Contact Card View",
+      "mimeType": "text/html",
+      "description": "Contact and hiring information card"
+    },
+    {
+      "uri": "bydhruvil://llms.txt",
+      "name": "LLMs Context File",
+      "mimeType": "text/markdown",
+      "description": "Full LLM-friendly documentation and portfolio summary"
+    }
+  ],
+  "prompts": [
+    {
+      "name": "summarize_profile",
+      "description": "Summarize Dhruvil Mistry's background, top projects, and technical strengths for a hiring manager or collaborator."
+    }
+  ]
+}

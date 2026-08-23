@@ -1,0 +1,9 @@
+# Technical Articles & Blog — Dhruvil Mistry
+> Essays on AI engineering, systems plumbing, voice AI, execution, and security.
+
+- [Why your best ideas die in your notes app](https://bydhruvil.in/blog/skill-of-execution): Actionable mental models on beating analysis paralysis and executing fast.
+- [why GPT-Live feels different (it’s not a model, it’s the plumbing)](https://bydhruvil.in/blog/gpt-live): Deep dive into OpenAI's GPT-Live voice architecture, WebSockets, full-duplex audio, and latency reduction.
+- [Nothing Crashed. Nothing Flagged. Your Agent Was Already Compromised](https://bydhruvil.in/blog/memory-poisoning): Memory poisoning attacks and agent security vulnerabilities.
+- [You're Not Bad at Outreach. You're Bad at Follow-Up](https://bydhruvil.in/blog/outreach-follow-up): High-converting follow-up systems and the Nudge CLI agent.
+- [From 50% Grades to OpenAI Hackathon](https://bydhruvil.in/blog/openai-hackathon): Developer transformation story and winning mindset.
+- [Local AI is Easy. You're Overthinking It](https://bydhruvil.in/blog/local-ai): Step-by-step guide to local LLM setups with Ollama and Open WebUI.

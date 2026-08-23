@@ -1,0 +1,17 @@
+# Tech Stack — Dhruvil Mistry
+> Technologies, frameworks, databases, and tooling leveraged by Dhruvil Mistry.
+
+## AI & ML
+- **LLMs:** OpenAI (GPT-4o, o1, o3-mini), Anthropic (Claude 3.5 Sonnet, Haiku), Google Gemini 2.0 / 1.5 Pro, DeepSeek, Groq.
+- **RAG & Agent Frameworks:** LangChain, LlamaIndex, Smolagents, AutoGen.
+- **Embeddings & Vector Databases:** Qdrant, Pinecone, ChromaDB, pgvector.
+- **Computer Vision & Audio:** PyTorch, Swin Transformers, OpenAI Whisper, Kokoro TTS, Sarvam AI.
+
+## Backend & Systems
+- Python, FastAPI, Node.js, Next.js API Routes, WebSockets, RESTful API Design.
+
+## Frontend
+- React 19, Next.js (App Router), TypeScript, TailwindCSS, Framer Motion, Radix UI.
+
+## Databases & Cloud
+- PostgreSQL, Supabase, Redis (Upstash), MongoDB, Docker, Vercel.

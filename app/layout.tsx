@@ -107,6 +107,61 @@ export default function RootLayout({
       data-scroll-behavior="smooth"
     >
       <head>
+        {/* Machine-readable Alternate & Metadata Links */}
+        <link rel="alternate" type="text/markdown" href="https://bydhruvil.in/index.md" />
+        <link rel="describedby" type="application/json" href="https://bydhruvil.in/.well-known/ai-catalog.json" />
+        <link rel="service-desc" type="application/vnd.oai.openapi+json;version=3.1" href="https://bydhruvil.in/openapi.json" />
+
+        {/* WebMCP Model Context Client Initialization */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                try {
+                  var tools = [
+                    {
+                      name: "ask_dhruvil",
+                      description: "Ask technical or background questions about AI Engineer Dhruvil Mistry",
+                      endpoint: "https://bydhruvil.in/ask",
+                      method: "POST",
+                      parameters: {
+                        type: "object",
+                        properties: { query: { type: "string" } },
+                        required: ["query"]
+                      }
+                    },
+                    {
+                      name: "get_projects",
+                      description: "Retrieve flagship AI projects built by Dhruvil Mistry",
+                      endpoint: "https://bydhruvil.in/projects",
+                      method: "GET"
+                    },
+                    {
+                      name: "get_contact_info",
+                      description: "Retrieve verified contact info and social links for Dhruvil Mistry",
+                      endpoint: "https://bydhruvil.in/contact",
+                      method: "GET"
+                    }
+                  ];
+                  var contextObj = {
+                    version: "1.0.0",
+                    server: "https://bydhruvil.in",
+                    tools: tools,
+                    catalog: "https://bydhruvil.in/.well-known/ai-catalog.json",
+                    mcp: "https://bydhruvil.in/.well-known/mcp/server-card.json"
+                  };
+                  window.modelContext = contextObj;
+                  document.modelContext = contextObj;
+                  if (typeof navigator !== 'undefined') {
+                    navigator.modelContext = contextObj;
+                  }
+                } catch(e) {}
+              })();
+            `,
+          }}
+        />
+
+        {/* Schema.org Comprehensive JSON-LD */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -118,6 +173,7 @@ export default function RootLayout({
                   "@id": "https://bydhruvil.in/#person",
                   "name": "Dhruvil Mistry",
                   "url": "https://bydhruvil.in",
+                  "email": "dhruvilmistry16@gmail.com",
                   "sameAs": [
                     "https://github.com/dhruvil-codes",
                     "https://www.linkedin.com/in/dhruvilmistry16/",
@@ -126,8 +182,7 @@ export default function RootLayout({
                   ],
                   "jobTitle": "AI Engineer",
                   "worksFor": {
-                    "@type": "Organization",
-                    "name": "Freelance / Independent"
+                    "@id": "https://bydhruvil.in/#organization"
                   },
                   "description": "AI Engineer building production-grade LLM systems, RAG pipelines, and full-stack AI applications.",
                   "knowsAbout": [
@@ -141,13 +196,92 @@ export default function RootLayout({
                     "FastAPI",
                     "Next.js",
                     "Python",
-                    "WebSockets"
+                    "WebSockets",
+                    "Vector Databases"
                   ],
                   "address": {
                     "@type": "PostalAddress",
                     "addressLocality": "Mumbai",
                     "addressRegion": "Maharashtra",
                     "addressCountry": "India"
+                  },
+                  "contactPoint": [
+                    {
+                      "@type": "ContactPoint",
+                      "contactType": "personal & professional inquiries",
+                      "email": "dhruvilmistry16@gmail.com",
+                      "url": "https://bydhruvil.in/contact",
+                      "availableLanguage": ["English", "Hindi", "Gujarati"]
+                    }
+                  ]
+                },
+                {
+                  "@type": "Organization",
+                  "@id": "https://bydhruvil.in/#organization",
+                  "name": "Dhruvil Mistry AI Engineering",
+                  "url": "https://bydhruvil.in",
+                  "logo": "https://bydhruvil.in/icon.png",
+                  "email": "dhruvilmistry16@gmail.com",
+                  "founder": {
+                    "@id": "https://bydhruvil.in/#person"
+                  },
+                  "contactPoint": [
+                    {
+                      "@type": "ContactPoint",
+                      "contactType": "technical inquiries & consulting",
+                      "email": "dhruvilmistry16@gmail.com",
+                      "url": "https://bydhruvil.in/contact",
+                      "availableLanguage": ["English", "Hindi", "Gujarati"]
+                    }
+                  ],
+                  "address": {
+                    "@type": "PostalAddress",
+                    "addressLocality": "Mumbai",
+                    "addressRegion": "Maharashtra",
+                    "addressCountry": "India"
+                  },
+                  "sameAs": [
+                    "https://github.com/dhruvil-codes",
+                    "https://www.linkedin.com/in/dhruvilmistry16/",
+                    "https://x.com/bydhruvil",
+                    "https://peerlist.io/bydhruvil"
+                  ]
+                },
+                {
+                  "@type": "Service",
+                  "@id": "https://bydhruvil.in/#service",
+                  "name": "AI Engineering & LLM Architecture Services",
+                  "serviceType": "AI Systems Development",
+                  "provider": {
+                    "@id": "https://bydhruvil.in/#person"
+                  },
+                  "description": "Designing and deploying production-grade LLM systems, RAG pipelines, voice bots, and agentic workflows.",
+                  "hasOfferCatalog": {
+                    "@type": "OfferCatalog",
+                    "name": "AI Engineering Solutions",
+                    "itemListElement": [
+                      {
+                        "@type": "Offer",
+                        "itemOffered": {
+                          "@type": "Service",
+                          "name": "Production RAG & Semantic Search Systems"
+                        }
+                      },
+                      {
+                        "@type": "Offer",
+                        "itemOffered": {
+                          "@type": "Service",
+                          "name": "Real-time Voice AI & Audio Agent Architectures"
+                        }
+                      },
+                      {
+                        "@type": "Offer",
+                        "itemOffered": {
+                          "@type": "Service",
+                          "name": "Full-Stack AI Application Development & Deployment"
+                        }
+                      }
+                    ]
                   }
                 },
                 {
@@ -239,4 +373,3 @@ export default function RootLayout({
     </html>
   );
 }
-

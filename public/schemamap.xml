@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemamap xmlns="https://nlweb.ai/schemas/schemamap/1.0">
+  <feed>
+    <url>https://bydhruvil.in</url>
+    <type>Person</type>
+    <schema>https://schema.org/Person</schema>
+  </feed>
+  <feed>
+    <url>https://bydhruvil.in/projects</url>
+    <type>ItemList</type>
+    <schema>https://schema.org/ItemList</schema>
+  </feed>
+  <feed>
+    <url>https://bydhruvil.in/bio</url>
+    <type>ProfilePage</type>
+    <schema>https://schema.org/ProfilePage</schema>
+  </feed>
+  <feed>
+    <url>https://bydhruvil.in/developers</url>
+    <type>TechArticle</type>
+    <schema>https://schema.org/TechArticle</schema>
+  </feed>
+</schemamap>

@@ -1,0 +1,14 @@
+# Biography & Background — Dhruvil Mistry
+> Background story, philosophy, education, and career path of Dhruvil Mistry.
+
+## Overview
+Dhruvil Mistry is an AI Engineer from Mumbai, India. He builds production-grade AI systems, voice agents, and full-stack applications with an emphasis on speed of execution, clean architecture, and delightful user experience.
+
+## Milestones & Education
+- Selected at the OpenAI × Outskill Hackathon for Minutz (AI Meeting Intelligence).
+- Bachelor's Degree in Computer Engineering / Information Technology.
+- Creator of open-source AI tools and author of popular technical deep-dives on systems engineering and Voice AI.
+
+## Contact
+- Email: dhruvilmistry16@gmail.com
+- Portfolio: https://bydhruvil.in

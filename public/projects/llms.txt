@@ -1,0 +1,23 @@
+# Projects — Dhruvil Mistry Portfolio
+> Directory and technical details of AI and full-stack software projects built by Dhruvil Mistry.
+
+## 1. Minutz (AI Meeting Intelligence Platform)
+- **Overview:** Browser-native meeting recorder with async AI processing for summary, action item extraction, and speaker tracking.
+- **Tech Stack:** FastAPI, Next.js, OpenAI Whisper, GPT-4o, Supabase, TailwindCSS.
+- **Recognition:** Selected among top projects at OpenAI × Outskill Hackathon.
+- **Live URL:** https://bydhruvil.in/projects
+
+## 2. Saral AI (Voice AI Receptionist)
+- **Overview:** Real-time, ultra-low latency voice bot handling customer inbound calls for small businesses and clinics.
+- **Tech Stack:** FastAPI, Python, Groq (Llama 3), Sarvam AI (Indic TTS/STT), WebSockets.
+- **Live URL:** https://bydhruvil.in/projects
+
+## 3. Skin Cure (Multimodal Healthcare Classifier)
+- **Overview:** Computer vision model trained on 28k dermatology clinical images to detect skin conditions and connect patients to nearby specialists.
+- **Tech Stack:** PyTorch, SwinV2 Transformer, FastAPI, React, Leaflet.js.
+- **Live URL:** https://bydhruvil.in/projects
+
+## 4. Clarity (AI Reading Assistant Extension)
+- **Overview:** Multi-provider Manifest V3 Chrome extension providing instant page summarization and deep context synthesis.
+- **Tech Stack:** JavaScript, Chrome Extension MV3, OpenAI, Anthropic, Gemini API.
+- **Live URL:** https://bydhruvil.in/projects

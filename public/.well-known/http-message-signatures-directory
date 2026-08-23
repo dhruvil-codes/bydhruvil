@@ -1,0 +1,12 @@
+{
+  "keys": [
+    {
+      "kty": "OKP",
+      "crv": "Ed25519",
+      "kid": "bydhruvil-bot-key-2026",
+      "x": "11qYAYKxCrfVS_7TyWQHOg7hcvPapiMlrGwu4o272EQ",
+      "use": "sig",
+      "alg": "EdDSA"
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+# Developer Documentation — Dhruvil Mistry Portfolio
+
+- **OpenAPI 3.1:** https://bydhruvil.in/openapi.json
+- **MCP Server:** https://bydhruvil.in/.well-known/mcp/server-card.json
+- **NLWeb Query Endpoint:** POST https://bydhruvil.in/ask
+- **Auth Guide:** https://bydhruvil.in/auth.md
+- **Skills Spec:** https://bydhruvil.in/.well-known/agent-skills/index.json

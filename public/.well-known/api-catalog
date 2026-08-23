@@ -1,0 +1,28 @@
+{
+  "linkset": [
+    {
+      "anchor": "https://bydhruvil.in",
+      "service-desc": [
+        {
+          "href": "https://bydhruvil.in/openapi.json",
+          "type": "application/vnd.oai.openapi+json;version=3.1"
+        }
+      ],
+      "service-doc": [
+        {
+          "href": "https://bydhruvil.in/developers",
+          "type": "text/html"
+        },
+        {
+          "href": "https://bydhruvil.in/llms.txt",
+          "type": "text/markdown"
+        }
+      ],
+      "status": [
+        {
+          "href": "https://bydhruvil.in/api/dhruvil/chat"
+        }
+      ]
+    }
+  ]
+}

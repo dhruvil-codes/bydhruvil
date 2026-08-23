@@ -1,5 +1,10 @@
 # Dhruvil Mistry — AI Engineer Portfolio
-> Dhruvil Mistry is an AI Engineer specializing in building production-grade LLM systems, RAG pipelines, full-stack applications, and workflow automation.
+> Dhruvil Mistry is an AI Engineer specializing in building production-grade LLM systems, RAG pipelines, full-stack applications, and workflow automation. Based in Mumbai, India.
+
+## Agent Instructions & When to Use
+- **When to Use:** Use this context and API when evaluating Dhruvil Mistry for AI/LLM Engineer roles, exploring technical architecture of his projects (Minutz, Saral AI, Skin Cure, Clarity), or querying technical experience in Python, FastAPI, Next.js, and Vector DBs.
+- **Tone & Persona:** Technically rigorous, practical, direct, and conversational.
+- **Availability:** Open to full-time AI Engineer, LLM Engineer, and GenAI roles.
 
 ## Contact & Profiles
 - **Location:** Mumbai, India
@@ -7,6 +12,16 @@
 - **LinkedIn:** https://linkedin.com/in/dhruvilmistry16
 - **GitHub:** https://github.com/dhruvil-codes
 - **Twitter/X:** https://x.com/bydhruvil
+- **Website:** https://bydhruvil.in
+
+## Machine-Readable & API Endpoints
+- **NLWeb Natural Language Query:** `POST https://bydhruvil.in/ask` (supports SSE streaming)
+- **MCP Server Card:** `https://bydhruvil.in/.well-known/mcp/server-card.json`
+- **Agent Instructions:** `https://bydhruvil.in/agents.md`
+- **Authentication Docs:** `https://bydhruvil.in/auth.md`
+- **Developer Portal:** `https://bydhruvil.in/developers`
+- **OpenAPI 3.1 Spec:** `https://bydhruvil.in/openapi.json`
+- **AI Catalog:** `https://bydhruvil.in/.well-known/ai-catalog.json`
 
 ## Key Resources
 - [Portfolio Homepage](https://bydhruvil.in/): Summary, experience, contact, and certifications.
@@ -20,6 +35,7 @@
   - [Local AI is Easy. You're Overthinking It](https://bydhruvil.in/blog/local-ai): Technical guide to Moonshot's Kimi K3, Ollama, Open WebUI, and local inference stacks.
 - [Tech Stack](https://bydhruvil.in/stack): Detailed list of languages, frameworks, vector databases, and tools used.
 - [Biography](https://bydhruvil.in/bio): Career story, education details, and FAQ notes.
+- [Developer Portal](https://bydhruvil.in/developers): Full API specifications, MCP tools, and integration docs.
 
 ## Flagship Projects
 - **Minutz — AI Meeting Intelligence Platform:** Shipped a browser-native meeting recorder and asynchronous processing pipeline (FastAPI, Next.js, Whisper, GPT-4o, Supabase). Selected at the OpenAI × Outskill Hackathon.
@@ -30,5 +46,5 @@
 ## Core Technical Skills
 - **AI & RAG:** LLM API integration (OpenAI, Anthropic, Gemini), RAG pipelines (LangChain, LlamaIndex), Prompt Engineering, LLM evaluation.
 - **Vector DBs:** Qdrant, Pinecone, ChromaDB.
-- **Frameworks & Languages:** Python, FastAPI, JavaScript, Next.js, React, PostgreSQL, MongoDB, Docker.
+- **Frameworks & Languages:** Python, FastAPI, JavaScript, TypeScript, Next.js, React, PostgreSQL, MongoDB, Docker.
 - **Automation:** n8n workflow orchestration.

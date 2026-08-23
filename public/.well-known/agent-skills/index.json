@@ -1,0 +1,26 @@
+{
+  "$schema": "https://agent-skills.org/schema/v0.2.0.json",
+  "name": "dhruvil-mistry-skills",
+  "version": "0.2.0",
+  "description": "Agent skills index for interacting with Dhruvil Mistry's portfolio, AI knowledge base, and projects.",
+  "skills": [
+    {
+      "id": "dhruvil-portfolio-qa",
+      "name": "Dhruvil Portfolio Q&A",
+      "type": "skill-md",
+      "version": "1.0.0",
+      "description": "Query technical projects, experience, stack, and essays of AI Engineer Dhruvil Mistry",
+      "url": "https://bydhruvil.in/agents.md",
+      "digest": "sha256-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "id": "nlweb-ask",
+      "name": "NLWeb Natural Language Q&A",
+      "type": "api",
+      "version": "1.0.0",
+      "description": "Natural language query endpoint conformant with NLWeb specification",
+      "url": "https://bydhruvil.in/ask",
+      "digest": "sha256-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ]
+}

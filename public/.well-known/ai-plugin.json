@@ -1,0 +1,17 @@
+{
+  "schema_version": "v1",
+  "name_for_human": "Dhruvil Mistry Portfolio & AI Assistant",
+  "name_for_model": "dhruvil_mistry_assistant",
+  "description_for_human": "Query Dhruvil Mistry's portfolio, AI projects, skills, tech stack, and background.",
+  "description_for_model": "Assistant for querying information about Dhruvil Mistry, an AI Engineer specializing in production-grade LLMs, RAG, and full-stack AI apps. Use this to find project details (Minutz, Saral AI, Skin Cure, Clarity), technical skills, contact info, and availability.",
+  "auth": {
+    "type": "none"
+  },
+  "api": {
+    "type": "openapi",
+    "url": "https://bydhruvil.in/openapi.json"
+  },
+  "logo_url": "https://bydhruvil.in/icon.png",
+  "contact_email": "dhruvilmistry16@gmail.com",
+  "legal_info_url": "https://bydhruvil.in/privacy"
+}
