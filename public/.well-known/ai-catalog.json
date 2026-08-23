@@ -4,9 +4,9 @@
   "description": "AI Resource Discovery (ARD) catalog for Dhruvil Mistry - AI Engineer portfolio, APIs, MCP servers, and agent tools.",
   "entries": [
     {
-      "identifier": "bydhruvil-main",
-      "displayName": "Dhruvil Mistry Portfolio & AI Services",
-      "id": "bydhruvil-main",
+      "identifier": "urn:air:bydhruvil.in:agent:main",
+      "displayName": "Dhruvil Mistry Portfolio & AI Assistant",
+      "id": "urn:air:bydhruvil.in:agent:main",
       "name": "bydhruvil-main",
       "type": "agent",
       "version": "1.0.0",

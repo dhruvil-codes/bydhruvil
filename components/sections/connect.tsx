@@ -57,6 +57,15 @@ const connections = [
       </svg>
     ),
   },
+  {
+    name: "Developers & API",
+    url: "/developers",
+    icon: (
+      <svg stroke="currentColor" fill="none" strokeWidth="2" viewBox="0 0 24 24" className="size-[14px] shrink-0 text-neutral-800 dark:text-white/80" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+      </svg>
+    ),
+  },
 ];
 
 
