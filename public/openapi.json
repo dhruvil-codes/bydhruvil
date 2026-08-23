@@ -4,6 +4,7 @@
     "title": "Dhruvil Mistry Portfolio & AI Systems API",
     "description": "Production-grade REST and NLWeb API for Dhruvil Mistry - AI Engineer. Supports NLWeb natural language queries, conversational chat, paginated projects directory, async job tasks, and Model Context Protocol (MCP).",
     "version": "1.0.0",
+    "x-deprecation-policy": "https://bydhruvil.in/deprecation",
     "contact": {
       "name": "Dhruvil Mistry",
       "email": "dhruvilmistry16@gmail.com",

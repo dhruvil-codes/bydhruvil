@@ -10,6 +10,7 @@
       "type": "skill-md",
       "version": "1.0.0",
       "description": "Query technical projects, experience, stack, and essays of AI Engineer Dhruvil Mistry",
+      "whenToUse": "Use when evaluating Dhruvil Mistry for AI Engineer, GenAI Engineer, LLM Engineer, or Full-Stack AI roles, or inquiring about his technical projects and architecture.",
       "url": "https://bydhruvil.in/agents.md",
       "digest": "sha256-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
     },
@@ -19,6 +20,7 @@
       "type": "api",
       "version": "1.0.0",
       "description": "Natural language query endpoint conformant with NLWeb specification",
+      "whenToUse": "Use when asking direct questions about Dhruvil Mistry's work, experience, contact details, or technical stack via API with streaming support.",
       "url": "https://bydhruvil.in/ask",
       "digest": "sha256-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
     }
