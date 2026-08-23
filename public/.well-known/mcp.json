@@ -1,10 +1,11 @@
 {
   "$schema": "https://modelcontextprotocol.io/schema/2024-11-05/server-card.json",
   "name": "bydhruvil-mcp-server",
-  "display_name": "Dhruvil Mistry Portfolio",
+  "display_name": "Dhruvil Mistry Portfolio MCP Server",
   "version": "1.0.0",
   "description": "Model Context Protocol server for Dhruvil Mistry - AI Engineer. Query projects, background, skills, and get structured agent responses.",
   "icon_url": "https://bydhruvil.in/icon.png",
   "server_card_url": "https://bydhruvil.in/.well-known/mcp/server-card.json",
-  "endpoint": "https://bydhruvil.in/ask"
+  "serverUrl": "https://bydhruvil.in/mcp",
+  "endpoint": "https://bydhruvil.in/mcp"
 }

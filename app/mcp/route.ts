@@ -23,7 +23,7 @@ const CAPABILITIES = {
 const TOOLS = [
   {
     name: "ask_dhruvil",
-    description: "Ask questions about Dhruvil Mistry, his projects, technical expertise, work experience, or availability.",
+    description: "Ask grounded questions about Dhruvil Mistry, his projects, technical expertise, work experience, or availability.",
     inputSchema: {
       type: "object",
       properties: {
@@ -33,6 +33,9 @@ const TOOLS = [
         },
       },
       required: ["query"],
+    },
+    annotations: {
+      readOnly: true,
     },
     _meta: {
       ui: {
@@ -49,8 +52,12 @@ const TOOLS = [
         category: {
           type: "string",
           description: "Optional category filter: 'all', 'ai', 'voice', 'fullstack'",
+          default: "all",
         },
       },
+    },
+    annotations: {
+      readOnly: true,
     },
     _meta: {
       ui: {
@@ -59,11 +66,42 @@ const TOOLS = [
     },
   },
   {
+    name: "read_doc_page",
+    description: "Read documentation, articles, and bio pages from Dhruvil Mistry's portfolio (e.g. 'bio', 'stack', 'gpt-live', 'execution', 'developers').",
+    inputSchema: {
+      type: "object",
+      properties: {
+        page: {
+          type: "string",
+          description: "The page identifier to fetch ('bio', 'stack', 'developers', 'projects', 'gpt-live', 'execution')",
+        },
+      },
+      required: ["page"],
+    },
+    annotations: {
+      readOnly: true,
+    },
+    _meta: {
+      ui: {
+        resourceUri: "ui://bydhruvil/docs",
+      },
+    },
+  },
+  {
     name: "get_contact_info",
     description: "Retrieve Dhruvil Mistry's verified contact details, email, and social profiles.",
     inputSchema: {
       type: "object",
-      properties: {},
+      properties: {
+        format: {
+          type: "string",
+          description: "Preferred format: 'json' or 'text'",
+          default: "json",
+        },
+      },
+    },
+    annotations: {
+      readOnly: true,
     },
     _meta: {
       ui: {
@@ -99,6 +137,25 @@ const RESOURCES = [
     description: "Full LLM-friendly documentation and portfolio summary",
   },
 ];
+
+const RESOURCE_CONTENTS: Record<string, { mimeType: string; text: string }> = {
+  "ui://bydhruvil/chat": {
+    mimeType: "text/html",
+    text: "<div id='dhruvil-chat'><p>Chat with Dhruvil AI: Query projects, background, and skills.</p></div>",
+  },
+  "ui://bydhruvil/projects": {
+    mimeType: "text/html",
+    text: "<div id='dhruvil-projects'><h1>Projects</h1><ul><li>Minutz (OpenAI Hackathon)</li><li>Saral AI (Voice Receptionist)</li><li>Skin Cure</li><li>Clarity</li></ul></div>",
+  },
+  "ui://bydhruvil/contact": {
+    mimeType: "text/html",
+    text: "<div id='dhruvil-contact'><p>Email: dhruvilmistry16@gmail.com</p><p>LinkedIn: https://linkedin.com/in/dhruvilmistry16</p></div>",
+  },
+  "bydhruvil://llms.txt": {
+    mimeType: "text/markdown",
+    text: "# Dhruvil Mistry — AI Engineer\n\nAI Engineer building production-grade LLM systems and RAG pipelines.\nContact: dhruvilmistry16@gmail.com",
+  },
+};
 
 const PROMPTS = [
   {
@@ -214,6 +271,30 @@ export async function POST(req: Request) {
         );
       }
 
+      if (toolName === "read_doc_page") {
+        const page = (args.page || "bio").toLowerCase();
+        let content = "Dhruvil Mistry Portfolio Documentation.";
+        if (page.includes("stack")) {
+          content = "Tech Stack: Python, FastAPI, Next.js, React, Qdrant, Pinecone, Groq, PyTorch, OpenAI, Anthropic, Gemini.";
+        } else if (page.includes("gpt")) {
+          content = "GPT-Live Architecture: WebRTC WARP plumbing, full-duplex turn detection, Go media frontends.";
+        } else if (page.includes("dev")) {
+          content = "Developer Portal: https://bydhruvil.in/developers. OpenAPI 3.1: /openapi.json. NLWeb: /ask. MCP: /mcp.";
+        } else {
+          content = "Biography: Dhruvil Mistry is an AI Engineer from Mumbai building production LLMs and voice bots.";
+        }
+        return new Response(
+          JSON.stringify({
+            jsonrpc: "2.0",
+            id,
+            result: {
+              content: [{ type: "text", text: content }],
+            },
+          }),
+          { status: 200, headers: { "Content-Type": "application/json; charset=utf-8", ...rateLimitHeaders } }
+        );
+      }
+
       if (toolName === "get_contact_info") {
         return new Response(
           JSON.stringify({
@@ -255,6 +336,31 @@ export async function POST(req: Request) {
           jsonrpc: "2.0",
           id,
           result: { resources: RESOURCES },
+        }),
+        { status: 200, headers: { "Content-Type": "application/json; charset=utf-8", ...rateLimitHeaders } }
+      );
+    }
+
+    if (method === "resources/read") {
+      const uri = body.params?.uri || "";
+      const res = RESOURCE_CONTENTS[uri] || {
+        mimeType: "text/plain",
+        text: `Content for ${uri}: Dhruvil Mistry AI Portfolio resource.`,
+      };
+
+      return new Response(
+        JSON.stringify({
+          jsonrpc: "2.0",
+          id,
+          result: {
+            contents: [
+              {
+                uri,
+                mimeType: res.mimeType,
+                text: res.text,
+              },
+            ],
+          },
         }),
         { status: 200, headers: { "Content-Type": "application/json; charset=utf-8", ...rateLimitHeaders } }
       );
@@ -306,7 +412,8 @@ export async function GET() {
       version: "1.0.0",
       description: "Model Context Protocol JSON-RPC endpoint for Dhruvil Mistry Portfolio",
       server_card: "https://bydhruvil.in/.well-known/mcp/server-card.json",
-      tools: TOOLS.map((t) => t.name),
+      tools: TOOLS,
+      resources: RESOURCES,
       capabilities: CAPABILITIES,
     }),
     {

@@ -4,11 +4,13 @@
   "description": "AI Resource Discovery (ARD) catalog for Dhruvil Mistry - AI Engineer portfolio, APIs, MCP servers, and agent tools.",
   "entries": [
     {
-      "id": "bydhruvil-agent",
-      "name": "Dhruvil Mistry Portfolio & AI Assistant",
+      "identifier": "bydhruvil-main",
+      "displayName": "Dhruvil Mistry Portfolio & AI Services",
+      "id": "bydhruvil-main",
+      "name": "bydhruvil-main",
       "type": "agent",
       "version": "1.0.0",
-      "description": "AI assistant and knowledge interface for Dhruvil Mistry (AI Engineer). Grounded on flagship AI projects (Minutz, Saral AI, Skin Cure, Clarity), technical background, and skills.",
+      "description": "AI assistant and developer knowledge interface for Dhruvil Mistry (AI Engineer). Grounded on flagship AI projects (Minutz, Saral AI, Skin Cure, Clarity), technical background, and skills.",
       "url": "https://bydhruvil.in",
       "documentation": {
         "llms_txt": "https://bydhruvil.in/llms.txt",

@@ -1,13 +1,16 @@
 {
   "$schema": "https://modelcontextprotocol.io/schema/2024-11-05/server-card.json",
+  "name": "bydhruvil-mcp-server",
+  "version": "1.0.0",
   "serverInfo": {
     "name": "bydhruvil-mcp-server",
     "title": "Dhruvil Mistry Portfolio MCP Server",
     "version": "1.0.0",
     "description": "Model Context Protocol server for Dhruvil Mistry - AI Engineer. Query projects, background, skills, and get structured agent responses."
   },
-  "display_name": "Dhruvil Mistry Portfolio",
+  "display_name": "Dhruvil Mistry Portfolio MCP Server",
   "description": "Official MCP server for Dhruvil Mistry's portfolio. Discover flagship AI projects (Minutz, Saral AI, Skin Cure, Clarity), technical skills, contact info, and hireability.",
+  "serverUrl": "https://bydhruvil.in/mcp",
   "icon_url": "https://bydhruvil.in/icon.png",
   "homepage_url": "https://bydhruvil.in",
   "documentation_url": "https://bydhruvil.in/developers",
@@ -26,7 +29,7 @@
   "tools": [
     {
       "name": "ask_dhruvil",
-      "description": "Ask questions about Dhruvil Mistry, his projects, technical expertise, work experience, or availability.",
+      "description": "Ask grounded questions about Dhruvil Mistry, his projects, technical expertise, work experience, or availability.",
       "inputSchema": {
         "type": "object",
         "properties": {
@@ -36,6 +39,9 @@
           }
         },
         "required": ["query"]
+      },
+      "annotations": {
+        "readOnly": true
       },
       "_meta": {
         "ui": {
@@ -51,9 +57,13 @@
         "properties": {
           "category": {
             "type": "string",
-            "description": "Optional category filter: 'all', 'ai', 'voice', 'fullstack'"
+            "description": "Optional category filter: 'all', 'ai', 'voice', 'fullstack'",
+            "default": "all"
           }
         }
+      },
+      "annotations": {
+        "readOnly": true
       },
       "_meta": {
         "ui": {
@@ -62,11 +72,42 @@
       }
     },
     {
+      "name": "read_doc_page",
+      "description": "Read documentation, articles, and bio pages from Dhruvil Mistry's portfolio (e.g. 'bio', 'stack', 'gpt-live', 'execution', 'developers').",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "page": {
+            "type": "string",
+            "description": "The page identifier to fetch ('bio', 'stack', 'developers', 'projects', 'gpt-live', 'execution')"
+          }
+        },
+        "required": ["page"]
+      },
+      "annotations": {
+        "readOnly": true
+      },
+      "_meta": {
+        "ui": {
+          "resourceUri": "ui://bydhruvil/docs"
+        }
+      }
+    },
+    {
       "name": "get_contact_info",
       "description": "Retrieve Dhruvil Mistry's verified contact details, email, and social profiles.",
       "inputSchema": {
         "type": "object",
-        "properties": {}
+        "properties": {
+          "format": {
+            "type": "string",
+            "description": "Preferred output format: 'json' or 'text'",
+            "default": "json"
+          }
+        }
+      },
+      "annotations": {
+        "readOnly": true
       },
       "_meta": {
         "ui": {

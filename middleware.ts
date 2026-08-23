@@ -54,6 +54,25 @@ const HOMEPAGE_MARKDOWN = `# Dhruvil Mistry — AI Engineer
 - **Vector Databases:** Qdrant, Pinecone, ChromaDB.
 `;
 
+const OPENAPI_MARKDOWN = `# Dhruvil Mistry Portfolio & AI API (OpenAPI 3.1.0)
+
+> Complete specification of public endpoints available on bydhruvil.in.
+
+## Base URL
+- Production: \`https://bydhruvil.in\`
+- Version 1: \`https://bydhruvil.in/v1\`
+
+## Endpoints
+1. \`POST /ask\` & \`GET /ask?q=query\` — NLWeb natural language query with SSE streaming.
+2. \`POST /v1/ask\` — Versioned NLWeb query endpoint.
+3. \`GET /v1/projects?limit=10&offset=0\` — Paginated project catalog.
+4. \`POST /v1/tasks\` — Asynchronous job creation (returns 202 Accepted with Location header).
+5. \`GET /v1/tasks/{taskId}\` — Poll asynchronous task status.
+6. \`POST /mcp\` — Model Context Protocol JSON-RPC 2.0 handshake and tool execution.
+
+Full raw JSON: [openapi.json](https://bydhruvil.in/openapi.json)
+`;
+
 const RATE_LIMIT_HEADERS: Record<string, string> = {
   "RateLimit-Limit": "100",
   "RateLimit-Remaining": "99",
@@ -73,6 +92,37 @@ export function middleware(request: NextRequest) {
   const wantsMarkdown = acceptHeader.includes("text/markdown");
   const isAiBot = BOT_USER_AGENTS.some((bot) => userAgent.includes(bot));
 
+  // Markdown twin for openapi.json.md
+  if (pathname === "/openapi.json.md") {
+    return new NextResponse(OPENAPI_MARKDOWN, {
+      status: 200,
+      headers: {
+        "Content-Type": "text/markdown; charset=utf-8",
+        "Vary": "Accept, User-Agent",
+        "Link": '<https://bydhruvil.in/openapi.json>; rel="alternate"; type="application/json"',
+        "Access-Control-Allow-Origin": "*",
+        ...RATE_LIMIT_HEADERS,
+      },
+    });
+  }
+
+  // Handle other .md fallbacks dynamically
+  if (pathname.endsWith(".md") && pathname !== "/index.md") {
+    const baseSlug = pathname.replace(/\.md$/, "").replace(/^\//, "");
+    if (baseSlug === "projects" || baseSlug === "blog" || baseSlug === "stack" || baseSlug === "bio" || baseSlug === "developers") {
+      const markdownTwin = `# ${baseSlug.toUpperCase()} — Dhruvil Mistry Portfolio\n\nDetailed content for ${baseSlug}.\nFull documentation: https://bydhruvil.in/${baseSlug}\nLLM Context: https://bydhruvil.in/${baseSlug}/llms.txt`;
+      return new NextResponse(markdownTwin, {
+        status: 200,
+        headers: {
+          "Content-Type": "text/markdown; charset=utf-8",
+          "Vary": "Accept, User-Agent",
+          "Access-Control-Allow-Origin": "*",
+          ...RATE_LIMIT_HEADERS,
+        },
+      });
+    }
+  }
+
   // If path is index.md or root requested with Accept: text/markdown or ?mode=agent
   if (
     pathname === "/index.md" ||
@@ -83,7 +133,7 @@ export function middleware(request: NextRequest) {
       headers: {
         "Content-Type": "text/markdown; charset=utf-8",
         "Vary": "Accept, User-Agent",
-        "Link": '<https://bydhruvil.in/index.md>; rel="alternate"; type="text/markdown", <https://bydhruvil.in/sitemap.xml>; rel="sitemap", <https://bydhruvil.in/.well-known/ai-catalog.json>; rel="describedby"',
+        "Link": '<https://bydhruvil.in/index.md>; rel="alternate"; type="text/markdown", <https://bydhruvil.in/sitemap.xml>; rel="sitemap", <https://bydhruvil.in/.well-known/ai-catalog.json>; rel="describedby", <https://bydhruvil.in/developers>; rel="service-doc"',
         "Access-Control-Allow-Origin": "*",
         "Cache-Control": "public, max-age=3600, stale-while-revalidate=86400",
         ...(idempotencyKey ? { "Idempotency-Key": idempotencyKey } : {}),
@@ -107,6 +157,8 @@ export function middleware(request: NextRequest) {
     "/v1/tasks",
     "/ask",
     "/mcp",
+    "/.well-known/api-catalog",
+    "/.well-known/mcp",
   ];
 
   const isApiRoute = pathname.startsWith("/api/") || pathname.startsWith("/v1/");
