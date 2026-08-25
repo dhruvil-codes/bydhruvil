@@ -1,6 +1,7 @@
 # Technical Articles & Blog — Dhruvil Mistry
 > Essays on AI engineering, systems plumbing, voice AI, execution, and security.
 
+- [you're losing money on agents (the shift to shifts)](https://bydhruvil.in/blog/losing-money-on-agents): Architectural deep-dive into long-horizon AI coding agents, telemetry harnesses, trajectory evaluation, coordination bottlenecks, and Forge.
 - [Why your best ideas die in your notes app](https://bydhruvil.in/blog/skill-of-execution): Actionable mental models on beating analysis paralysis and executing fast.
 - [why GPT-Live feels different (it’s not a model, it’s the plumbing)](https://bydhruvil.in/blog/gpt-live): Deep dive into OpenAI's GPT-Live voice architecture, WebSockets, full-duplex audio, and latency reduction.
 - [Nothing Crashed. Nothing Flagged. Your Agent Was Already Compromised](https://bydhruvil.in/blog/memory-poisoning): Memory poisoning attacks and agent security vulnerabilities.

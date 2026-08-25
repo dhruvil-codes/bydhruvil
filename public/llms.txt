@@ -27,6 +27,7 @@
 - [Portfolio Homepage](https://bydhruvil.in/): Summary, experience, contact, and certifications.
 - [Projects](https://bydhruvil.in/projects): Directory of featured AI products.
 - [Blog](https://bydhruvil.in/blog): Curated list of personal journey and technical articles.
+  - [you're losing money on agents (the shift to shifts)](https://bydhruvil.in/blog/losing-money-on-agents): Architectural analysis of autonomous coding agents working in shifts, decoupled telemetry harnesses (Brain/Hands/Session), trajectory evaluations, multi-agent coordination overhead, quality-adjusted token cost, and the open-source Forge observability protocol.
   - [Why your best ideas die in your notes app](https://bydhruvil.in/blog/skill-of-execution): Essay on analysis paralysis, the Indecision-Inaction Phenomenon (IIP), the Thoroughness Illusion, 380mm pipe engineering trap, and Day One operational framework (Two-Way Doors, Satisficing, Decision Deadlines, Safe-to-Fail loops).
   - [why GPT-Live feels different (it’s not a model, it’s the plumbing)](https://bydhruvil.in/blog/gpt-live): Technical breakdown of OpenAI's GPT-Live voice architecture, full-duplex systems engineering, turn detection removal, Go media frontends, WARP WebRTC, and live context compaction.
   - [Nothing Crashed. Nothing Flagged. Your Agent Was Already Compromised](https://bydhruvil.in/blog/memory-poisoning): Technical analysis of Memory Poisoning (MINJA, Sleeper Memory, AgentPoison) and OWASP Top 10 for Agentic AI.

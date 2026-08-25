@@ -48,6 +48,15 @@ interface BlogPost {
 
 const blogPosts: BlogPost[] = [
   {
+    slug: "losing-money-on-agents",
+    title: "you're losing money on agents (the shift to shifts)",
+    excerpt: "AI is shifting from clever text assistants to full-time digital employees. The real engineering problem isn't keeping them running — it's knowing what they actually did while you were asleep.",
+    coverImage: "/images/losing-money-on-agents-banner.jpg",
+    date: "August 2026",
+    readTime: "6 min read",
+    category: "Featured Article",
+  },
+  {
     slug: "skill-of-execution",
     title: "Why your best ideas die in your notes app",
     excerpt: "How your brain runs at 100% CPU utilization while your project stands completely still — and the operational toolkit to break the loop of overthinking.",
