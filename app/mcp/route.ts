@@ -145,7 +145,7 @@ const RESOURCE_CONTENTS: Record<string, { mimeType: string; text: string }> = {
   },
   "ui://bydhruvil/projects": {
     mimeType: "text/html",
-    text: "<div id='dhruvil-projects'><h1>Projects</h1><ul><li>Minutz (OpenAI Hackathon)</li><li>Saral AI (Voice Receptionist)</li><li>Skin Cure</li><li>Clarity</li></ul></div>",
+    text: "<div id='dhruvil-projects'><h1>Projects</h1><ul><li>Tax Mitra (AI Income-Tax Notice Workflow)</li><li>Nudge (Autonomous Gmail Follow-Up Agent)</li><li>Minutz (OpenAI Hackathon)</li><li>Saral AI (Voice Receptionist)</li><li>Skin Cure</li><li>Clarity</li></ul></div>",
   },
   "ui://bydhruvil/contact": {
     mimeType: "text/html",
@@ -258,6 +258,8 @@ export async function POST(req: Request) {
                 {
                   type: "text",
                   text: JSON.stringify([
+                    { name: "Tax Mitra", description: "AI-powered Income-Tax Notice & Workflow Assistant for Indian taxpayers", stack: ["Next.js", "FastAPI", "RAG", "Deterministic Rules", "LLMs"], url: "https://taxmitra.bydhruvil.in" },
+                    { name: "Nudge", description: "Autonomous AI Gmail Follow-Up Agent with CLI & MCP support", stack: ["Python", "Groq", "Llama 3.3 70B", "MCP", "SQLite"], url: "https://bydhruvil.in/projects" },
                     { name: "Minutz", description: "AI Meeting Intelligence Platform selected at OpenAI Hackathon", stack: ["FastAPI", "Next.js", "Whisper", "GPT-4o"], url: "https://bydhruvil.in/projects" },
                     { name: "Saral AI", description: "Low-latency Voice AI Receptionist for MSMEs", stack: ["FastAPI", "Groq", "Sarvam AI", "WebSockets"], url: "https://bydhruvil.in/projects" },
                     { name: "Skin Cure", description: "Multimodal Healthcare Classifier on 28k dermatology images", stack: ["PyTorch", "SwinV2", "FastAPI", "React"], url: "https://bydhruvil.in/projects" },

@@ -50,22 +50,32 @@ curl -X POST https://bydhruvil.in/ask \
 
 ## Flagship AI Projects
 
-1. **Minutz — AI Meeting Intelligence Platform**
+1. **Tax Mitra — AI Income-Tax Notice & Workflow Assistant**
+   - *Stack:* Next.js, FastAPI, Python, RAG, Deterministic Rules, LLMs
+   - *Highlight:* Helps Indian taxpayers understand notices, prepare evidence, draft responses, and file with grounded statutory sources.
+   - *URL:* https://taxmitra.bydhruvil.in
+
+2. **Nudge — Autonomous AI Gmail Follow-Up Agent**
+   - *Stack:* Python, CLI, Groq LLM, Llama 3.3 70B, MCP, SQLite, Google OAuth
+   - *Highlight:* Zero-setup CLI tool and MCP agent for automated email follow-up generation.
+   - *URL:* https://bydhruvil.in/projects
+
+3. **Minutz — AI Meeting Intelligence Platform**
    - *Stack:* Next.js, FastAPI, Whisper, GPT-4o, Supabase, TailwindCSS
    - *Highlight:* Browser-native audio capture and async pipeline selected at OpenAI × Outskill Hackathon.
    - *URL:* https://bydhruvil.in/projects
 
-2. **Saral AI — Real-time Voice AI Receptionist**
+4. **Saral AI — Real-time Voice AI Receptionist**
    - *Stack:* FastAPI, Groq (Llama 3), Sarvam AI, WebSockets, Python
    - *Highlight:* Low-latency full-duplex voice bot for small businesses.
    - *URL:* https://bydhruvil.in/projects
 
-3. **Skin Cure — Multimodal Healthcare Classifier**
+5. **Skin Cure — Multimodal Healthcare Classifier**
    - *Stack:* PyTorch, SwinV2 Transformer, FastAPI, React
    - *Highlight:* 28k clinical dermatology image classifier with localized medical discovery.
    - *URL:* https://bydhruvil.in/projects
 
-4. **Clarity — AI Reading Assistant Extension**
+6. **Clarity — AI Reading Assistant Extension**
    - *Stack:* Manifest V3, WebExtensions API, Multi-Provider LLM abstraction
    - *Highlight:* Zero-backend browser extension for contextual page synthesis.
    - *URL:* https://bydhruvil.in/projects

@@ -1,5 +1,25 @@
 const ALL_PROJECTS = [
   {
+    id: "taxmitra",
+    name: "Tax Mitra — AI Income-Tax Notice & Workflow Assistant",
+    tagline: "AI-powered statutory tax notice analyzer, position evaluator & response drafter",
+    description: "Helps Indian taxpayers understand income-tax notices, determine their position, prepare relevant evidence and responses, and navigate official filing with grounded sources, deterministic rules, and human approval.",
+    category: "ai",
+    tech_stack: ["Next.js", "FastAPI", "Python", "RAG", "Deterministic Rules", "LLMs"],
+    url: "https://taxmitra.bydhruvil.in",
+    github: "https://github.com/dhruvil-codes/taxmitra",
+  },
+  {
+    id: "nudge",
+    name: "Nudge — Autonomous AI Gmail Follow-Up Agent",
+    tagline: "CLI agent and MCP tool for automated email follow-ups using Groq Llama 3.3 70B",
+    description: "Identifies unanswered email threads and generates contextual follow-up drafts with Google OAuth, local SQLite, and MCP client support.",
+    category: "tools",
+    tech_stack: ["Python", "CLI", "Groq LLM", "Llama 3.3 70B", "MCP", "SQLite", "Google OAuth"],
+    url: "https://bydhruvil.in/projects",
+    github: "https://github.com/dhruvil-codes",
+  },
+  {
     id: "minutz",
     name: "Minutz — AI Meeting Intelligence",
     tagline: "Browser-native meeting audio recorder & asynchronous intelligence pipeline",

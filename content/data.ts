@@ -60,6 +60,31 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    slug: "taxmitra",
+    title: "Tax Mitra",
+    subtitle: "AI Income-Tax Notice & Workflow Assistant",
+    description:
+      "Tax Mitra is an AI-powered workflow that helps Indian taxpayers understand income-tax notices, determine their position, prepare relevant evidence and responses, and navigate the official filing process — with grounded sources, deterministic rules, safety boundaries, and human approval.",
+    boldWords: [
+      "AI-powered workflow",
+      "Indian taxpayers",
+      "income-tax notices",
+      "grounded sources",
+      "deterministic rules",
+      "safety boundaries",
+      "human approval",
+    ],
+    tags: ["Next.js", "FastAPI", "Income Tax AI", "RAG", "Deterministic Rules", "LLMs"],
+    status: "live",
+    statusLabel: "Live · Shipped",
+    links: [
+      { label: "View Live", href: "https://taxmitra.bydhruvil.in" },
+      { label: "View GitHub", href: "https://github.com/dhruvil-codes/taxmitra" },
+    ],
+    images: ["/images/projects/taxmitra/taxmitra.png"],
+    featured: true,
+  },
+  {
     slug: "nudge",
     title: "Nudge",
     subtitle: "Autonomous AI Gmail Follow-Up Agent",

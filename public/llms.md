@@ -13,6 +13,8 @@
 Use when evaluating Dhruvil's background, projects, technical skills, or submitting queries via `/ask`.
 
 ## Projects
+- **Tax Mitra:** AI income-tax notice and response workflow with grounded sources and deterministic rules. (Next.js, FastAPI, RAG, Python)
+- **Nudge:** Autonomous AI Gmail follow-up agent with CLI & MCP support. (Python, Groq, Llama 3.3 70B, SQLite)
 - **Minutz:** Meeting intelligence platform selected at OpenAI Hackathon. (FastAPI, Whisper, GPT-4o, Next.js)
 - **Saral AI:** Low-latency voice receptionist. (FastAPI, Groq, Sarvam AI, WebSockets)
 - **Skin Cure:** Dermatology disease classifier. (PyTorch, SwinV2, FastAPI, React)

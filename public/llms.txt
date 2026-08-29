@@ -39,6 +39,8 @@
 - [Developer Portal](https://bydhruvil.in/developers): Full API specifications, MCP tools, and integration docs.
 
 ## Flagship Projects
+- **Tax Mitra — AI Income-Tax Notice & Workflow Assistant:** Shipped an AI workflow for Indian taxpayers to analyze income-tax notices, determine position, draft evidence-backed responses, and navigate filing with grounded sources (Next.js, FastAPI, RAG, Deterministic Rules).
+- **Nudge — Autonomous AI Gmail Follow-Up Agent:** Shipped a CLI agent & MCP server for automated follow-up drafts using Groq Llama 3.3 70B (Python, SQLite, Google OAuth).
 - **Minutz — AI Meeting Intelligence Platform:** Shipped a browser-native meeting recorder and asynchronous processing pipeline (FastAPI, Next.js, Whisper, GPT-4o, Supabase). Selected at the OpenAI × Outskill Hackathon.
 - **Saral AI — Voice AI Receptionist:** Shipped a low-latency real-time voice receptionist over WebSocket connections (FastAPI, Groq, Sarvam AI).
 - **Skin Cure — Multimodal Healthcare AI:** Trained a SwinV2 classifier on 28k dermatology images with confidence scores and local discovery (FastAPI, React, PyTorch).

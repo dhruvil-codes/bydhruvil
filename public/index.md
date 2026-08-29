@@ -12,23 +12,33 @@
 
 ## Flagship Projects
 
-### 1. Minutz — AI Meeting Intelligence Platform
+### 1. Tax Mitra — AI Income-Tax Notice & Workflow Assistant
+- AI-powered workflow helping Indian taxpayers understand notices, prepare evidence, draft responses, and navigate filing with grounded sources.
+- **Stack:** Next.js, FastAPI, Python, RAG, Deterministic Rules, LLMs.
+- **Link:** https://taxmitra.bydhruvil.in
+
+### 2. Nudge — Autonomous AI Gmail Follow-Up Agent
+- Autonomous AI Gmail follow-up agent with zero-setup CLI and Model Context Protocol (MCP) support.
+- **Stack:** Python, CLI, Groq LLM, Llama 3.3 70B, MCP, SQLite, Google OAuth.
+- **Link:** https://bydhruvil.in/projects
+
+### 3. Minutz — AI Meeting Intelligence Platform
 - Browser-native meeting audio recorder and asynchronous processing pipeline.
 - Selected at the OpenAI × Outskill Hackathon.
 - **Stack:** FastAPI, Next.js, Whisper, GPT-4o, Supabase, TailwindCSS.
 - **Link:** https://bydhruvil.in/projects
 
-### 2. Saral AI — Real-time Voice AI Receptionist
+### 4. Saral AI — Real-time Voice AI Receptionist
 - Low-latency voice receptionist over WebSocket connections for small businesses.
 - **Stack:** FastAPI, Groq (Llama 3), Sarvam AI, WebSockets, Python.
 - **Link:** https://bydhruvil.in/projects
 
-### 3. Skin Cure — Multimodal Healthcare AI
+### 5. Skin Cure — Multimodal Healthcare AI
 - Trained SwinV2 classifier on 28k dermatology images with localized clinic discovery.
 - **Stack:** FastAPI, React, PyTorch, SwinV2 Transformer.
 - **Link:** https://bydhruvil.in/projects
 
-### 4. Clarity — AI Reading Assistant
+### 6. Clarity — AI Reading Assistant
 - MV3 Chrome extension with multi-provider LLM abstraction and zero-backend execution.
 - **Stack:** Manifest V3, WebExtensions, OpenAI, Anthropic, Google Gemini.
 - **Link:** https://bydhruvil.in/projects

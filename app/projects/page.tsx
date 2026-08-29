@@ -52,11 +52,26 @@ export default function ProjectsPage() {
             "@id": "https://bydhruvil.in/projects#itemlist",
             "name": "Dhruvil Mistry's Projects",
             "description": "AI systems and web applications engineered by Dhruvil Mistry.",
-            "numberOfItems": 5,
+            "numberOfItems": 6,
             "itemListElement": [
               {
                 "@type": "ListItem",
                 "position": 1,
+                "item": {
+                  "@type": "SoftwareApplication",
+                  "name": "Tax Mitra",
+                  "applicationCategory": "FinanceApplication",
+                  "operatingSystem": "All",
+                  "description": "An AI-powered workflow that helps Indian taxpayers understand income-tax notices, determine their position, prepare relevant evidence and responses, and navigate the official filing process with grounded sources.",
+                  "url": "https://taxmitra.bydhruvil.in",
+                  "creator": {
+                    "@id": "https://bydhruvil.in/#person"
+                  }
+                }
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
                 "item": {
                   "@type": "SoftwareApplication",
                   "name": "Nudge",
@@ -70,7 +85,7 @@ export default function ProjectsPage() {
               },
               {
                 "@type": "ListItem",
-                "position": 2,
+                "position": 3,
                 "item": {
                   "@type": "SoftwareApplication",
                   "name": "Saral AI",
@@ -84,7 +99,7 @@ export default function ProjectsPage() {
               },
               {
                 "@type": "ListItem",
-                "position": 3,
+                "position": 4,
                 "item": {
                   "@type": "SoftwareApplication",
                   "name": "Minutz",
@@ -98,7 +113,7 @@ export default function ProjectsPage() {
               },
               {
                 "@type": "ListItem",
-                "position": 4,
+                "position": 5,
                 "item": {
                   "@type": "SoftwareApplication",
                   "name": "Skin Cure",
@@ -112,7 +127,7 @@ export default function ProjectsPage() {
               },
               {
                 "@type": "ListItem",
-                "position": 5,
+                "position": 6,
                 "item": {
                   "@type": "SoftwareApplication",
                   "name": "Clarity",
@@ -195,19 +210,29 @@ export default function ProjectsPage() {
                           ))}
                         </div>
 
-                        {/* Action Link Button */}
-                        {project.href && (
-                          <div className="pt-2">
+                        {/* Action Link Buttons */}
+                        <div className="pt-2 flex flex-wrap gap-2">
+                          {project.href && (
                             <a
                               href={project.href}
                               target="_blank"
                               rel="noopener noreferrer"
                               className="inline-flex items-center gap-1.5 border border-border px-3 py-1.5 rounded-xl font-mono text-xs font-medium cursor-pointer bg-background hover:bg-muted text-foreground transition-all"
                             >
-                              View project <ArrowUpRight className="h-3.5 w-3.5" />
+                              {project.href.startsWith("http") && !project.href.includes("github.com") ? "View live" : "View project"} <ArrowUpRight className="h-3.5 w-3.5" />
                             </a>
-                          </div>
-                        )}
+                          )}
+                          {project.githubHref && (
+                            <a
+                              href={project.githubHref}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="inline-flex items-center gap-1.5 border border-border px-3 py-1.5 rounded-xl font-mono text-xs font-medium cursor-pointer bg-background hover:bg-muted text-foreground transition-all"
+                            >
+                              View GitHub <ArrowUpRight className="h-3.5 w-3.5" />
+                            </a>
+                          )}
+                        </div>
                       </div>
                     </ExpandableCard>
 

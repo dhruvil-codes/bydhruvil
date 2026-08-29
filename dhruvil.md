@@ -14,6 +14,15 @@ Currently focusing on agentic AI, evals, and open source, and looking for an **A
 
 ## Projects
 
+### Tax Mitra — AI Income-Tax Notice & Workflow Assistant
+Stack: Next.js, FastAPI, Python, RAG, Deterministic Rules, LLMs | Status: Live | Live: https://taxmitra.bydhruvil.in | GitHub: https://github.com/dhruvil-codes/taxmitra
+- Engineered an AI-powered workflow that helps Indian taxpayers understand income-tax notices, determine their position, prepare relevant evidence and responses, and navigate the official filing process.
+- Designed with grounded statutory sources, deterministic rules, strict safety boundaries, and human-in-the-loop approval.
+
+### Nudge — Autonomous AI Gmail Follow-Up Agent
+Stack: Python, CLI, Groq LLM, Llama 3.3 70B, MCP, SQLite, Google OAuth | Status: Live
+- Built a zero-setup CLI tool that identifies unanswered email threads and generates contextual, human-like follow-up drafts with Model Context Protocol (MCP) support.
+
 ### Minutz — AI Meeting Intelligence Platform
 Stack: FastAPI, Next.js, Whisper, GPT-4o, Supabase | Status: Live | Selected at OpenAI × Outskill Hackathon (1 from 1000, Amongst 30,000 entries)
 - Engineered a browser-native meeting recorder that intercepts WebRTC audio streams directly inside Chrome — no bots joining meetings, no notifications, overcoming standard tab-capture limitations.
