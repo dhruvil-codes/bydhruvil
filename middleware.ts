@@ -23,6 +23,7 @@ const HOMEPAGE_MARKDOWN = `# Dhruvil Mistry — AI Engineer
 - **LinkedIn:** https://linkedin.com/in/dhruvilmistry16
 - **GitHub:** https://github.com/dhruvil-codes
 - **Twitter/X:** https://x.com/bydhruvil
+- **Substack:** https://bydhruvil.substack.com/
 - **Website:** https://bydhruvil.in
 - **Developer Portal:** https://bydhruvil.in/developers
 

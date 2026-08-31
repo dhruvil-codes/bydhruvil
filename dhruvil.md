@@ -11,6 +11,7 @@ Currently focusing on agentic AI, evals, and open source, and looking for an **A
 - LinkedIn: linkedin.com/in/dhruvilmistry16
 - GitHub: github.com/dhruvil-codes
 - Twitter/X: @bydhruvil
+- Substack / Newsletter: https://bydhruvil.substack.com/
 
 ## Projects
 

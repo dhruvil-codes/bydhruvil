@@ -72,6 +72,24 @@ export default function StackPage() {
                 </p>
               </div>
 
+              {/* Newsletter Callout */}
+              <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 p-4 rounded-xl border border-edge bg-muted/20">
+                <div className="space-y-1">
+                  <h2 className="text-sm font-semibold text-foreground">Subscribe to bydhruvil on Substack</h2>
+                  <p className="text-xs text-muted-foreground">
+                    I write in-depth breakdowns on building production AI systems, agent architectures, and lessons learned.
+                  </p>
+                </div>
+                <a
+                  href="https://bydhruvil.substack.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="shrink-0 inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-xs font-mono font-medium border border-border bg-background hover:bg-muted transition-colors text-foreground"
+                >
+                  Visit Newsletter ↗
+                </a>
+              </div>
+
               {/* Grid of Substack Cards */}
               <div className="relative pt-2">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

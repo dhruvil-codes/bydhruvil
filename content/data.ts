@@ -38,6 +38,16 @@ export const socialLinks = [
     icon: "linkedin",
   },
   {
+    label: "Twitter/X",
+    href: "https://x.com/bydhruvil",
+    icon: "twitter",
+  },
+  {
+    label: "Substack",
+    href: "https://bydhruvil.substack.com/",
+    icon: "substack",
+  },
+  {
     label: "Email",
     href: "mailto:dhruvilmistry16@gmail.com",
     icon: "mail",

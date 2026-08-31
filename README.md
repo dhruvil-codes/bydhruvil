@@ -141,6 +141,7 @@ Open [http://localhost:3000](http://localhost:3000)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-dhruvilmistry16-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/dhruvilmistry16)
 [![Twitter/X](https://img.shields.io/badge/X-@bydhruvil-black?style=for-the-badge&logo=x&logoColor=white)](https://x.com/bydhruvil)
 [![GitHub](https://img.shields.io/badge/GitHub-dhruvil--codes-181717?style=for-the-badge&logo=github)](https://github.com/dhruvil-codes)
+[![Substack](https://img.shields.io/badge/Substack-bydhruvil-FF6719?style=for-the-badge&logo=substack&logoColor=white)](https://bydhruvil.substack.com)
 [![Medium](https://img.shields.io/badge/Medium-@bydhruvil-black?style=for-the-badge&logo=medium)](https://bydhruvil.medium.com)
 
 </div>

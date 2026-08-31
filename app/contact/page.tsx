@@ -93,6 +93,17 @@ export default function ContactPage() {
             <p className="text-sm text-foreground/80 mt-1 font-mono">@bydhruvil</p>
             <p className="text-xs text-muted-foreground mt-2">AI thoughts, build-in-public logs & experiments</p>
           </a>
+
+          <a
+            href="https://bydhruvil.substack.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="p-5 rounded-xl border border-border bg-muted/20 hover:bg-muted/40 transition-colors"
+          >
+            <h2 className="font-semibold text-foreground text-base">Substack Newsletter</h2>
+            <p className="text-sm text-foreground/80 mt-1 font-mono">bydhruvil.substack.com</p>
+            <p className="text-xs text-muted-foreground mt-2">In-depth essays on AI systems, engineering breakdowns & mental models</p>
+          </a>
         </div>
       </main>
     </div>

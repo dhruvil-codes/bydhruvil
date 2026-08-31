@@ -312,6 +312,7 @@ export async function POST(req: Request) {
                     linkedin: "https://linkedin.com/in/dhruvilmistry16",
                     github: "https://github.com/dhruvil-codes",
                     twitter: "https://x.com/bydhruvil",
+                    substack: "https://bydhruvil.substack.com/",
                     portfolio: "https://bydhruvil.in"
                   }, null, 2)
                 }

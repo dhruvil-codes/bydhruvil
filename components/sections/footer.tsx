@@ -95,6 +95,7 @@ export default function Footer() {
           <a href="https://github.com/dhruvil-codes">Dhruvil Mistry GitHub</a>
           <a href="https://peerlist.io/bydhruvil">Dhruvil Mistry Peerlist</a>
           <a href="https://x.com/bydhruvil">Dhruvil Mistry X / Twitter</a>
+          <a href="https://bydhruvil.substack.com/">Dhruvil Mistry Substack Newsletter</a>
           <a href="https://bydhruvil.in/developers">Dhruvil Mistry Developer Portal and API Documentation</a>
           <a href="https://bydhruvil.in/openapi.json">ByDhruvil OpenAPI 3.1 Spec</a>
         </div>

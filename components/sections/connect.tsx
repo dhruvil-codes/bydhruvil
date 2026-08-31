@@ -49,6 +49,15 @@ const connections = [
     ),
   },
   {
+    name: "Substack",
+    url: "https://bydhruvil.substack.com/",
+    icon: (
+      <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 24 24" className="size-[14px] shrink-0 text-neutral-800 dark:text-white/80" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+        <path d="M22.539 8.242H1.46V5.406h21.08v2.836zM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46zM22.539 1.46H1.46v2.836h21.08V1.46z"/>
+      </svg>
+    ),
+  },
+  {
     name: "Email",
     url: "mailto:dhruvilmistry16@gmail.com",
     icon: (

@@ -11,6 +11,7 @@ const PORTFOLIO_MARKDOWN = `# Dhruvil Mistry — AI Engineer
 - **GitHub:** https://github.com/dhruvil-codes
 - **LinkedIn:** https://www.linkedin.com/in/dhruvilmistry16/
 - **Twitter/X:** https://x.com/bydhruvil
+- **Substack:** https://bydhruvil.substack.com/
 - **Email:** dhruvilmistry16@gmail.com
 - **Status:** Open to work
 

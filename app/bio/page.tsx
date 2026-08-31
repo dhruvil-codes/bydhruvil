@@ -81,6 +81,7 @@ export default function BioPage() {
           <meta itemProp="sameAs" content="https://www.linkedin.com/in/dhruvilmistry16/" />
           <meta itemProp="sameAs" content="https://x.com/bydhruvil" />
           <meta itemProp="sameAs" content="https://peerlist.io/bydhruvil" />
+          <meta itemProp="sameAs" content="https://bydhruvil.substack.com/" />
 
           <div className="border border-dashed border-border rounded-xl p-4 mb-8 text-sm tracking-[-0.01em] bg-muted/20">
             <p className="text-muted-foreground">

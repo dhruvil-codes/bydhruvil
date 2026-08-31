@@ -178,7 +178,8 @@ export default function RootLayout({
                     "https://github.com/dhruvil-codes",
                     "https://www.linkedin.com/in/dhruvilmistry16/",
                     "https://x.com/bydhruvil",
-                    "https://peerlist.io/bydhruvil"
+                    "https://peerlist.io/bydhruvil",
+                    "https://bydhruvil.substack.com/"
                   ],
                   "jobTitle": "AI Engineer",
                   "worksFor": {
@@ -244,7 +245,8 @@ export default function RootLayout({
                     "https://github.com/dhruvil-codes",
                     "https://www.linkedin.com/in/dhruvilmistry16/",
                     "https://x.com/bydhruvil",
-                    "https://peerlist.io/bydhruvil"
+                    "https://peerlist.io/bydhruvil",
+                    "https://bydhruvil.substack.com/"
                   ]
                 },
                 {

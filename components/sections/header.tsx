@@ -83,6 +83,7 @@ export default function Header() {
               <meta itemProp="sameAs" content="https://www.linkedin.com/in/dhruvilmistry16/" />
               <meta itemProp="sameAs" content="https://x.com/bydhruvil" />
               <meta itemProp="sameAs" content="https://peerlist.io/bydhruvil" />
+              <meta itemProp="sameAs" content="https://bydhruvil.substack.com/" />
               <meta itemProp="jobTitle" content="AI Engineer" />
             </h1>
 
