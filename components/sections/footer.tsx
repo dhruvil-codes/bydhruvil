@@ -81,6 +81,13 @@ export default function Footer() {
             >
               Terms
             </Link>
+            <span className="text-edge/80">/</span>
+            <Link
+              href="/developers"
+              className="hover:text-foreground transition-colors"
+            >
+              Developers
+            </Link>
           </div>
 
           <div className="text-[11px] text-muted-foreground/70">

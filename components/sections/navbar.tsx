@@ -11,10 +11,9 @@ import { Menu, X, ArrowUpRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const navLinks = [
-  { label: "Projects", href: "/projects", external: false },
   { label: "Blog", href: "/blog", external: false },
   { label: "Stack", href: "/stack", external: false },
-  { label: "Developers", href: "/developers", external: false },
+  { label: "Services", href: "/services", external: false },
 ];
 
 const quickLinks = [
