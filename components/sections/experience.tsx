@@ -16,6 +16,15 @@ interface ExperienceItem {
 
 const roles: ExperienceItem[] = [
   {
+    title: "Full Stack Developer",
+    company: "Stealth Startup",
+    date: "Sep 2026 – Present",
+    description: [
+      "Architecting and developing scalable full-stack web applications and core features using modern frameworks and cloud infrastructure.",
+      "Building resilient backend services, APIs, and interactive user interfaces in an agile stealth environment.",
+    ],
+  },
+  {
     title: "AI/ML Intern",
     company: "Infosys Springboard",
     date: "Sep 2025 – Nov 2025",

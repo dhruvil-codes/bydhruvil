@@ -51,6 +51,11 @@ Stack: JavaScript, OpenAI, Anthropic, Gemini APIs | Status: Live | GitHub: githu
 
 ## Work Experience
 
+### Full Stack Developer — Stealth Startup
+Sep 2026 – Present
+- Architecting and developing scalable full-stack web applications and core features using modern frameworks and cloud infrastructure.
+- Building resilient backend services, APIs, and interactive user interfaces in an agile stealth environment.
+
 ### AI/ML Intern — Infosys Springboard (Remote)
 Sep 2025 – Nov 2025
 - Reduced model error rates by 20% across production ML pipelines by engineering end-to-end preprocessing, feature engineering, and evaluation workflows using Scikit-Learn and PyTorch on enterprise datasets.
