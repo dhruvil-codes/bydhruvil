@@ -1,15 +1,10 @@
 "use client";
 
 import React, { useState } from "react";
-import {
-  AnnotatedText,
-  type AnnotationVariant,
-} from "@/components/services/annotated-text";
 
 interface ServiceItem {
   id: string;
   title: string;
-  variant: AnnotationVariant;
   detail: string;
 }
 
@@ -17,35 +12,30 @@ const services: ServiceItem[] = [
   {
     id: "support-agents",
     title: "Customer support agents",
-    variant: "wavy",
     detail:
       "Trained on your store documentation, return policies, and FAQs. Handles recurring customer tickets, queries Shopify for live order statuses, and hands off conversations to human staff in Crisp or Zendesk when confidence drops below 85%.",
   },
   {
     id: "knowledge-bots",
     title: "Internal knowledge bots",
-    variant: "wavy",
     detail:
       "Connected to Notion workspaces, Google Drive folders, or GitHub markdown repos. Answers staff technical questions in Slack or Discord, links the exact source file and section, and explicitly admits when information is missing instead of hallucinating.",
   },
   {
     id: "ops-automation",
     title: "Ops and reporting automation",
-    variant: "wavy",
     detail:
       "Eliminates manual data entry between incoming Gmail order notifications, Stripe webhooks, and Google Sheets. Deployed as containerized Python microservices inside your Google Cloud Run or AWS account. Dispatches daily executive summaries and failure alerts.",
   },
   {
     id: "lead-response",
     title: "Inbound lead response",
-    variant: "wavy",
     detail:
       "Monitors inbound contact submissions, enriches prospect company domains via Clearbit or Apollo, scores the lead, and generates contextual email replies in under two minutes for sales reps to approve or send.",
   },
   {
     id: "audits",
     title: "Implementation audits",
-    variant: "wavy",
     detail:
       "Code and architecture review of existing LLM pipelines, prompt chains, token usage, latency bottlenecks, and evaluation coverage. Delivers a written report with identified failure modes, cost optimizations, and actionable code fixes.",
   },
@@ -74,17 +64,15 @@ export function WhatIBuild() {
         {services.map((item) => {
           const isOpen = openItems[item.id];
           return (
-            <li key={item.id} className="space-y-1">
+            <li key={item.id} className="border-b border-border/40 pb-3 last:border-b-0 space-y-1">
               <button
                 type="button"
                 onClick={() => toggleItem(item.id)}
-                className="flex w-full items-baseline justify-between text-left group cursor-pointer"
+                className="flex w-full items-center justify-between text-left group cursor-pointer py-1"
                 aria-expanded={isOpen}
               >
-                <span className="text-[15px] font-medium leading-[1.6]">
-                  <AnnotatedText variant={item.variant}>
-                    {item.title}
-                  </AnnotatedText>
+                <span className="text-sm sm:text-base font-semibold text-foreground group-hover:text-foreground/80 transition-colors">
+                  {item.title}
                 </span>
                 <span
                   className="font-mono text-xs text-muted-foreground ml-3 shrink-0 select-none group-hover:text-foreground transition-colors"
@@ -95,7 +83,7 @@ export function WhatIBuild() {
               </button>
 
               {isOpen && (
-                <p className="mt-1.5 text-[14px] leading-[1.6] text-neutral-600 dark:text-neutral-400">
+                <p className="text-sm sm:text-base leading-relaxed text-muted-foreground pt-1">
                   {item.detail}
                 </p>
               )}
@@ -104,9 +92,9 @@ export function WhatIBuild() {
         })}
       </ul>
 
-      <p className="text-[15px] leading-[1.6] text-neutral-600 dark:text-neutral-400 pt-2">
+      <p className="text-sm sm:text-base leading-relaxed text-muted-foreground pt-2">
         Fixed scope, fixed price, starting at{" "}
-        <AnnotatedText variant="highlight">$450</AnnotatedText>, depending on
+        <span className="font-semibold text-foreground">$450</span>, depending on
         scope.
       </p>
     </div>

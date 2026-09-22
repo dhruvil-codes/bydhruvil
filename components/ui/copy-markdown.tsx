@@ -36,8 +36,8 @@ Every project I've built started with a real frustration. Minutz because meeting
 ### Full Stack Developer — Stealth Startup
 *Sep 2026 – Present*
 
-- Architecting and developing scalable full-stack web applications and core features using modern frameworks and cloud infrastructure.
-- Building resilient backend services, APIs, and interactive user interfaces.
+- Building full-stack web applications and core features using modern frameworks and cloud infrastructure.
+- Developing resilient backend services, APIs, and interactive user interfaces.
 
 ### AI/ML Intern — Infosys Springboard
 *Sep 2025 – Nov 2025*

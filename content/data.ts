@@ -212,6 +212,15 @@ export interface Experience {
 
 export const experiences: Experience[] = [
   {
+    role: "Full Stack Developer",
+    company: "Stealth Startup",
+    location: "Remote",
+    period: "Sep 2026 — Present",
+    description:
+      "Building full-stack web applications and core features using modern frameworks and cloud infrastructure. Developing resilient backend services, APIs, and interactive user interfaces in an agile stealth environment.",
+    boldWords: ["Full Stack Developer", "full-stack web applications", "backend services", "cloud infrastructure"],
+  },
+  {
     role: "AI/ML Intern",
     company: "Infosys Springboard",
     location: "Remote",

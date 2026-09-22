@@ -46,26 +46,21 @@ interface TimelineProps {
 
 export function Timeline({ className }: TimelineProps) {
   return (
-    <div
-      className={cn(
-        "space-y-4 font-mono text-[15px] leading-[1.6]",
-        className
-      )}
-    >
+    <div className={cn("space-y-4", className)}>
       {steps.map((step, idx) => (
         <div
           key={idx}
-          className="flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-6"
+          className="flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-6 border-b border-border/40 pb-3 last:border-b-0"
         >
-          <span className="w-24 shrink-0 text-muted-foreground text-sm font-mono">
+          <span className="w-24 shrink-0 text-muted-foreground text-xs sm:text-sm font-mono">
             {step.period}
           </span>
           <div className="space-y-1">
-            <p className="text-foreground font-sans text-[15px] font-medium leading-[1.6]">
+            <p className="text-foreground font-sans text-sm sm:text-base font-medium">
               {step.detail}
             </p>
             {step.subtext && (
-              <p className="text-neutral-500 dark:text-neutral-400 font-sans text-[13px] leading-relaxed">
+              <p className="text-muted-foreground font-sans text-xs sm:text-sm leading-relaxed">
                 {step.subtext}
               </p>
             )}

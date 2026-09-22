@@ -20,8 +20,8 @@ const roles: ExperienceItem[] = [
     company: "Stealth Startup",
     date: "Sep 2026 – Present",
     description: [
-      "Building and developing scalable full-stack web applications and core features using modern frameworks and cloud infrastructure.",
-      "Building resilient backend services, APIs, and interactive user interfaces in an agile stealth environment.",
+      "Building full-stack web applications and core features using modern frameworks and cloud infrastructure.",
+      "Developing resilient backend services, APIs, and interactive user interfaces in an agile stealth environment.",
     ],
   },
   {

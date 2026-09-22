@@ -53,8 +53,8 @@ Stack: JavaScript, OpenAI, Anthropic, Gemini APIs | Status: Live | GitHub: githu
 
 ### Full Stack Developer — Stealth Startup
 Sep 2026 – Present
-- Architecting and developing scalable full-stack web applications and core features using modern frameworks and cloud infrastructure.
-- Building resilient backend services, APIs, and interactive user interfaces in an agile stealth environment.
+- Building full-stack web applications and core features using modern frameworks and cloud infrastructure.
+- Developing resilient backend services, APIs, and interactive user interfaces in an agile stealth environment.
 
 ### AI/ML Intern — Infosys Springboard (Remote)
 Sep 2025 – Nov 2025
