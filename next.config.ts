@@ -9,6 +9,22 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  async rewrites() {
+    return [
+      {
+        source: "/professtional-headshot",
+        destination: "/professional-headshot.jpg",
+      },
+      {
+        source: "/professional-headshot",
+        destination: "/professional-headshot.jpg",
+      },
+      {
+        source: "/anime-headshot",
+        destination: "/anime-headshot.jpg",
+      },
+    ];
+  },
 };
 
 export default nextConfig;
