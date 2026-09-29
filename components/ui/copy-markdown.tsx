@@ -63,7 +63,7 @@ Every project I've built started with a real frustration. Minutz because meeting
 ## Education
 
 ### MCT Rajiv Gandhi Institute of Technology — Mumbai, India
-- **Graduation:** 2026
+- **Graduation:** Completed (2026)
 - **CGPA:** 7.00/10
 
 ### Thakur Polytechnic — Mumbai, India

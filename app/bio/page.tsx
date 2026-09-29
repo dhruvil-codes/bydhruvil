@@ -114,7 +114,7 @@ export default function BioPage() {
             </p>
 
             <p>
-              I share my findings and engineering workflow as a technical content creator on LinkedIn, where I connect with a community of over 3,000 developers and founders. I am currently finishing my Bachelor of Engineering in Electronics & Telecommunications at MCT Rajiv Gandhi Institute of Technology.
+              I share my findings and engineering workflow as a technical content creator on LinkedIn, where I connect with a community of over 3,000 developers and founders. I completed my Bachelor of Engineering in Electronics & Telecommunications at MCT Rajiv Gandhi Institute of Technology.
             </p>
           </div>
 

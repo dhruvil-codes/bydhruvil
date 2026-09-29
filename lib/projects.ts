@@ -44,8 +44,8 @@ export const projectsData: ProjectData[] = [
     subtitle: "Voice AI Receptionist",
     shortDescription: "A low-latency, real-time Voice AI Receptionist for MSMEs automating inbound customer phone calls over full-duplex WebSocket connections.",
     description: "Saral AI is a low-latency, real-time Voice AI Receptionist engineered specifically for Micro, Small, and Medium Enterprises (MSMEs). It automates inbound customer phone calls over full-duplex WebSocket connections, answers business queries using custom enterprise knowledge, captures structured high-intent leads, and communicates naturally in Indian regional languages.",
-    year: null,
-    status: "in-progress",
+    year: "2025",
+    status: "shipped",
     heroImage: "/images/projects/saral-ai/saral-ai.png",
     tags: ["FastAPI", "Next.js", "Sarvam AI", "Groq LLM", "WebSockets", "webrtcvad"],
     href: "https://github.com/dhruvil-codes"

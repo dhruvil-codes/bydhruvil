@@ -5,6 +5,7 @@ import Header from "@/components/sections/header";
 import Navbar from "@/components/sections/navbar";
 import About from "@/components/sections/about";
 import Connect from "@/components/sections/connect";
+import Services from "@/components/sections/services";
 import Projects from "@/components/sections/projects";
 import Experience from "@/components/sections/experience";
 import Education from "@/components/sections/education";
@@ -47,6 +48,12 @@ export default function Home() {
 
           {/* Connect Section */}
           <Connect />
+
+          {/* Separator */}
+          <div className="relative flex h-6 w-full border-x border-edge bg-hatch-lines"></div>
+
+          {/* Services Section */}
+          <Services />
 
           {/* Separator */}
           <div className="relative flex h-6 w-full border-x border-edge bg-hatch-lines"></div>

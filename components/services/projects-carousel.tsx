@@ -20,31 +20,31 @@ export type ProjectCard = {
 
 const projectCards: ProjectCard[] = [
   {
-    title: "Support Agent for D2C",
-    category: "Demo build",
-    src: "/images/projects/clarity/clarity.jpg",
+    title: "Tax Mitra",
+    category: "Independent product",
+    src: "/images/projects/taxmitra/taxmitra.png",
     problem:
-      "Customers asked the same three order and return questions repeatedly every day.",
+      "Statutory tax notices are cryptic and stressful, but raw LLMs cannot be trusted to draft or submit filings without deterministic rules.",
     solution:
-      "Built an agent that answers directly from store documentation and routes conversations to human staff when confidence drops.",
+      "Engineered a grounded walkthrough with real statutory citations, evidence preparation, and human review boundaries before any official filing.",
   },
   {
-    title: "Ops Automation",
-    category: "Demo build",
+    title: "Nudge",
+    category: "Independent product",
     src: "/images/projects/nudge/nudge.png",
     problem:
-      "Staff spent two hours every morning re-typing order emails into a tracking spreadsheet.",
+      "Critical outreach and partnership email threads go cold because manually reviewing unanswered conversations takes hours.",
     solution:
-      "Built a background pipeline inside Google Workspace that logs incoming records, sends a daily summary digest, and alerts immediately if an entry fails.",
+      "Autonomous follow-up engine that identifies cold threads and drafts contextual replies, keeping the user in full control with a mandatory human review queue.",
   },
   {
-    title: "Internal Doc Bot",
-    category: "Demo build",
+    title: "Minutz",
+    category: "Hackathon build · OpenAI",
     src: "/images/projects/minutz/minutz.jpg",
     problem:
-      "Staff repeatedly asked questions in Slack that were already answered in internal documentation.",
+      "Standard meeting bots disrupt meetings, require external bot invitations, and create privacy and latency friction.",
     solution:
-      "Built an internal Slack bot that answers questions from existing markdown files and cites the exact source file with every response.",
+      "Invisible browser-native meeting capture-to-action pipeline intercepting WebRTC audio directly with Whisper transcription and structured action items.",
   },
 ];
 

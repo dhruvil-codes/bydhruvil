@@ -10,45 +10,31 @@ interface ServiceItem {
 
 const services: ServiceItem[] = [
   {
-    id: "support-agents",
-    title: "Customer support agents",
+    id: "support-docs",
+    title: "1. Support and docs assistant",
     detail:
-      "Trained on your store documentation, return policies, and FAQs. Handles recurring customer tickets, queries Shopify for live order statuses, and hands off conversations to human staff in Crisp or Zendesk when confidence drops below 85%.",
+      "Give customers or staff answers from your approved documentation, with links back to the source. If the answer is missing or uncertain, the assistant says so and hands it to your team. Start with one channel and a small set of documents. We can quote helpdesk, order-status, Slack or Drive connections once we have checked access and scope.",
   },
   {
-    id: "knowledge-bots",
-    title: "Internal knowledge bots",
+    id: "receptionist-leads",
+    title: "2. Receptionist and lead intake",
     detail:
-      "Connected to Notion workspaces, Google Drive folders, or GitHub markdown repos. Answers staff technical questions in Slack or Discord, links the exact source file and section, and explicitly admits when information is missing instead of hallucinating.",
+      "Turn routine enquiries into clear next steps: answer approved FAQs, collect the right details, suggest a slot and hand complex questions to a person. Voice, calendar booking and CRM updates are separate production work. My Saral AI voice receptionist is shipped; ask for a workflow prototype or discovery first to see how we can adapt it for your team.",
   },
   {
-    id: "ops-automation",
-    title: "Ops and reporting automation",
+    id: "workflow-audit",
+    title: "3. AI workflow audit",
     detail:
-      "Eliminates manual data entry between incoming Gmail order notifications, Stripe webhooks, and Google Sheets. Deployed as containerized Python microservices inside your Google Cloud Run or AWS account. Dispatches daily executive summaries and failure alerts.",
-  },
-  {
-    id: "lead-response",
-    title: "Inbound lead response",
-    detail:
-      "Monitors inbound contact submissions, enriches prospect company domains via Clearbit or Apollo, scores the lead, and generates contextual email replies in under two minutes for sales reps to approve or send.",
-  },
-  {
-    id: "audits",
-    title: "Implementation audits",
-    detail:
-      "Code and architecture review of existing LLM pipelines, prompt chains, token usage, latency bottlenecks, and evaluation coverage. Delivers a written report with identified failure modes, cost optimizations, and actionable code fixes.",
+      "Already using an LLM? I'll review one workflow for failure modes, latency, model spend, data handling and evaluation gaps, then give you a prioritized written fix list. This is advice, not a production rebuild.",
   },
 ];
 
 export function WhatIBuild() {
   // All open by default, each independently toggleable
   const [openItems, setOpenItems] = useState<Record<string, boolean>>({
-    "support-agents": true,
-    "knowledge-bots": true,
-    "ops-automation": true,
-    "lead-response": true,
-    "audits": true,
+    "support-docs": true,
+    "receptionist-leads": true,
+    "workflow-audit": true,
   });
 
   const toggleItem = (id: string) => {
@@ -91,12 +77,6 @@ export function WhatIBuild() {
           );
         })}
       </ul>
-
-      <p className="text-sm sm:text-base leading-relaxed text-muted-foreground pt-2">
-        Fixed scope, fixed price, starting at{" "}
-        <span className="font-semibold text-foreground">$450</span>, depending on
-        scope.
-      </p>
     </div>
   );
 }

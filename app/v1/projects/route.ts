@@ -33,7 +33,7 @@ const ALL_PROJECTS = [
   {
     id: "saral-ai",
     name: "Saral AI — Voice AI Receptionist",
-    tagline: "Ultra low-latency conversational voice agent for small businesses",
+    tagline: "Ultra low-latency conversational voice agent for small businesses (Shipped)",
     description: "Automates customer inbound calls over full-duplex WebSocket connections with sub-second response times using Groq and Sarvam AI.",
     category: "voice",
     tech_stack: ["FastAPI", "Python", "Groq", "Sarvam AI", "WebSockets"],

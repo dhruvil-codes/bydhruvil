@@ -7,6 +7,7 @@ interface EducationItem {
   name: string;
   location: string;
   graduation: string;
+  status: string;
   gpa: string;
   url: string;
 }
@@ -16,6 +17,7 @@ const education: EducationItem[] = [
     name: "MCT Rajiv Gandhi Institute of Technology",
     location: "Mumbai, India",
     graduation: "2026",
+    status: "Completed",
     gpa: "7.00/10 CGPA",
     url: "https://www.mctrgit.ac.in",
   },
@@ -23,6 +25,7 @@ const education: EducationItem[] = [
     name: "Thakur Polytechnic",
     location: "Mumbai, India",
     graduation: "2023",
+    status: "Completed",
     gpa: "3rd Rank in Department",
     url: "https://www.tpoly.org.in",
   },
@@ -69,8 +72,7 @@ export default function Education() {
                 <span itemProp="award">{school.gpa}</span>
               </p>
               <p className="mt-2 text-sm sm:text-base font-medium leading-6 text-muted-foreground">
-                {school.graduation.startsWith("Expected") ? "" : "Graduated: "}
-                <span>{school.graduation}</span>
+                Status: <span className="text-foreground font-semibold">{school.status}</span> ({school.graduation})
               </p>
             </div>
           </article>

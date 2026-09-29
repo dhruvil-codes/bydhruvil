@@ -88,7 +88,7 @@ Oct 2023 – Feb 2024
 - Machine Learning Specialization — Stanford/Coursera
 
 ## Education
-- B.E. Electronics & Telecommunications (2026), MCT Rajiv Gandhi Institute of Technology, Mumbai — CGPA: 7.0/10
+- B.E. Electronics & Telecommunications (Completed 2026), MCT Rajiv Gandhi Institute of Technology, Mumbai — CGPA: 7.0/10
 - Diploma in Electronics & Telecommunications (2023), Thakur Polytechnic, Mumbai — 3rd Rank in Department
 
 ## Honors & Leadership

@@ -11,20 +11,7 @@ interface UpcomingProject {
 }
 
 const upcomingProjects: UpcomingProject[] = [
-  {
-    title: "Saral AI",
-    released: false,
-    type: "In Progress",
-    badges: {
-      FastAPI: "border border-green-500/15 text-green-800 bg-green-500/5 hover:bg-green-500/5 rounded-xl",
-      "Sarvam AI": "border border-blue-500/15 text-blue-800 bg-blue-500/5 hover:bg-blue-500/5 rounded-xl",
-      "Groq LLM": "border border-purple-500/15 text-purple-800 bg-purple-500/5 hover:bg-purple-500/5 rounded-xl",
-      WebSockets: "border border-orange-500/15 text-orange-800 bg-orange-500/5 hover:bg-orange-500/5 rounded-xl",
-    },
-    company: "Voice AI Receptionist",
-    description:
-      "A real-time Voice AI receptionist automating inbound calls over full-duplex WebSockets with sub-second response times in regional languages.",
-  },
+
   {
     title: "Skin Cure",
     released: false,

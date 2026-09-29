@@ -9,34 +9,34 @@ interface AgendaStep {
 
 const steps: AgendaStep[] = [
   {
-    period: "Day 0",
-    detail: "20-minute call",
+    period: "Phase 1",
+    detail: "20-minute discovery call & scope doc",
     subtext:
-      "We walk through the bottleneck, inspect your current workflow, and verify required data access.",
+      "We define inputs, outputs, systems involved, measurable acceptance test cases, timeline, and a clear fixed price.",
   },
   {
-    period: "Day 1",
-    detail: "Written scope and fixed price, 50% to start",
+    period: "Phase 2",
+    detail: "Architecture & access agreement",
     subtext:
-      "You receive a 1-page technical spec outlining exact deliverables, architecture, and the fixed price.",
+      "We agree where code runs, who has access, and ensure you own all third-party API and model accounts.",
   },
   {
-    period: "Day 2-5",
-    detail: "Built inside your accounts",
+    period: "Phase 3",
+    detail: "Build & sample data testing",
     subtext:
-      "I code directly inside your GitHub or cloud infrastructure. You see every commit and pull request as it ships.",
+      "Tested against your approved sample data with explicit demonstration of failure modes and human-handoff cases.",
   },
   {
-    period: "Day 5",
-    detail: "Handover recording, repo transferred",
+    period: "Phase 4",
+    detail: "Code delivery & handover note",
     subtext:
-      "We test the build on live data, transfer repository admin rights, and deliver a recorded video walkthrough.",
+      "You receive repository ownership, clean documentation, and a handover note. Any live integration is listed explicitly.",
   },
   {
-    period: "Day 5-12",
-    detail: "Anything broken, fixed free",
+    period: "Phase 5",
+    detail: "7 calendar days of defect fixes",
     subtext:
-      "7 days of fixes included. If an unhandled edge case breaks or an API fails, I fix it immediately without extra charge.",
+      "Included fixes for any defects against the agreed scope after handover. New features and ongoing maintenance are separate.",
   },
 ];
 

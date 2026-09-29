@@ -63,10 +63,12 @@ export default function ServicesPage() {
             <header className="screen-line-after px-4 py-4 sm:px-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
               <div>
                 <span className="text-[10px] font-mono tracking-wider text-muted-foreground uppercase block mb-1">
-                  What I offer and build for clients
+                  AI Systems · Scoped Pilots & Audits
                 </span>
-                <h1 className="font-semibold tracking-tight text-foreground text-xl">Services</h1>
-                <p className="text-xs font-mono text-muted-foreground mt-0.5">/freelance-builds</p>
+                <h1 className="font-semibold tracking-tight text-foreground text-xl">
+                  AI that fits the way your team works
+                </h1>
+                <p className="text-xs font-mono text-muted-foreground mt-0.5">/services</p>
               </div>
               <Link
                 href="/"
@@ -81,59 +83,22 @@ export default function ServicesPage() {
               <div className="space-y-4">
                 <div className="space-y-3.5 text-sm sm:text-base leading-relaxed text-muted-foreground">
                   <p>
-                    I&apos;m an AI engineer with{" "}
-                    <span className="font-semibold text-foreground">
-                      2+ years of experience
-                    </span>{" "}
-                    building and shipping AI systems.
+                    I&apos;m Dhruvil Mistry, an AI engineer. I build useful AI workflows with clear handoffs, source-backed answers and a person in control where it matters. I take on no more than two freelance projects a month.
                   </p>
                   <p>
-                    I care a lot about how software is built, from the architecture
-                    and scalability to the tiny details that make a product feel
-                    polished. I also have a strong eye for design, so everything
-                    I ship comes with an interface that feels just as good as the
-                    system behind it.
+                    We start with a focused pilot or workflow audit. We pick one workflow, one data source and a measurable acceptance test together. You get a working proof of concept or a written audit with concrete next steps before committing to a larger production build.
                   </p>
-                  <p>
-                    I work{" "}
-                    <span className="font-medium text-foreground">
-                      9:00 AM to 7:00 PM IST
-                    </span>{" "}
-                    and keep my freelance work intentionally limited to 2 projects per
-                    month so I can stay deeply involved in every build.
-                  </p>
-                  <p>
-                    Projects start at{" "}
-                    <span className="font-semibold text-foreground">$450</span>, depending
-                    on scope.
-                  </p>
-                  <p>
-                    Everything is built directly inside your accounts, tested with
-                    your real data, and once we&apos;re done, you own the repository
-                    and the entire system.
-                  </p>
-                  <div className="pt-2 space-y-1">
-                    <p className="font-semibold text-foreground">
-                      Have something you want to build?
-                    </p>
-                    <p className="text-muted-foreground">
-                      Ping me via{" "}
+                  <div className="pt-2 space-y-1.5">
+                    <p className="text-foreground font-medium">
                       <a
-                        href="mailto:dhruvilmistry16@gmail.com"
-                        className="text-foreground underline underline-offset-4 hover:text-neutral-900 dark:hover:text-white transition-colors font-medium"
+                        href="mailto:dhruvilmistry16@gmail.com?subject=20-minute%20AI%20project%20call"
+                        className="text-foreground underline underline-offset-4 hover:opacity-80 transition-opacity font-semibold"
                       >
-                        email
-                      </a>{" "}
-                      or{" "}
-                      <a
-                        href="https://x.com/bydhruvil"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-foreground underline underline-offset-4 hover:text-neutral-900 dark:hover:text-white transition-colors font-medium"
-                      >
-                        X DM
+                        Email me to arrange a 20-minute call →
                       </a>
-                      . I usually reply within 2–3 hours.
+                    </p>
+                    <p className="text-xs sm:text-sm text-muted-foreground">
+                      Tell me your process, the systems involved and what success would look like.
                     </p>
                   </div>
                 </div>
@@ -144,63 +109,122 @@ export default function ServicesPage() {
 
               {/* 2. WHAT I BUILD */}
               <div className="space-y-4 pt-2">
-                <h2 className="text-lg sm:text-xl font-semibold tracking-tight text-foreground">
-                  What I Build
-                </h2>
+                <div className="space-y-1">
+                  <h2 className="text-lg sm:text-xl font-semibold tracking-tight text-foreground">
+                    What I Build
+                  </h2>
+                  <p className="text-xs sm:text-sm text-muted-foreground">
+                    Focused solutions built directly around your operational bottlenecks.
+                  </p>
+                </div>
 
                 <WhatIBuild />
               </div>
 
-              {/* 3. PROJECTS */}
+              {/* 3. PROOF, NOT STOCK DEMOS */}
               <div className="space-y-4 pt-2">
-                <h2 className="text-lg sm:text-xl font-semibold tracking-tight text-foreground">
-                  Projects
-                </h2>
+                <div className="space-y-1">
+                  <h2 className="text-lg sm:text-xl font-semibold tracking-tight text-foreground">
+                    Proof, not stock demos
+                  </h2>
+                  <p className="text-xs sm:text-sm text-muted-foreground">
+                    Independent products and hackathon builds showing real citation flows, human review, and explicit failure boundaries.
+                  </p>
+                </div>
 
                 <ProjectsCarousel />
 
-                <p className="text-sm sm:text-base leading-relaxed text-muted-foreground pt-1">
-                  Every project ships with the repo transferred to you, a
-                  handover recording, and 7 days of fixes.
+                <p className="text-xs sm:text-sm leading-relaxed text-muted-foreground/80 pt-1 border-t border-border/40">
+                  Note: Tax Mitra and Nudge are independent products; Minutz is an OpenAI hackathon project. Client cases are shared only with explicit permission and verified outcomes. None of these are presented as commissioned client results.
                 </p>
               </div>
 
-              {/* 4. HOW IT WORKS */}
+              {/* 4. HOW A PROJECT RUNS */}
               <div className="space-y-4 pt-2">
-                <h2 className="text-lg sm:text-xl font-semibold tracking-tight text-foreground">
-                  How It Works
-                </h2>
+                <div className="space-y-1">
+                  <h2 className="text-lg sm:text-xl font-semibold tracking-tight text-foreground">
+                    How a project runs
+                  </h2>
+                  <p className="text-xs sm:text-sm text-muted-foreground">
+                    A predictable, transparent engagement from discovery to handover.
+                  </p>
+                </div>
 
                 <Timeline />
+              </div>
 
-                <div className="space-y-4 pt-2">
-                  <p className="text-sm sm:text-base leading-relaxed text-muted-foreground">
-                    Available Monday to Friday,{" "}
-                    <span className="font-medium text-foreground">
-                      9:00 AM – 7:00 PM IST
-                    </span>
-                    . Reach out anytime via{" "}
-                    <a
-                      href="mailto:dhruvilmistry16@gmail.com"
-                      className="text-foreground underline underline-offset-4 hover:text-neutral-900 dark:hover:text-white transition-colors font-medium"
-                    >
-                      email
-                    </a>{" "}
-                    or{" "}
-                    <a
-                      href="https://x.com/bydhruvil"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-foreground underline underline-offset-4 hover:text-neutral-900 dark:hover:text-white transition-colors font-medium"
-                    >
-                      X DM
-                    </a>
-                    — I reply within 2–3 hours.
+              {/* 5. PRICING & SCOPE */}
+              <div className="space-y-6 pt-2 border-t border-border/40">
+                <div className="space-y-1">
+                  <h2 className="text-lg sm:text-xl font-semibold tracking-tight text-foreground">
+                    Pricing & Engagement Terms
+                  </h2>
+                  <p className="text-xs sm:text-sm text-muted-foreground">
+                    Clear scopes, fixed budgets, and zero hidden assumptions.
                   </p>
+                </div>
 
-                  <div>
-                    <BookingButton />
+                {/* Two Tier Cards */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  {/* Pilot / Audit */}
+                  <div className="p-4 sm:p-5 rounded-xl border border-edge bg-muted/20 space-y-3">
+                    <div className="flex items-baseline justify-between">
+                      <h3 className="font-semibold text-foreground text-sm sm:text-base">
+                        Pilot or Workflow Audit
+                      </h3>
+                      <span className="font-mono text-base font-bold text-foreground">$450</span>
+                    </div>
+                    <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+                      A fast, fixed-scope proof of concept or technical review to validate ROI before building full production infrastructure.
+                    </p>
+                    <ul className="text-xs sm:text-sm text-muted-foreground space-y-1.5 list-disc list-inside pt-1">
+                      <li>One workflow & one data source</li>
+                      <li>Measurable acceptance test criteria</li>
+                      <li>Working POC code or prioritized fix audit</li>
+                    </ul>
                   </div>
+
+                  {/* Production Build */}
+                  <div className="p-4 sm:p-5 rounded-xl border border-edge bg-muted/20 space-y-3">
+                    <div className="flex items-baseline justify-between">
+                      <h3 className="font-semibold text-foreground text-sm sm:text-base">
+                        Production Integration
+                      </h3>
+                      <span className="font-mono text-xs font-semibold text-muted-foreground uppercase">Custom Quote</span>
+                    </div>
+                    <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+                      End-to-end integration, automated data pipelines, custom security review, and live cloud deployment.
+                    </p>
+                    <ul className="text-xs sm:text-sm text-muted-foreground space-y-1.5 list-disc list-inside pt-1">
+                      <li>Scoped after a 20-minute discovery call</li>
+                      <li>50% upfront, balance upon handover</li>
+                      <li>Explicit hosting, monitoring & error alerts</li>
+                    </ul>
+                  </div>
+                </div>
+
+                {/* Terms Details */}
+                <div className="space-y-2 text-xs sm:text-sm text-muted-foreground leading-relaxed rounded-xl border border-edge/60 p-4 bg-muted/10">
+                  <p>
+                    <strong className="text-foreground font-medium">Account ownership:</strong> Third-party model, API, telephony, and hosting charges are paid directly by you in your own accounts with cost estimates provided upfront.
+                  </p>
+                  <p>
+                    <strong className="text-foreground font-medium">Warranty:</strong> I include seven calendar days of defect fixes against the agreed scope after handover. New feature requests and ongoing retainer maintenance are quoted separately.
+                  </p>
+                </div>
+
+                <div className="space-y-2 pt-2">
+                  <p className="text-sm sm:text-base leading-relaxed text-muted-foreground">
+                    <a
+                      href="mailto:dhruvilmistry16@gmail.com?subject=AI%20project%20idea"
+                      className="text-foreground underline underline-offset-4 hover:opacity-80 transition-opacity font-semibold"
+                    >
+                      Tell me the workflow you want to improve →
+                    </a>
+                  </p>
+                  <p className="text-xs sm:text-sm text-muted-foreground font-mono">
+                    I work from Mumbai, 9 am–7 pm IST.
+                  </p>
                 </div>
               </div>
             </div>
