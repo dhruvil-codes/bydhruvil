@@ -21,9 +21,12 @@ export function BookingButton({
       asChild
       variant="outline"
       preset={preset}
-      metalFxClassName={cn("rounded-xl", metalFxClassName)}
+      metalFxClassName={cn(
+        "rounded-xl border border-neutral-200/80 dark:border-neutral-800 shadow-[0_1px_3px_rgba(0,0,0,0.06)] dark:shadow-none hover:shadow-md transition-all active:scale-[0.98]",
+        metalFxClassName
+      )}
       className={cn(
-        "rounded-xl px-5 py-2.5 text-sm font-medium cursor-pointer transition-colors",
+        "rounded-xl px-5 py-2.5 text-sm font-semibold sm:font-medium text-neutral-900 dark:text-neutral-100 cursor-pointer transition-colors",
         className
       )}
     >

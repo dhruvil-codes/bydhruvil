@@ -2,6 +2,7 @@
 
 import * as React from "react";
 import { MetalFx } from "metal-fx";
+import { useTheme } from "next-themes";
 import { Button, type ButtonProps } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
@@ -52,16 +53,26 @@ export const MetalButton = React.forwardRef<HTMLDivElement, MetalButtonProps>(
     },
     ref
   ) => {
+    const { resolvedTheme } = useTheme();
     const [mounted, setMounted] = React.useState(false);
 
     React.useEffect(() => {
       setMounted(true);
     }, []);
 
+    const effectiveTheme: "dark" | "light" = React.useMemo(() => {
+      if (theme && theme !== "auto") return theme;
+      if (resolvedTheme === "light" || resolvedTheme === "dark") return resolvedTheme;
+      return "dark";
+    }, [theme, resolvedTheme]);
+
     const buttonElement = (
       <Button
         ref={buttonRef}
-        className={className}
+        className={cn(
+          "text-neutral-900 dark:text-neutral-100 border-0 bg-transparent shadow-none hover:bg-transparent",
+          className
+        )}
         variant={variant}
         size={size}
         asChild={asChild}
@@ -75,7 +86,10 @@ export const MetalButton = React.forwardRef<HTMLDivElement, MetalButtonProps>(
       return (
         <div
           ref={ref}
-          className={cn("inline-flex shrink-0", metalFxClassName)}
+          className={cn(
+            "inline-flex shrink-0 items-center justify-center bg-white dark:bg-[#272727]",
+            metalFxClassName
+          )}
           style={metalFxStyle}
         >
           {buttonElement}
@@ -90,7 +104,7 @@ export const MetalButton = React.forwardRef<HTMLDivElement, MetalButtonProps>(
         style={metalFxStyle}
         variant={metalVariant}
         preset={preset}
-        theme={theme}
+        theme={effectiveTheme}
         strength={strength}
         paused={paused}
         borderRadius={borderRadius}
