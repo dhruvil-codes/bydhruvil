@@ -52,6 +52,37 @@ export const MetalButton = React.forwardRef<HTMLDivElement, MetalButtonProps>(
     },
     ref
   ) => {
+    const [mounted, setMounted] = React.useState(false);
+
+    React.useEffect(() => {
+      setMounted(true);
+    }, []);
+
+    const buttonElement = (
+      <Button
+        ref={buttonRef}
+        className={className}
+        variant={variant}
+        size={size}
+        asChild={asChild}
+        {...buttonProps}
+      >
+        {children}
+      </Button>
+    );
+
+    if (!mounted) {
+      return (
+        <div
+          ref={ref}
+          className={cn("inline-flex shrink-0", metalFxClassName)}
+          style={metalFxStyle}
+        >
+          {buttonElement}
+        </div>
+      );
+    }
+
     return (
       <MetalFx
         ref={ref}
@@ -70,16 +101,7 @@ export const MetalButton = React.forwardRef<HTMLDivElement, MetalButtonProps>(
         ringCssPx={ringCssPx}
         scale={scale}
       >
-        <Button
-          ref={buttonRef}
-          className={className}
-          variant={variant}
-          size={size}
-          asChild={asChild}
-          {...buttonProps}
-        >
-          {children}
-        </Button>
+        {buttonElement}
       </MetalFx>
     );
   }
