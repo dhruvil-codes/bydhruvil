@@ -91,7 +91,9 @@ export default function ServicesPage() {
                   <div className="pt-2 space-y-1.5">
                     <p className="text-foreground font-medium">
                       <a
-                        href="mailto:dhruvilmistry16@gmail.com?subject=20-minute%20AI%20project%20call"
+                        href="https://mail.google.com/mail/?view=cm&fs=1&to=dhruvilmistry16@gmail.com&su=20-minute%20AI%20project%20call"
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="text-foreground underline underline-offset-4 hover:opacity-80 transition-opacity font-semibold"
                       >
                         Email me to arrange a 20-minute call →
@@ -216,7 +218,9 @@ export default function ServicesPage() {
                 <div className="space-y-2 pt-2">
                   <p className="text-sm sm:text-base leading-relaxed text-muted-foreground">
                     <a
-                      href="mailto:dhruvilmistry16@gmail.com?subject=AI%20project%20idea"
+                      href="https://mail.google.com/mail/?view=cm&fs=1&to=dhruvilmistry16@gmail.com&su=AI%20project%20idea"
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="text-foreground underline underline-offset-4 hover:opacity-80 transition-opacity font-semibold"
                     >
                       Tell me the workflow you want to improve →

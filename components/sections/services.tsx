@@ -30,7 +30,9 @@ export default function Services() {
 
         <div className="pt-2 flex flex-wrap items-center gap-3">
           <a
-            href="mailto:dhruvilmistry16@gmail.com?subject=AI%20project%20idea"
+            href="https://mail.google.com/mail/?view=cm&fs=1&to=dhruvilmistry16@gmail.com&su=AI%20project%20idea"
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center gap-2 rounded-xl border border-border bg-foreground text-background px-4 py-2 text-xs sm:text-sm font-medium hover:opacity-90 transition-opacity"
           >
             <Mail className="h-4 w-4" />
