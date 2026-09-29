@@ -1,30 +1,35 @@
 import React from "react";
 import Link from "next/link";
+import { MetalButton } from "@/components/ui/metal-button";
 import { cn } from "@/lib/utils";
 
 interface BookingButtonProps {
   className?: string;
+  metalFxClassName?: string;
   href?: string;
+  preset?: "chromatic" | "silver" | "gold";
 }
 
 export function BookingButton({
   className,
+  metalFxClassName,
   href = "https://cal.com/bydhruvil/20min",
+  preset = "chromatic",
 }: BookingButtonProps) {
   return (
-    <Link
-      href={href}
-      target="_blank"
-      rel="noopener noreferrer"
+    <MetalButton
+      asChild
+      variant="outline"
+      preset={preset}
+      metalFxClassName={cn("rounded-xl", metalFxClassName)}
       className={cn(
-        "inline-flex items-center justify-center rounded-md px-5 py-2.5 text-sm font-medium",
-        "bg-neutral-900 text-neutral-50 hover:bg-neutral-800",
-        "dark:bg-neutral-100 dark:text-neutral-900 dark:hover:bg-neutral-200",
-        "border border-edge transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
+        "rounded-xl px-5 py-2.5 text-sm font-medium cursor-pointer transition-colors",
         className
       )}
     >
-      Book a 20-minute call
-    </Link>
+      <Link href={href} target="_blank" rel="noopener noreferrer">
+        Book a 20-minute call
+      </Link>
+    </MetalButton>
   );
 }
