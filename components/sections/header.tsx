@@ -7,6 +7,8 @@ import { useTheme } from "next-themes";
 import { MorphingText } from "@/components/ui/morphing-text";
 import { CopyMarkdown } from "@/components/ui/copy-markdown";
 
+import { Mascot } from "page-mascot";
+
 export default function Header() {
   const [trigger, setTrigger] = useState(0);
   const { resolvedTheme } = useTheme();
@@ -22,10 +24,6 @@ export default function Header() {
     };
   }, []);
 
-  const profileSrc = mounted && resolvedTheme === "dark"
-    ? "/images/dhruvil-dark.png"
-    : "/images/dhruvil.png";
-
   const handleInteraction = useCallback(() => {
     setTrigger((prev) => prev + 1);
   }, []);
@@ -36,15 +34,25 @@ export default function Header() {
         {/* Profile Avatar */}
         <div className="shrink-0">
           <div className="size-24 sm:size-32 rounded-[12px] border border-neutral-200 dark:border-neutral-800 p-[4px]">
-            <div className="relative w-full h-full overflow-hidden rounded-[8px]">
-              <Image
-                src={profileSrc}
-                alt="Dhruvil Mistry"
-                fill
-                priority
-                sizes="(max-width: 640px) 250px, 300px"
-                className="rounded-[8px] object-cover transition-opacity duration-300 [image-rendering:-webkit-optimize-contrast] [transform:translateZ(0)]"
-              />
+            <div className="relative w-full h-full overflow-hidden rounded-[8px] bg-[#f6ccd6] dark:bg-[#fdd333] transition-colors duration-300">
+              <div
+                style={{
+                  position: "absolute",
+                  width: "132%",
+                  height: "132%",
+                  left: "50%",
+                  top: "2%",
+                  transform: "translateX(-50%)",
+                }}
+              >
+                <Mascot
+                  directions="/mascots/dhruvil-directions.webp"
+                  reactions="/mascots/dhruvil-reactions.webp"
+                  size={120}
+                  className="!w-full !h-full"
+                  label="Dhruvil mascot"
+                />
+              </div>
             </div>
           </div>
         </div>
