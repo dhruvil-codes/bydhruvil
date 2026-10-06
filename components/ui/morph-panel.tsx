@@ -247,6 +247,10 @@ export function MorphPanel() {
                     <img
                       src="/images/dhruvil.png"
                       alt="Dhruvil Mistry"
+                      width={28}
+                      height={28}
+                      loading="lazy"
+                      decoding="async"
                       className="w-full h-full object-cover"
                     />
                   </div>
@@ -256,6 +260,10 @@ export function MorphPanel() {
                     Dhruvil Mistry<img
                       src="/images/verified.png"
                       alt="Verified"
+                      width={16}
+                      height={16}
+                      loading="lazy"
+                      decoding="async"
                       className="w-4 h-4 object-contain"
                     />
                   </h3>
@@ -379,6 +387,10 @@ export function MorphPanel() {
               <img
                 src="/images/dhruvil.png"
                 alt="Dhruvil Mistry"
+                width={24}
+                height={24}
+                loading="lazy"
+                decoding="async"
                 className="w-full h-full object-cover"
               />
             </div>

@@ -143,7 +143,7 @@ export default function Experience() {
                   >
                     <Image
                       src={item.image}
-                      alt={item.alt}
+                      alt=""
                       width={32}
                       height={32}
                       className="rounded-lg object-cover h-8 w-8 border border-border"

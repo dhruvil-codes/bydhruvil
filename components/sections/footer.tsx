@@ -97,7 +97,7 @@ export default function Footer() {
         </div>
 
         {/* Crawlable Social Links for Entity & Profile Authority */}
-        <div className="sr-only" aria-hidden="true">
+        <nav className="sr-only" aria-label="Social and developer profiles">
           <a href="https://www.linkedin.com/in/dhruvilmistry16/">Dhruvil Mistry LinkedIn</a>
           <a href="https://github.com/dhruvil-codes">Dhruvil Mistry GitHub</a>
           <a href="https://peerlist.io/bydhruvil">Dhruvil Mistry Peerlist</a>
@@ -105,7 +105,7 @@ export default function Footer() {
           <a href="https://bydhruvil.substack.com/">Dhruvil Mistry Substack Newsletter</a>
           <a href="https://bydhruvil.in/developers">Dhruvil Mistry Developer Portal and API Documentation</a>
           <a href="https://bydhruvil.in/openapi.json">ByDhruvil OpenAPI 3.1 Spec</a>
-        </div>
+        </nav>
 
         <div className="flex flex-col sm:flex-row justify-between w-full items-center gap-4">
           <div className="flex flex-col gap-1 items-center sm:items-start text-center sm:text-left">

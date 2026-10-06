@@ -42,27 +42,31 @@ export default function Skills() {
         <meta itemProp="itemListOrder" content="Unordered" />
 
         <TooltipProvider delayDuration={0}>
-          <div
-            className="flex flex-row flex-nowrap overflow-x-auto w-full gap-2 sm:gap-2.5 py-2 px-1 scrollbar-none items-center justify-start md:justify-center"
-            role="list"
+          <ul
+            className="flex flex-row flex-nowrap overflow-x-auto w-full gap-2 sm:gap-2.5 py-2 px-1 scrollbar-none items-center justify-start md:justify-center list-none"
             aria-label="Skills list"
           >
             {skills.map((skill) => (
-              <Tooltip key={skill.name}>
-                <TooltipTrigger asChild>
-                  <img
-                    src={`https://skillicons.dev/icons?i=${skill.icon}`}
-                    alt={skill.name}
-                    className="h-9 w-9 sm:h-10 sm:w-10 transition-transform duration-300 hover:scale-110 cursor-pointer select-none shrink-0"
-                    loading="lazy"
-                  />
-                </TooltipTrigger>
-                <TooltipContent className="dark px-2 py-1 text-xs" showArrow={true}>
-                  {skill.name}
-                </TooltipContent>
-              </Tooltip>
+              <li key={skill.name} className="list-none shrink-0 inline-flex items-center justify-center">
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <img
+                      src={`https://skillicons.dev/icons?i=${skill.icon}`}
+                      alt={skill.name}
+                      width={40}
+                      height={40}
+                      className="h-9 w-9 sm:h-10 sm:w-10 transition-transform duration-300 hover:scale-110 cursor-pointer select-none shrink-0"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </TooltipTrigger>
+                  <TooltipContent className="dark px-2 py-1 text-xs" showArrow={true}>
+                    {skill.name}
+                  </TooltipContent>
+                </Tooltip>
+              </li>
             ))}
-          </div>
+          </ul>
         </TooltipProvider>
 
         <div className="sr-only">

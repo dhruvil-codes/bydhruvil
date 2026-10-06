@@ -102,7 +102,7 @@ export function ProjectShowcase({ projects = defaultProjects }: ProjectShowcaseP
   return (
     <div ref={containerRef} onMouseMove={handleMouseMove} className="relative w-full pb-8 pt-0">
       <div
-        className="pointer-events-none absolute z-50 overflow-hidden rounded-xl shadow-2xl"
+        className="hidden sm:block pointer-events-none absolute z-50 overflow-hidden rounded-xl shadow-2xl"
         style={{
           left: smoothPosition.x + 20,
           top: smoothPosition.y - 100,
@@ -117,6 +117,10 @@ export function ProjectShowcase({ projects = defaultProjects }: ProjectShowcaseP
               key={project.title}
               src={project.image || "/placeholder.svg"}
               alt={project.title}
+              width={280}
+              height={180}
+              loading="lazy"
+              decoding="async"
               className="absolute inset-0 w-full h-full object-cover transition-all duration-500 ease-out"
               style={{
                 opacity: hoveredIndex === index ? 1 : 0,

@@ -1,6 +1,6 @@
 "use client"
 
-import { useCallback, useEffect, useRef } from "react"
+import { useCallback, useEffect, useRef, useState } from "react"
 
 import { cn } from "@/lib/utils"
 
@@ -13,7 +13,8 @@ const useMorphingText = (texts: string[], trigger: number) => {
   const cooldownRef = useRef(0)
   const timeRef = useRef(new Date())
   const runningRef = useRef(false)
-  const prevTriggerRef = useRef(-1)
+  const prevTriggerRef = useRef(trigger)
+  const [isMorphing, setIsMorphing] = useState(false)
   const textsRef = useRef(texts)
 
   useEffect(() => {
@@ -62,6 +63,7 @@ const useMorphingText = (texts: string[], trigger: number) => {
 
       if (textIndexRef.current % textsRef.current.length === 0) {
         runningRef.current = false
+        setIsMorphing(false)
       }
     }
   }, [setStyles])
@@ -80,9 +82,14 @@ const useMorphingText = (texts: string[], trigger: number) => {
   }, [])
 
   useEffect(() => {
+    if (!isMorphing) return
+
     let animationFrameId: number
+    timeRef.current = new Date()
 
     const animate = () => {
+      if (!runningRef.current) return
+
       animationFrameId = requestAnimationFrame(animate)
 
       const newTime = new Date()
@@ -95,14 +102,15 @@ const useMorphingText = (texts: string[], trigger: number) => {
       else doCooldown()
     }
 
-    animate()
+    animationFrameId = requestAnimationFrame(animate)
     return () => {
       cancelAnimationFrame(animationFrameId)
     }
-  }, [doMorph, doCooldown])
+  }, [isMorphing, doMorph, doCooldown])
 
   const reset = useCallback(() => {
     runningRef.current = false
+    setIsMorphing(false)
     textIndexRef.current = 0
     morphRef.current = 0
     cooldownRef.current = 0
@@ -120,48 +128,28 @@ const useMorphingText = (texts: string[], trigger: number) => {
   const start = useCallback(() => {
     reset()
     runningRef.current = true
+    setIsMorphing(true)
     timeRef.current = new Date()
-  }, [reset])
-
-  useEffect(() => {
-    reset()
   }, [reset])
 
   useEffect(() => {
     if (trigger !== prevTriggerRef.current) {
       prevTriggerRef.current = trigger
-      start()
+      if (trigger > 0) {
+        start()
+      }
     }
   }, [trigger, start])
 
-  return { text1Ref, text2Ref }
-}
-
-interface MorphingTextProps {
-  className?: string
-  texts: string[]
-  trigger?: number
-}
-
-const Texts: React.FC<
-  Pick<MorphingTextProps, "texts" | "trigger">
-> = ({ texts, trigger = 0 }) => {
-  const { text1Ref, text2Ref } = useMorphingText(texts, trigger)
-  return (
-    <span className="inline-grid">
-      <span className="col-start-1 row-start-1" ref={text1Ref}>
-        {texts[0]}
-      </span>
-      <span className="col-start-1 row-start-1" ref={text2Ref} />
-    </span>
-  )
+  return { text1Ref, text2Ref, isMorphing }
 }
 
 const SvgFilters: React.FC = () => (
   <svg
     id="filters"
-    className="fixed h-0 w-0"
+    className="fixed h-0 w-0 pointer-events-none"
     preserveAspectRatio="xMidYMid slice"
+    aria-hidden="true"
   >
     <defs>
       <filter id="threshold">
@@ -178,18 +166,34 @@ const SvgFilters: React.FC = () => (
   </svg>
 )
 
+interface MorphingTextProps {
+  className?: string
+  texts: string[]
+  trigger?: number
+}
+
 export const MorphingText: React.FC<MorphingTextProps> = ({
   texts,
   className,
-  trigger,
-}) => (
-  <div
-    className={cn(
-      "relative font-sans font-bold filter-[url(#threshold)_blur(0.6px)]",
-      className
-    )}
-  >
-    <Texts texts={texts} trigger={trigger} />
-    <SvgFilters />
-  </div>
-)
+  trigger = 0,
+}) => {
+  const { text1Ref, text2Ref, isMorphing } = useMorphingText(texts, trigger)
+
+  return (
+    <div
+      className={cn(
+        "relative font-sans font-bold",
+        isMorphing && "filter-[url(#threshold)_blur(0.6px)]",
+        className
+      )}
+    >
+      <span className="inline-grid">
+        <span className="col-start-1 row-start-1" ref={text1Ref}>
+          {texts[0]}
+        </span>
+        <span className="col-start-1 row-start-1" ref={text2Ref} />
+      </span>
+      {isMorphing && <SvgFilters />}
+    </div>
+  )
+}
