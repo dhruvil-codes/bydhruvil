@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useTheme } from "next-themes";
@@ -73,10 +72,6 @@ export default function Navbar() {
     }
   };
 
-  const profileSrc = mounted && resolvedTheme === "dark"
-    ? "/images/dhruvil-dark.png"
-    : "/images/dhruvil.png";
-
   return (
     <header
       data-affix={affix}
@@ -85,7 +80,7 @@ export default function Navbar() {
       {/* Inner container integrates with the grid border system */}
       <div className="screen-line-before screen-line-after mx-auto flex h-12 max-w-3xl items-center justify-between gap-2 border-x border-edge px-3 sm:gap-4">
         
-        {/* Logo / Icon — image placeholder */}
+        {/* Logo / Icon */}
         <Link
           href="/"
           onClick={(e) => {
@@ -97,15 +92,8 @@ export default function Navbar() {
           aria-label="Home"
           className="shrink-0 transition-transform duration-200 ease-out active:scale-95"
         >
-          <div className="flex h-9 w-9 items-center justify-center rounded-lg border border-edge bg-muted overflow-hidden">
-            <Image
-              src={profileSrc}
-              alt="Dhruvil Mistry"
-              width={72}
-              height={72}
-              className="h-full w-full object-cover rounded-lg [image-rendering:-webkit-optimize-contrast]"
-              priority
-            />
+          <div className="flex h-9 w-9 items-center justify-center rounded-lg border border-edge bg-muted select-none text-foreground text-lg leading-none antialiased">
+            ✦
           </div>
         </Link>
 

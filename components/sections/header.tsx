@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useCallback, useEffect, useState } from "react";
-import Image from "next/image";
 import { useTheme } from "next-themes";
 
 import { MorphingText } from "@/components/ui/morphing-text";
@@ -30,7 +29,7 @@ export default function Header() {
 
   return (
     <section className="screen-line-after flex flex-col border-x border-edge">
-      <div className="flex relative p-3 sm:p-5 gap-3 sm:gap-4 items-start sm:items-center">
+      <div className="flex relative p-3 sm:p-5 gap-3 sm:gap-4 items-center">
         {/* Profile Avatar */}
         <div className="shrink-0">
           <div className="size-24 sm:size-32 rounded-[12px] border border-neutral-200 dark:border-neutral-800 p-[4px]">
@@ -42,7 +41,7 @@ export default function Header() {
                   height: "132%",
                   left: "50%",
                   top: "2%",
-                  transform: "translateX(-50%)",
+                  transform: "translateX(-53%)",
                 }}
               >
                 <Mascot
