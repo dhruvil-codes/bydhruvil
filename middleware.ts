@@ -88,10 +88,9 @@ export function middleware(request: NextRequest) {
   const host = request.headers.get("host") || "";
   const { pathname, searchParams } = request.nextUrl;
 
-  // Route cluster.bydhruvil.in and /cluster to the InstaBox Agent Cluster Hub
-  if (host.startsWith("cluster.") || pathname.startsWith("/cluster")) {
-    const targetPath = pathname.startsWith("/cluster") ? pathname.replace(/^\/cluster/, "") || "/" : pathname;
-    const targetUrl = new URL(targetPath + request.nextUrl.search, "https://8765-agqw5dtjvs6zrs3mhsk42zysku.instabox.tech");
+  // Route cluster.bydhruvil.in only (isolated subdomain, NOT accessible on main bydhruvil.in)
+  if (host.startsWith("cluster.")) {
+    const targetUrl = new URL(pathname + request.nextUrl.search, "https://8765-agqw5dtjvs6zrs3mhsk42zysku.instabox.tech");
     return NextResponse.rewrite(targetUrl);
   }
 
