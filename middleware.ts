@@ -85,7 +85,16 @@ const RATE_LIMIT_HEADERS: Record<string, string> = {
 };
 
 export function middleware(request: NextRequest) {
+  const host = request.headers.get("host") || "";
   const { pathname, searchParams } = request.nextUrl;
+
+  // Route cluster.bydhruvil.in and /cluster to the InstaBox Agent Cluster Hub
+  if (host.startsWith("cluster.") || pathname.startsWith("/cluster")) {
+    const targetPath = pathname.startsWith("/cluster") ? pathname.replace(/^\/cluster/, "") || "/" : pathname;
+    const targetUrl = new URL(targetPath + request.nextUrl.search, "https://8765-agqw5dtjvs6zrs3mhsk42zysku.instabox.tech");
+    return NextResponse.rewrite(targetUrl);
+  }
+
   const acceptHeader = request.headers.get("accept") || "";
   const userAgent = (request.headers.get("user-agent") || "").toLowerCase();
   const idempotencyKey = request.headers.get("idempotency-key") || request.headers.get("x-idempotency-key") || "";
