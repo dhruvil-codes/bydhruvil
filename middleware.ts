@@ -232,7 +232,7 @@ export async function middleware(request: NextRequest) {
           const formData = await request.formData();
           const submittedPin = formData.get("pin")?.toString() || "";
           if (submittedPin === CLUSTER_PIN) {
-            const res = NextResponse.redirect(new URL("/", request.url));
+            const res = NextResponse.redirect(new URL("/", request.url), 303);
             res.cookies.set(CLUSTER_COOKIE_NAME, CLUSTER_COOKIE_VALUE, {
               path: "/",
               maxAge: 31536000, // 1 year
