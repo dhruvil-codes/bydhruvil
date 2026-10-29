@@ -84,14 +84,184 @@ const RATE_LIMIT_HEADERS: Record<string, string> = {
   "X-RateLimit-Reset": "60",
 };
 
-export function middleware(request: NextRequest) {
+// Cluster Gate Protection
+const CLUSTER_PIN = process.env.CLUSTER_PIN || "291026";
+const CLUSTER_COOKIE_NAME = "cluster_auth_session";
+const CLUSTER_COOKIE_VALUE = "cl_sec_v1_8f92e030";
+
+function renderClusterLockScreen(hasError = false): string {
+  const errorHtml = hasError
+    ? `<div style="background: rgba(239, 68, 68, 0.1); border: 1px solid rgba(239, 68, 68, 0.25); color: #f87171; padding: 8px 12px; border-radius: 6px; font-size: 0.78rem; font-family: 'Geist Mono', monospace; margin-bottom: 1.25rem; text-align: center;">Invalid authorization key. Access denied.</div>`
+    : "";
+
+  return `<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agent Cluster // Restricted Access</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/geist@1.3.0/dist/fonts/geist-sans/style.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/geist@1.3.0/dist/fonts/geist-mono/style.css">
+<style>
+  :root {
+    --bg-main: #0a0a0a;
+    --bg-surface: #111113;
+    --edge: #262626;
+    --text-primary: #ededed;
+    --text-secondary: #a1a1aa;
+    --text-muted: #71717a;
+    --accent-emerald: #10b981;
+    --font-sans: 'Geist Sans', -apple-system, sans-serif;
+    --font-mono: 'Geist Mono', monospace;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background-color: var(--bg-main);
+    color: var(--text-primary);
+    font-family: var(--font-sans);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1.2px, transparent 0);
+    background-size: 24px 24px;
+  }
+  .lock-card {
+    width: 100%;
+    max-width: 440px;
+    background: var(--bg-surface);
+    border: 1px solid var(--edge);
+    border-radius: 12px;
+    padding: 2.25rem 2rem;
+    position: relative;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+  }
+  .cad-cross { position: absolute; width: 14px; height: 14px; pointer-events: none; }
+  .cad-cross::before { content: ''; position: absolute; top: 50%; left: 0; right: 0; height: 1px; background: #52525b; transform: translateY(-50%); }
+  .cad-cross::after { content: ''; position: absolute; left: 50%; top: 0; bottom: 0; width: 1px; background: #52525b; transform: translateX(-50%); }
+  .cad-cross.top-left { top: 0; left: 0; transform: translate(-50%, -50%); }
+  .cad-cross.top-right { top: 0; right: 0; transform: translate(50%, -50%); }
+  .cad-cross.bottom-left { bottom: 0; left: 0; transform: translate(-50%, 50%); }
+  .cad-cross.bottom-right { bottom: 0; right: 0; transform: translate(50%, 50%); }
+  .badge-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; }
+  .status-pill {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.25);
+    color: var(--accent-emerald); padding: 4px 10px; border-radius: 9999px;
+    font-size: 0.72rem; font-family: var(--font-mono);
+  }
+  .dot { width: 6px; height: 6px; background: var(--accent-emerald); border-radius: 50%; }
+  h1 { font-size: 1.25rem; font-weight: 600; letter-spacing: -0.02em; margin-bottom: 0.5rem; }
+  p { font-size: 0.85rem; color: var(--text-secondary); line-height: 1.5; margin-bottom: 1.5rem; }
+  .input-label {
+    display: block; font-size: 0.72rem; font-family: var(--font-mono);
+    color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.5rem;
+  }
+  .pin-input {
+    width: 100%; background: #0a0a0a; border: 1px solid var(--edge);
+    border-radius: 8px; padding: 12px 14px; font-family: var(--font-mono);
+    font-size: 1.15rem; color: #fff; letter-spacing: 0.25em; text-align: center;
+    margin-bottom: 1.25rem; outline: none; transition: border-color 0.2s;
+  }
+  .pin-input:focus { border-color: #ededed; }
+  .submit-btn {
+    width: 100%; background: #ededed; color: #0a0a0a; border: none;
+    border-radius: 8px; padding: 12px; font-family: var(--font-mono);
+    font-size: 0.85rem; font-weight: 600; cursor: pointer; transition: all 0.2s;
+  }
+  .submit-btn:hover { background: #fff; box-shadow: 0 0 16px rgba(255, 255, 255, 0.2); }
+</style>
+</head>
+<body>
+<div class="lock-card">
+  <div class="cad-cross top-left"></div>
+  <div class="cad-cross top-right"></div>
+  <div class="cad-cross bottom-left"></div>
+  <div class="cad-cross bottom-right"></div>
+
+  <div class="badge-row">
+    <div style="font-size: 0.8rem; font-family: var(--font-mono); color: var(--text-muted);">
+      ✦ bydhruvil.in // mesh
+    </div>
+    <div class="status-pill">
+      <span class="dot"></span> RESTRICTED
+    </div>
+  </div>
+
+  <h1>Agent Cluster Gateway</h1>
+  <p>Private multi-agent infrastructure. Enter master PIN to establish verified cockpit session.</p>
+
+  ${errorHtml}
+
+  <form method="POST" action="/_cluster_auth">
+    <label class="input-label">Master Authorization PIN</label>
+    <input type="password" name="pin" class="pin-input" placeholder="••••••" autofocus required autocomplete="current-password" />
+    <button type="submit" class="submit-btn">AUTHENTICATE COCKPIT ↗</button>
+  </form>
+</div>
+</body>
+</html>`;
+}
+
+export async function middleware(request: NextRequest) {
   const host = request.headers.get("host") || "";
   const { pathname, searchParams } = request.nextUrl;
 
-  // Route cluster.bydhruvil.in only (isolated subdomain, NOT accessible on main bydhruvil.in)
+  // Route cluster.bydhruvil.in with Private CAD PIN Gate
   if (host.startsWith("cluster.")) {
-    const targetUrl = new URL(pathname + request.nextUrl.search, "https://8765-agqw5dtjvs6zrs3mhsk42zysku.instabox.tech");
-    return NextResponse.rewrite(targetUrl);
+    // 1. Check for Query Param bypass (?pin=...)
+    const queryPin = searchParams.get("pin");
+    if (queryPin === CLUSTER_PIN) {
+      const cleanUrl = new URL(pathname, request.url);
+      const res = NextResponse.redirect(cleanUrl);
+      res.cookies.set(CLUSTER_COOKIE_NAME, CLUSTER_COOKIE_VALUE, {
+        path: "/",
+        maxAge: 31536000, // 1 year
+        httpOnly: true,
+        sameSite: "lax",
+        secure: true,
+      });
+      return res;
+    }
+
+    // 2. Handle Form Authentication Submission
+    if (pathname === "/_cluster_auth" && request.method === "POST") {
+      return (async () => {
+        try {
+          const formData = await request.formData();
+          const submittedPin = formData.get("pin")?.toString() || "";
+          if (submittedPin === CLUSTER_PIN) {
+            const res = NextResponse.redirect(new URL("/", request.url));
+            res.cookies.set(CLUSTER_COOKIE_NAME, CLUSTER_COOKIE_VALUE, {
+              path: "/",
+              maxAge: 31536000, // 1 year
+              httpOnly: true,
+              sameSite: "lax",
+              secure: true,
+            });
+            return res;
+          }
+        } catch {}
+        return new NextResponse(renderClusterLockScreen(true), {
+          status: 401,
+          headers: { "Content-Type": "text/html; charset=utf-8" },
+        });
+      })();
+    }
+
+    // 3. Verify Active Session Cookie
+    const sessionCookie = request.cookies.get(CLUSTER_COOKIE_NAME)?.value;
+    if (sessionCookie === CLUSTER_COOKIE_VALUE) {
+      const targetUrl = new URL(pathname + request.nextUrl.search, "https://8765-agqw5dtjvs6zrs3mhsk42zysku.instabox.tech");
+      return NextResponse.rewrite(targetUrl);
+    }
+
+    // 4. If not authenticated, render private CAD lock screen
+    return new NextResponse(renderClusterLockScreen(false), {
+      status: 401,
+      headers: { "Content-Type": "text/html; charset=utf-8" },
+    });
   }
 
   const acceptHeader = request.headers.get("accept") || "";
